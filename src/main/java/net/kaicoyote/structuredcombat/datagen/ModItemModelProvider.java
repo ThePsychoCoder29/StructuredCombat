@@ -1,6 +1,7 @@
 package net.kaicoyote.structuredcombat.datagen;
 
 import net.kaicoyote.structuredcombat.StructuredCombat;
+import net.kaicoyote.structuredcombat.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -19,6 +20,12 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        handHeldItem(ModItems.WOODEN_DAGGER);
+        handHeldItem(ModItems.STONE_DAGGER);
+        handHeldItem(ModItems.IRON_DAGGER);
+        handHeldItem(ModItems.GOLD_DAGGER);
+        handHeldItem(ModItems.DIAMOND_DAGGER);
+        handHeldItem(ModItems.NETHERITE_DAGGER);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

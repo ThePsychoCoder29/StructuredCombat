@@ -1,3 +1,17 @@
 {
+  "item.kaicoyote.wooden_dagger" : "Wooden Dagger",
+  "item.kaicoyote.stone_dagger" : "Stone Dagger",
+  "item.kaicoyote.iron_dagger" : "Iron Dagger",
+  "item.kaicoyote.gold_dagger" : "Gold Dagger",
+  "item.kaicoyote.diamond_dagger" : "Diamond Dagger",
+  "item.kaicoyote.netherite_dagger" : "Netherite Dagger",
 
+  "entity.kaicoyote.wooden_dagger" : "Wooden Dagger",
+  "entity.kaicoyote.stone_dagger" : "Stone Dagger",
+  "entity.kaicoyote.iron_dagger" : "Iron Dagger",
+  "entity.kaicoyote.gold_dagger" : "Gold Dagger",
+  "entity.kaicoyote.diamond_dagger" : "Diamond Dagger",
+  "entity.kaicoyote.netherite_dagger" : "Netherite Dagger",
+
+  "creativetab.structuredcombat.tab": "Structure Combat Tab"
 }

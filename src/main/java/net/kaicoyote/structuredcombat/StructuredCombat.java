@@ -1,6 +1,10 @@
 package net.kaicoyote.structuredcombat;
 
 import com.mojang.logging.LogUtils;
+import net.kaicoyote.structuredcombat.block.ModBlocks;
+import net.kaicoyote.structuredcombat.entity.ModEntities;
+import net.kaicoyote.structuredcombat.item.ModItems;
+import net.kaicoyote.structuredcombat.util.ModCreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -24,6 +28,10 @@ public class StructuredCombat
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModEntities.register(modEventBus);
+        ModCreativeModeTabs.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
