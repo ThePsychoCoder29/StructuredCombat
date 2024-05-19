@@ -1,4 +1,4 @@
-package net.kaicoyote.structuredcombat.entity.custom;
+package net.kaicoyote.structuredcombat.entity.custom.entities;
 
 import net.kaicoyote.structuredcombat.entity.ModEntities;
 import net.kaicoyote.structuredcombat.item.ModItems;
@@ -18,18 +18,18 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
-public class NetheriteDaggerProjectileEntity extends AbstractArrow {
+public class DiamondDaggerProjectileEntity extends AbstractArrow {
     private ItemStack daggerItem;
     private boolean dealtDamage;
 
-    public NetheriteDaggerProjectileEntity(EntityType<? extends NetheriteDaggerProjectileEntity> pEntityType, Level pLevel) {
+    public DiamondDaggerProjectileEntity(EntityType<? extends DiamondDaggerProjectileEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-        this.daggerItem = new ItemStack(ModItems.NETHERITE_DAGGER.get());
+        this.daggerItem = new ItemStack(ModItems.DIAMOND_DAGGER.get());
     }
 
-    public NetheriteDaggerProjectileEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
-        super(ModEntities.NETHERITE_DAGGER.get(), pShooter, pLevel);
-        this.daggerItem = new ItemStack(ModItems.NETHERITE_DAGGER.get());
+    public DiamondDaggerProjectileEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
+        super(ModEntities.DIAMOND_DAGGER.get(), pShooter, pLevel);
+        this.daggerItem = new ItemStack(ModItems.DIAMOND_DAGGER.get());
         this.daggerItem = pStack.copy();
     }
 
@@ -42,19 +42,9 @@ public class NetheriteDaggerProjectileEntity extends AbstractArrow {
         if ((this.dealtDamage || this.isNoPhysics()) && owner != null) {
             if (!this.isAcceptableReturnOwner()) {
                 if (!this.level().isClientSide && this.pickup == Pickup.ALLOWED) {
-                    this.spawnAtLocation(this.getPickupItem(), 0.1F);
+                    this.spawnAtLocation(this.getPickupItem(), -0.1F).setXRot(20F);
                 }
                 this.discard();
-            } else {
-                this.setNoPhysics(true);
-                Vec3 vec3 = owner.getEyePosition().subtract(this.position());
-                this.setPosRaw(this.getX(), this.getY() + vec3.y * 0.015, this.getZ());
-                if (this.level().isClientSide) {
-                    this.yOld = this.getY();
-                }
-
-                this.setDeltaMovement(this.getDeltaMovement().scale(0.95).add(vec3.normalize()));
-
             }
         }
         super.tick();
@@ -77,7 +67,7 @@ public class NetheriteDaggerProjectileEntity extends AbstractArrow {
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
         Entity entity = pResult.getEntity();
-        float damageAmt = 3.0F;
+        float damageAmt = 5.25F;
         Entity owner = this.getOwner();
         DamageSource damageSource = this.damageSources().trident(this, owner == null ? this : owner);
         this.dealtDamage = true;

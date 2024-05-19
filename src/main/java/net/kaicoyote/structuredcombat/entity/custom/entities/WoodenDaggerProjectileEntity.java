@@ -1,8 +1,7 @@
-package net.kaicoyote.structuredcombat.entity.custom;
+package net.kaicoyote.structuredcombat.entity.custom.entities;
 
 import net.kaicoyote.structuredcombat.entity.ModEntities;
 import net.kaicoyote.structuredcombat.item.ModItems;
-import net.kaicoyote.structuredcombat.item.custom.DaggerItem;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -19,20 +18,17 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
-public class IronDaggerProjectileEntity extends AbstractArrow {
+public class WoodenDaggerProjectileEntity extends AbstractArrow {
     private ItemStack daggerItem;
     private boolean dealtDamage;
-
-
-
-    public IronDaggerProjectileEntity(EntityType<? extends IronDaggerProjectileEntity> pEntityType, Level pLevel) {
+    public WoodenDaggerProjectileEntity(EntityType<? extends WoodenDaggerProjectileEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-        this.daggerItem = new ItemStack(ModItems.IRON_DAGGER.get());
+        this.daggerItem = new ItemStack(ModItems.WOODEN_DAGGER.get());
     }
 
-    public IronDaggerProjectileEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
-        super(ModEntities.IRON_DAGGER.get(), pShooter, pLevel);
-        this.daggerItem = new ItemStack(ModItems.IRON_DAGGER.get());
+    public WoodenDaggerProjectileEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
+        super(ModEntities.WOODEN_DAGGER.get(), pShooter, pLevel);
+        this.daggerItem = new ItemStack(ModItems.WOODEN_DAGGER.get());
         this.daggerItem = pStack.copy();
     }
 
@@ -45,19 +41,9 @@ public class IronDaggerProjectileEntity extends AbstractArrow {
         if ((this.dealtDamage || this.isNoPhysics()) && owner != null) {
             if (!this.isAcceptableReturnOwner()) {
                 if (!this.level().isClientSide && this.pickup == Pickup.ALLOWED) {
-                    this.spawnAtLocation(this.getPickupItem(), 0.1F);
+                    this.spawnAtLocation(this.getPickupItem(), -1F);
                 }
                 this.discard();
-            } else {
-                this.setNoPhysics(true);
-                Vec3 vec3 = owner.getEyePosition().subtract(this.position());
-                this.setPosRaw(this.getX(), this.getY() + vec3.y * 0.015, this.getZ());
-                if (this.level().isClientSide) {
-                    this.yOld = this.getY();
-                }
-
-                this.setDeltaMovement(this.getDeltaMovement().scale(0.95).add(vec3.normalize()));
-
             }
         }
         super.tick();

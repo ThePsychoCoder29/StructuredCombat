@@ -1,4 +1,4 @@
-package net.kaicoyote.structuredcombat.entity.custom;
+package net.kaicoyote.structuredcombat.entity.custom.entities;
 
 import net.kaicoyote.structuredcombat.entity.ModEntities;
 import net.kaicoyote.structuredcombat.item.ModItems;
@@ -18,17 +18,17 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
-public class StoneDaggerProjectileEntity extends AbstractArrow {
+public class GoldDaggerProjectileEntity extends AbstractArrow {
     private ItemStack daggerItem;
     private boolean dealtDamage;
-    public StoneDaggerProjectileEntity(EntityType<? extends StoneDaggerProjectileEntity> pEntityType, Level pLevel) {
+    public GoldDaggerProjectileEntity(EntityType<? extends GoldDaggerProjectileEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-        this.daggerItem = new ItemStack(ModItems.STONE_DAGGER.get());
+        this.daggerItem = new ItemStack(ModItems.GOLD_DAGGER.get());
     }
 
-    public StoneDaggerProjectileEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
-        super(ModEntities.STONE_DAGGER.get(), pShooter, pLevel);
-        this.daggerItem = new ItemStack(ModItems.STONE_DAGGER.get());
+    public GoldDaggerProjectileEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
+        super(ModEntities.GOLD_DAGGER.get(), pShooter, pLevel);
+        this.daggerItem = new ItemStack(ModItems.GOLD_DAGGER.get());
         this.daggerItem = pStack.copy();
     }
 
@@ -44,16 +44,6 @@ public class StoneDaggerProjectileEntity extends AbstractArrow {
                     this.spawnAtLocation(this.getPickupItem(), 0.1F);
                 }
                 this.discard();
-            } else {
-                this.setNoPhysics(true);
-                Vec3 vec3 = owner.getEyePosition().subtract(this.position());
-                this.setPosRaw(this.getX(), this.getY() + vec3.y * 0.015, this.getZ());
-                if (this.level().isClientSide) {
-                    this.yOld = this.getY();
-                }
-
-                this.setDeltaMovement(this.getDeltaMovement().scale(0.95).add(vec3.normalize()));
-
             }
         }
         super.tick();
@@ -78,7 +68,7 @@ public class StoneDaggerProjectileEntity extends AbstractArrow {
         Entity entity = pResult.getEntity();
         float damageAmt = 3.0F;
         Entity owner = this.getOwner();
-        DamageSource damageSource = this.damageSources().trident(this, owner == null ? this : owner);
+        DamageSource damageSource = this.damageSources().generic();
         this.dealtDamage = true;
         SoundEvent soundEvent = SoundEvents.TRIDENT_HIT;
         if (entity.hurt(damageSource, damageAmt)) {

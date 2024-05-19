@@ -3,8 +3,10 @@ package net.kaicoyote.structuredcombat;
 import com.mojang.logging.LogUtils;
 import net.kaicoyote.structuredcombat.block.ModBlocks;
 import net.kaicoyote.structuredcombat.entity.ModEntities;
+import net.kaicoyote.structuredcombat.entity.client.renderer.*;
 import net.kaicoyote.structuredcombat.item.ModItems;
 import net.kaicoyote.structuredcombat.util.ModCreativeModeTabs;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -60,6 +62,12 @@ public class StructuredCombat
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            EntityRenderers.register(ModEntities.WOODEN_DAGGER.get(), WoodenDaggerRenderer::new);
+            EntityRenderers.register(ModEntities.STONE_DAGGER.get(), StoneDaggerRenderer::new);
+            EntityRenderers.register(ModEntities.IRON_DAGGER.get(), IronDaggerRenderer::new);
+            EntityRenderers.register(ModEntities.GOLD_DAGGER.get(), GoldDaggerRenderer::new);
+            EntityRenderers.register(ModEntities.DIAMOND_DAGGER.get(), DiamondDaggerRenderer::new);
+            EntityRenderers.register(ModEntities.NETHERITE_DAGGER.get(), NetheriteDaggerRenderer::new);
         }
     }
 }
