@@ -11,70 +11,35 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemCooldowns;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
+import org.apache.commons.lang3.function.TriFunction;
 import org.jetbrains.annotations.NotNull;
 
 public class DaggerItem extends Item {
-    public DaggerItem(Properties pProperties) {
+    private final TriFunction<Level, Player, ItemStack, DaggerProjectileEntity> constructor;
+    public DaggerItem(TriFunction<Level, Player, ItemStack, DaggerProjectileEntity> constructor, Properties pProperties) {
         super(pProperties);
+        this.constructor = constructor;
     }
+
 
     @Override
     public int getUseDuration(@NotNull ItemStack pStack) {
         return 72000;
     }
 
+
     @Override
     public void releaseUsing(@NotNull ItemStack stack, @NotNull Level pLevel, @NotNull LivingEntity pEntityLiving, int pTimeLeft) {
         if (pEntityLiving instanceof Player player) {
-            int duration = this.getUseDuration(stack) - pTimeLeft;
-            if (duration >= 10) {
+            boolean durationCheck = durationCheck(stack, pTimeLeft);
+            if (durationCheck) {
                 if (!pLevel.isClientSide()) {
                     stack.hurtAndBreak(1, player, (broadcastPlayer) -> broadcastPlayer.broadcastBreakEvent(pEntityLiving.getUsedItemHand()));
-                    if(stack.is(ModItems.WOODEN_DAGGER.get())){
-                        WoodenDaggerProjectileEntity dagger = new WoodenDaggerProjectileEntity(pLevel, player, stack);
-                        dagger.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.062640088593577F, 0.0F);
-                        if (player.getAbilities().instabuild) {
-                            dagger.pickup = AbstractArrow.Pickup.ALLOWED;
-                        }
-                        pLevel.addFreshEntity(dagger);
-                        pLevel.playSound(null, dagger, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
-                    } else if (stack.is(ModItems.STONE_DAGGER.get())) {
-                        StoneDaggerProjectileEntity dagger = new StoneDaggerProjectileEntity(pLevel, player, stack);
-                        dagger.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.062640088593577F, 1.0F);
-                        if (player.getAbilities().instabuild) {
-                            dagger.pickup = AbstractArrow.Pickup.ALLOWED;
-                        }
-                        pLevel.addFreshEntity(dagger);
-                        pLevel.playSound(null, dagger, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
-                    } else if (stack.is(ModItems.IRON_DAGGER.get())) {
-                        IronDaggerProjectileEntity dagger = new IronDaggerProjectileEntity(pLevel, player, stack);
-                        dagger.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.062640088593577F, 1.0F);
-                        if (player.getAbilities().instabuild) {
-                            dagger.pickup = AbstractArrow.Pickup.ALLOWED;
-                        }
-                        pLevel.addFreshEntity(dagger);
-                        pLevel.playSound(null, dagger, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
-                    } else if (stack.is(ModItems.GOLD_DAGGER.get())) {
-                        GoldDaggerProjectileEntity dagger = new GoldDaggerProjectileEntity(pLevel, player, stack);
-                        dagger.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.062640088593577F, 1.0F);
-                        if (player.getAbilities().instabuild) {
-                            dagger.pickup = AbstractArrow.Pickup.ALLOWED;
-                        }
-                        pLevel.addFreshEntity(dagger);
-                        pLevel.playSound(null, dagger, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
-                    } else if (stack.is(ModItems.DIAMOND_DAGGER.get())) {
-                        DiamondDaggerProjectileEntity dagger = new DiamondDaggerProjectileEntity(pLevel, player, stack);
-                        dagger.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.062640088593577F, 1.0F);
-                        if (player.getAbilities().instabuild) {
-                            dagger.pickup = AbstractArrow.Pickup.ALLOWED;
-                        }
-                        pLevel.addFreshEntity(dagger);
-                        pLevel.playSound(null, dagger, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
-                    } else if (stack.is(ModItems.NETHERITE_DAGGER.get())) {
-                        NetheriteDaggerProjectileEntity dagger = new NetheriteDaggerProjectileEntity(pLevel, player, stack);
+                    if(stack.is(this)){
+                        DaggerProjectileEntity dagger = this.constructor.apply(pLevel, player, stack);
                         dagger.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.062640088593577F, 1.0F);
                         if (player.getAbilities().instabuild) {
                             dagger.pickup = AbstractArrow.Pickup.ALLOWED;
@@ -91,22 +56,21 @@ public class DaggerItem extends Item {
         }
     }
 
+    public boolean durationCheck(ItemStack stack, int timeLeft) {
+        int useDur = this.getUseDuration(stack);
+        int duration = useDur - timeLeft;
+        if(stack.is(ModItems.WOODEN_DAGGER.get()) || stack.is(ModItems.STONE_DAGGER.get()) || stack.is(ModItems.IRON_DAGGER.get())){
+            return duration >= 60;
+        } else if (stack.is(ModItems.DIAMOND_DAGGER.get()) || stack.is(ModItems.NETHERITE_DAGGER.get())) {
+            return duration >= 70;
+        }
+        return duration >= 80;
+    }
+
     @Override
-    public @NotNull InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, @NotNull InteractionHand pHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level pLevel, Player pPlayer, @NotNull InteractionHand pHand) {
         ItemStack dagger = pPlayer.getItemInHand(pHand);
         pPlayer.startUsingItem(pHand);
-        ItemCooldowns cooldowns = pPlayer.getCooldowns();
-        if(!pLevel.isClientSide()){
-            this.releaseUsing(pPlayer.getItemInHand(pHand), pLevel, pPlayer, 60);
-            int durability = dagger.getMaxDamage();
-            if(dagger.is(ModItems.WOODEN_DAGGER.get()) || dagger.is(ModItems.STONE_DAGGER.get()) || dagger.is(ModItems.IRON_DAGGER.get())){
-                cooldowns.addCooldown(dagger.getItem(), 60);
-            } else if (dagger.is(ModItems.GOLD_DAGGER.get())) {
-                cooldowns.addCooldown(dagger.getItem(), 80);
-            } else if (dagger.is(ModItems.DIAMOND_DAGGER.get()) || dagger.is(ModItems.NETHERITE_DAGGER.get())) {
-                cooldowns.addCooldown(dagger.getItem(), 70);
-            }
-        }
         return InteractionResultHolder.success(dagger);
     }
 
@@ -114,5 +78,10 @@ public class DaggerItem extends Item {
     public boolean hurtEnemy(ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
         pStack.hurtAndBreak(1, pAttacker, (player) -> player.broadcastBreakEvent(pAttacker.getUsedItemHand()));
         return true;
+    }
+
+    @Override
+    public @NotNull UseAnim getUseAnimation(@NotNull ItemStack pStack) {
+        return UseAnim.SPEAR;
     }
 }

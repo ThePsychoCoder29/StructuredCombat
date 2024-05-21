@@ -39,6 +39,6 @@ public class GoldDaggerRenderer extends EntityRenderer<GoldDaggerProjectileEntit
 
     @Override
     public ResourceLocation getTextureLocation(GoldDaggerProjectileEntity goldDaggerProjectileEntity) {
-        return new ResourceLocation(StructuredCombat.MOD_ID, "textures/entity/diamond_dagger.png");
+        return new ResourceLocation(StructuredCombat.MOD_ID, "textures/entity/gold_dagger.png");
     }
 }
