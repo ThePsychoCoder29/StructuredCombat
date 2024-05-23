@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "E": {
+      "item": "minecraft:emerald"
+    },
+    "S": {
+      "item": "minecraft:stone_bricks"
+    },
+    "U": {
+      "item": "structuredcombat:diamond_dagger"
+    }
+  },
+  "pattern": [
+    "ESE",
+    "EUE",
+    "EDE"
+  ],
+  "result": {
+    "count": 2,
+    "item": "structuredcombat:diamond_upgrade"
+  },
+  "show_notification": true
+}

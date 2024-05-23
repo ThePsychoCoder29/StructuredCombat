@@ -19,12 +19,20 @@ public class ModCreativeModeTabs {
                 ()-> CreativeModeTab.builder().icon(()-> new ItemStack(ModItems.WOODEN_DAGGER.get()))
                         .title(Component.translatable("creativetab.structuredcombat.tab"))
                         .displayItems(((itemDisplayParameters, output) -> {
+                            //Daggers
                             output.accept(ModItems.WOODEN_DAGGER.get());
                             output.accept(ModItems.STONE_DAGGER.get());
                             output.accept(ModItems.IRON_DAGGER.get());
                             output.accept(ModItems.GOLD_DAGGER.get());
                             output.accept(ModItems.DIAMOND_DAGGER.get());
                             output.accept(ModItems.NETHERITE_DAGGER.get());
+                            //Hatchets
+                            output.accept(ModItems.WOODEN_HATCHET.get());
+                            output.accept(ModItems.STONE_HATCHET.get());
+                            output.accept(ModItems.IRON_HATCHET.get());
+                            output.accept(ModItems.GOLD_HATCHET.get());
+                            output.accept(ModItems.DIAMOND_HATCHET.get());
+                            output.accept(ModItems.NETHERITE_HATCHET.get());
                         }))
                         .build());
 

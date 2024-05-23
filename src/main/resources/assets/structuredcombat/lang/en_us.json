@@ -1,4 +1,6 @@
 {
+  "item.structuredcombat.diamond_upgrade" : "Diamond Upgrade",
+
   "item.structuredcombat.wooden_dagger" : "Wooden Dagger",
   "item.structuredcombat.stone_dagger" : "Stone Dagger",
   "item.structuredcombat.iron_dagger" : "Iron Dagger",
@@ -12,6 +14,22 @@
   "entity.structuredcombat.gold_dagger" : "Gold Dagger",
   "entity.structuredcombat.diamond_dagger" : "Diamond Dagger",
   "entity.structuredcombat.netherite_dagger" : "Netherite Dagger",
+
+  "item.structuredcombat.wooden_hatchet" : "Wooden Hatchet",
+  "item.structuredcombat.stone_hatchet" : "Stone Hatchet",
+  "item.structuredcombat.iron_hatchet" : "Iron Hatchet",
+  "item.structuredcombat.gold_hatchet" : "Gold Hatchet",
+  "item.structuredcombat.diamond_hatchet" : "Diamond Hatchet",
+  "item.structuredcombat.netherite_hatchet" : "Netherite Hatchet",
+
+  "entity.structuredcombat.wooden_hatchet" : "Wooden Hatchet",
+  "entity.structuredcombat.stone_hatchet" : "Stone Hatchet",
+  "entity.structuredcombat.iron_hatchet" : "Iron Hatchet",
+  "entity.structuredcombat.gold_hatchet" : "Gold Hatchet",
+  "entity.structuredcombat.diamond_hatchet" : "Diamond Hatchet",
+  "entity.structuredcombat.netherite_hatchet" : "Netherite Hatchet",
+
+  "enchantment.structuredcombat.chaining": "Chaining",
 
   "creativetab.structuredcombat.tab": "Structure Combat Tab"
 }

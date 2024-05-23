@@ -2,11 +2,16 @@ package net.kaicoyote.structuredcombat;
 
 import com.mojang.logging.LogUtils;
 import net.kaicoyote.structuredcombat.block.ModBlocks;
+import net.kaicoyote.structuredcombat.enchantment.ModEnchantments;
 import net.kaicoyote.structuredcombat.entity.ModEntities;
-import net.kaicoyote.structuredcombat.entity.client.renderer.*;
+import net.kaicoyote.structuredcombat.entity.client.renderer.daggers.*;
+import net.kaicoyote.structuredcombat.entity.client.renderer.hatchets.*;
 import net.kaicoyote.structuredcombat.item.ModItems;
+import net.kaicoyote.structuredcombat.loot.ModLootModifiers;
 import net.kaicoyote.structuredcombat.util.ModCreativeModeTabs;
+import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.entity.Entity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -33,6 +38,8 @@ public class StructuredCombat
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModEntities.register(modEventBus);
+        ModLootModifiers.register(modEventBus);
+        ModEnchantments.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
@@ -62,12 +69,21 @@ public class StructuredCombat
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            //Daggers
             EntityRenderers.register(ModEntities.WOODEN_DAGGER.get(), WoodenDaggerRenderer::new);
             EntityRenderers.register(ModEntities.STONE_DAGGER.get(), StoneDaggerRenderer::new);
             EntityRenderers.register(ModEntities.IRON_DAGGER.get(), IronDaggerRenderer::new);
             EntityRenderers.register(ModEntities.GOLD_DAGGER.get(), GoldDaggerRenderer::new);
             EntityRenderers.register(ModEntities.DIAMOND_DAGGER.get(), DiamondDaggerRenderer::new);
             EntityRenderers.register(ModEntities.NETHERITE_DAGGER.get(), NetheriteDaggerRenderer::new);
+
+            //Hatchets
+            EntityRenderers.register(ModEntities.WOODEN_HATCHET.get(), WoodenHatchetRenderer::new);
+            EntityRenderers.register(ModEntities.STONE_HATCHET.get(), StoneHatchetRenderer::new);
+            EntityRenderers.register(ModEntities.IRON_HATCHET.get(), IronHatchetRenderer::new);
+            EntityRenderers.register(ModEntities.GOLD_HATCHET.get(), GoldHatchetRenderer::new);
+            EntityRenderers.register(ModEntities.DIAMOND_HATCHET.get(), DiamondHatchetRenderer::new);
+            EntityRenderers.register(ModEntities.NETHERITE_HATCHET.get(), NetheriteHatchetRenderer::new);
         }
     }
 }

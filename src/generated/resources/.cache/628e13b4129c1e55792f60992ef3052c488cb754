@@ -1,0 +1,4 @@
+// 1.20.1	2024-05-23T16:52:18.2978312	Global Loot Modifiers : structuredcombat
+225ac64292f4cfbba864c9faa34bbdcbbc42169d data/forge/loot_modifiers/global_loot_modifiers.json
+6ef02cc1ea20094afd320e0a260161bd4e2e892d data/structuredcombat/loot_modifiers/iron_dagger_from_dungeons.json
+f5c2782683af06b8916c7fb6b61012991641a7ad data/structuredcombat/loot_modifiers/iron_hatchet_from_snowy_villages.json

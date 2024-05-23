@@ -20,12 +20,24 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        //Daggers
         handHeldItem(ModItems.WOODEN_DAGGER);
         handHeldItem(ModItems.STONE_DAGGER);
         handHeldItem(ModItems.IRON_DAGGER);
         handHeldItem(ModItems.GOLD_DAGGER);
         handHeldItem(ModItems.DIAMOND_DAGGER);
         handHeldItem(ModItems.NETHERITE_DAGGER);
+
+        //Hatchets
+        handHeldItem(ModItems.WOODEN_HATCHET);
+        handHeldItem(ModItems.STONE_HATCHET);
+        handHeldItem(ModItems.IRON_HATCHET);
+        handHeldItem(ModItems.GOLD_HATCHET);
+        handHeldItem(ModItems.DIAMOND_HATCHET);
+        handHeldItem(ModItems.NETHERITE_HATCHET);
+
+        //Items
+        handHeldItem(ModItems.DIAMOND_UPGRADE);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

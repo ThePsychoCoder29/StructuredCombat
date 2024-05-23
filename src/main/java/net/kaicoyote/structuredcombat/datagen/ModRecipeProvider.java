@@ -1,19 +1,11 @@
 package net.kaicoyote.structuredcombat.datagen;
 
-import net.kaicoyote.structuredcombat.StructuredCombat;
+import net.kaicoyote.structuredcombat.item.ModItems;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.level.ItemLike;
+import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
 import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
@@ -23,22 +15,42 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> pWriter) {
-    }
+        //Daggers
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.WOODEN_DAGGER.get())
+                .pattern("   ")
+                .pattern(" P ")
+                .pattern(" S ")
+                .define('P',  Items.OAK_PLANKS)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.STONE_DAGGER.get())
+                .pattern("   ")
+                .pattern(" C ")
+                .pattern(" S ")
+                .define('C',  Items.STONE)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GOLD_DAGGER.get())
+                .pattern("   ")
+                .pattern(" G ")
+                .pattern(" S ")
+                .define('G',  Items.GOLD_INGOT)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .save(pWriter);
 
-    protected static void oreSmelting(@NotNull Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {
-        oreCooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTIme, pGroup, "_from_smelting");
-    }
-
-    protected static void oreBlasting(@NotNull Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
-        oreCooking(pFinishedRecipeConsumer, RecipeSerializer.BLASTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_blasting");
-    }
-
-    protected static void oreCooking(@NotNull Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
-        for(ItemLike itemlike : pIngredients) {
-            SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult,
-                            pExperience, pCookingTime, pCookingSerializer)
-                    .group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
-                    .save(pFinishedRecipeConsumer,  StructuredCombat.MOD_ID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
-        }
+        //Items
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_UPGRADE.get(), 2)
+                .pattern("ESE")
+                .pattern("EUE")
+                .pattern("EDE")
+                .define('E', Items.EMERALD)
+                .define('S', Items.STONE_BRICKS)
+                .define('D', Items.DIAMOND)
+                .define('U', ModItems.DIAMOND_DAGGER.get())
+                .unlockedBy(getHasName(Items.EMERALD), has(ModItems.DIAMOND_UPGRADE.get()))
+                .save(pWriter);
     }
 }
