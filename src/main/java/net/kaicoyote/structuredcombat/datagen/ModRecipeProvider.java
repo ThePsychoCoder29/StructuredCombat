@@ -49,7 +49,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('E', Items.EMERALD)
                 .define('S', Items.STONE_BRICKS)
                 .define('D', Items.DIAMOND)
-                .define('U', ModItems.DIAMOND_DAGGER.get())
+                .define('U', ModItems.DIAMOND_UPGRADE.get())
                 .unlockedBy(getHasName(Items.EMERALD), has(ModItems.DIAMOND_UPGRADE.get()))
                 .save(pWriter);
     }

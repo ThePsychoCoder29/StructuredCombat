@@ -1,9 +1,9 @@
-// 1.20.1	2024-05-23T16:52:18.3088266	Recipes
+// 1.20.1	2024-05-23T17:48:19.0235478	Recipes
 74eabbfa6d1c3623628af9a5f5fae155e420f68d data/structuredcombat/advancements/recipes/misc/diamond_upgrade.json
 1e9d1dd7e041c061dfb56b3e86cd99b3573276ce data/structuredcombat/advancements/recipes/tools/gold_dagger.json
 040949a3745ab1ee1c62d025a17856040152a61b data/structuredcombat/advancements/recipes/tools/stone_dagger.json
 7267e08478bfa96194fc88171c458dc534d49830 data/structuredcombat/advancements/recipes/tools/wooden_dagger.json
-bcd6a2bba055c720d8f23b0d23decc3f5880b771 data/structuredcombat/recipes/diamond_upgrade.json
+64488c6810fd6f84d4d85a9cd7ec348869745191 data/structuredcombat/recipes/diamond_upgrade.json
 37ee928035faff5b0517a289f71df441f819f413 data/structuredcombat/recipes/gold_dagger.json
 a6500726cb393fa8699e71f73c346a6dc7d2aa35 data/structuredcombat/recipes/stone_dagger.json
 5f1f61b8e0d9d60fbdc4fc8da3e790b61e56d7ff data/structuredcombat/recipes/wooden_dagger.json
