@@ -131,9 +131,7 @@ public class HatchetItem extends Item {
                         pLevel.addFreshEntity(hatchet);
                         pLevel.playSound(null, hatchet, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
                     }
-                    if (!player.getAbilities().instabuild) {
-                        player.getInventory().removeItem(stack);
-                    }
+                    player.getInventory().removeItem(stack);
                 }
                 player.awardStat(Stats.ITEM_USED.get(this));
             }
