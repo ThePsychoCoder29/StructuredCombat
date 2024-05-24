@@ -16,9 +16,11 @@ public class ModCreativeModeTabs {
 
     public static final RegistryObject<CreativeModeTab> ITEMS_CREATIVE_MODE_TAB =
         CREATIVE_MODE_TABS.register("items_creative_mode_tab",
-                ()-> CreativeModeTab.builder().icon(()-> new ItemStack(ModItems.WOODEN_DAGGER.get()))
+                ()-> CreativeModeTab.builder().icon(()-> new ItemStack(ModItems.DIAMOND_UPGRADE.get()))
                         .title(Component.translatable("creativetab.structuredcombat.tab"))
                         .displayItems(((itemDisplayParameters, output) -> {
+                            //Items
+                            output.accept(ModItems.DIAMOND_UPGRADE.get());
                             //Daggers
                             output.accept(ModItems.WOODEN_DAGGER.get());
                             output.accept(ModItems.STONE_DAGGER.get());

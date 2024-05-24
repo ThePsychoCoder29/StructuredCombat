@@ -18,10 +18,12 @@ public class IronDaggerAnvilUpgradeEvent {
         boolean netheriteUpgrade = left.is(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE) || right.is(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE);
         boolean ironDagger = left.is(ModItems.IRON_DAGGER.get()) || right.is(ModItems.IRON_DAGGER.get());
         if(diamondUpgrade && ironDagger) {
-            event.setOutput(new ItemStack(ModItems.DIAMOND_DAGGER.get()));
+            event.setOutput(new ItemStack(ModItems.DIAMOND_DAGGER.get(), 1));
+            event.setCost(50);
         }
         if(netheriteUpgrade && ironDagger){
-            event.setOutput(new ItemStack(ModItems.NETHERITE_DAGGER.get()));
+            event.setOutput(new ItemStack(ModItems.NETHERITE_DAGGER.get(), 1));
+            event.setCost(10);
         }
     }
 }

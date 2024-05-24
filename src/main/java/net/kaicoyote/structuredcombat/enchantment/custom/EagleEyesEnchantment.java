@@ -23,4 +23,9 @@ public class EagleEyesEnchantment extends Enchantment {
     public boolean isAllowedOnBooks() {
         return true;
     }
+
+    @Override
+    public int getMaxCost(int pLevel) {
+        return super.getMaxCost(pLevel);
+    }
 }
