@@ -9,6 +9,7 @@ import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class ChainingEnchantment extends Enchantment {
         AABB area = pTarget.getBoundingBox().inflate(5);
         List<Entity> entities = level.getEntitiesOfClass(Entity.class, area);
         float hurt = 15;
-        if(pAttacker instanceof ServerPlayer player){
+        if(pAttacker instanceof ServerPlayer){
             for (Entity entity : entities) {
                 if (!(entity instanceof Player)) {
                     EntityType.LIGHTNING_BOLT.spawn((ServerLevel) level, entity.blockPosition(), MobSpawnType.TRIGGERED);
@@ -40,7 +41,7 @@ public class ChainingEnchantment extends Enchantment {
     }
 
     @Override
-    protected boolean checkCompatibility(Enchantment pOther) {
+    protected boolean checkCompatibility(@NotNull Enchantment pOther) {
         return super.checkCompatibility(pOther) && pOther != Enchantments.SWEEPING_EDGE;
     }
 

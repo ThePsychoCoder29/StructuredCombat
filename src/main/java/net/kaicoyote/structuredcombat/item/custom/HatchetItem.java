@@ -2,7 +2,6 @@ package net.kaicoyote.structuredcombat.item.custom;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import net.kaicoyote.structuredcombat.entity.custom.entities.daggers.DaggerProjectileEntity;
 import net.kaicoyote.structuredcombat.entity.custom.entities.hatchets.HatchetProjectileEntity;
 import net.kaicoyote.structuredcombat.item.ModItems;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -30,7 +29,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.common.ToolActions;
-import net.minecraftforge.common.extensions.IForgeItem;
 import org.apache.commons.lang3.function.TriFunction;
 import org.jetbrains.annotations.NotNull;
 
@@ -96,14 +94,11 @@ public class HatchetItem extends Item {
         }
         return builder.build();
     }
-
     public AttributeModifier attributeDmg(double amountDmg){
-        String attackDmg = Attributes.ATTACK_DAMAGE.getDescriptionId();
-        return new AttributeModifier(attackDmg, amountDmg, AttributeModifier.Operation.ADDITION);
+        return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);
     }
     public AttributeModifier attributeSpd(double amountSpd){
-        String attackSpd = Attributes.ATTACK_SPEED.getDescriptionId();
-        return new AttributeModifier(attackSpd, amountSpd, AttributeModifier.Operation.ADDITION);
+        return new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", amountSpd, AttributeModifier.Operation.ADDITION);
     }
 
     @Override
@@ -129,7 +124,7 @@ public class HatchetItem extends Item {
                     stack.hurtAndBreak(1, player, (broadcastPlayer) -> broadcastPlayer.broadcastBreakEvent(pEntityLiving.getUsedItemHand()));
                     if(stack.is(this)){
                         HatchetProjectileEntity hatchet = this.constructor.apply(pLevel, player, stack);
-                        hatchet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 0.762640088593577F, 1.0F);
+                        hatchet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.00264008859357777F, 1.0F);
                         if (player.getAbilities().instabuild) {
                             hatchet.pickup = AbstractArrow.Pickup.ALLOWED;
                         }
@@ -146,7 +141,7 @@ public class HatchetItem extends Item {
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext pContext) {
+    public @NotNull InteractionResult useOn(UseOnContext pContext) {
         Level level = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
         Player player = pContext.getPlayer();
@@ -177,9 +172,7 @@ public class HatchetItem extends Item {
             level.setBlock(blockpos, optional3.get(), 11);
             level.gameEvent(GameEvent.BLOCK_CHANGE, blockpos, GameEvent.Context.of(player, optional3.get()));
             if (player != null) {
-                itemstack.hurtAndBreak(1, player, (p_150686_) -> {
-                    p_150686_.broadcastBreakEvent(pContext.getHand());
-                });
+                itemstack.hurtAndBreak(1, player, (p_150686_) -> p_150686_.broadcastBreakEvent(pContext.getHand()));
             }
 
             return InteractionResult.sidedSuccess(level.isClientSide);

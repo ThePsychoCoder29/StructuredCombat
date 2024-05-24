@@ -50,16 +50,14 @@ public class DaggerItem extends Item implements IForgeItem {
                     stack.hurtAndBreak(1, player, (broadcastPlayer) -> broadcastPlayer.broadcastBreakEvent(pEntityLiving.getUsedItemHand()));
                     if(stack.is(this)){
                         DaggerProjectileEntity dagger = this.constructor.apply(pLevel, player, stack);
-                        dagger.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.062640088593577F, 1.0F);
+                        dagger.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.125280177187154F, 1.0F);
                         if (player.getAbilities().instabuild) {
                             dagger.pickup = AbstractArrow.Pickup.ALLOWED;
                         }
                         pLevel.addFreshEntity(dagger);
                         pLevel.playSound(null, dagger, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
                     }
-                    if (!player.getAbilities().instabuild) {
-                        player.getInventory().removeItem(stack);
-                    }
+                    player.getInventory().removeItem(stack);
                 }
                 player.awardStat(Stats.ITEM_USED.get(this));
             }
@@ -101,16 +99,15 @@ public class DaggerItem extends Item implements IForgeItem {
                 builder.build();
             }
         }
+
         return builder.build();
     }
 
     public AttributeModifier attributeDmg(double amountDmg){
-        String attackDmg = Attributes.ATTACK_DAMAGE.getDescriptionId();
-        return new AttributeModifier(attackDmg, amountDmg * 20, AttributeModifier.Operation.ADDITION);
+        return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);
     }
     public AttributeModifier attributeSpd(double amountSpd){
-        String attackSpd = Attributes.ATTACK_SPEED.getDescriptionId();
-        return new AttributeModifier(attackSpd, amountSpd * 20, AttributeModifier.Operation.ADDITION);
+        return new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", amountSpd, AttributeModifier.Operation.ADDITION);
     }
 
     @Override
