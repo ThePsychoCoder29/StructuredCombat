@@ -1,4 +1,4 @@
-package net.kaicoyote.structuredcombat.enchantment.custom;
+package net.kaicoyote.structuredcombat.enchantment.custom.enchantments;
 
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;

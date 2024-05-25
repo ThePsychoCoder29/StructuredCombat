@@ -60,23 +60,39 @@ public abstract class EagleEyesInBowMixin {
                 abstractarrow = self().customArrow(abstractarrow);
                 abstractarrow.shootFromRotation(shooter, shooter.getXRot(), shooter.getYRot(), 0.0F, f * 3.0F, 1.0F);
                 int chance = random.nextInt(5);
-                if(EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.EAGLE_EYES.get(), pStack) == 1){
-                    if(chance == 1){
-                        pLevel.addFreshEntity(arrow);
-                    }
-                    else {
-                        pLevel.addFreshEntity(abstractarrow);
-                    }
-                    pLevel.playSound(null, shooter.getX(), shooter.getY(), shooter.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (pLevel.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-                    if (!bool2 && !shooter.getAbilities().instabuild) {
-                        projectile.shrink(1);
-                        if (projectile.isEmpty()) {
-                            shooter.getInventory().removeItem(projectile);
+                if(EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.EAGLE_EYES.get(), pStack) > 0) {
+                    if (EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.EAGLE_EYES.get(), pStack) == 1) {
+                        if (chance == 1) {
+                            pLevel.addFreshEntity(arrow);
                         }
+                        else {
+                            pLevel.addFreshEntity(abstractarrow);
+                        }
+                        pLevel.playSound(null, shooter.getX(), shooter.getY(), shooter.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (pLevel.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        if (!bool2 && !shooter.getAbilities().instabuild) {
+                            projectile.shrink(1);
+                            if (projectile.isEmpty()) {
+                                shooter.getInventory().removeItem(projectile);
+                            }
+                        }
+                        shooter.awardStat(Stats.ITEM_USED.get(self()));
+                        ci.cancel();
+                    } else if (EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.EAGLE_EYES.get(), pStack) == 2) {
+                        if (chance == 1 || chance == 2) {
+                            pLevel.addFreshEntity(arrow);
+                        } else {
+                            pLevel.addFreshEntity(abstractarrow);
+                        }
+                        pLevel.playSound(null, shooter.getX(), shooter.getY(), shooter.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (pLevel.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                        if (!bool2 && !shooter.getAbilities().instabuild) {
+                            projectile.shrink(1);
+                            if (projectile.isEmpty()) {
+                                shooter.getInventory().removeItem(projectile);
+                            }
+                        }
+                        shooter.awardStat(Stats.ITEM_USED.get(self()));
+                        ci.cancel();
                     }
-
-                    shooter.awardStat(Stats.ITEM_USED.get(self()));
-                    ci.cancel();
                 }
             }
     }

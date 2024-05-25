@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.kaicoyote.structuredcombat.entity.custom.entities.daggers.DaggerProjectileEntity;
 import net.kaicoyote.structuredcombat.item.ModItems;
+import net.minecraft.client.multiplayer.chat.LoggedChatMessage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -23,9 +24,14 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.common.extensions.IForgeItem;
 import org.apache.commons.lang3.function.TriFunction;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class DaggerItem extends Item implements IForgeItem {
     private final TriFunction<Level, Player, ItemStack, DaggerProjectileEntity> constructor;
@@ -50,7 +56,7 @@ public class DaggerItem extends Item implements IForgeItem {
                     stack.hurtAndBreak(1, player, (broadcastPlayer) -> broadcastPlayer.broadcastBreakEvent(pEntityLiving.getUsedItemHand()));
                     if(stack.is(this)){
                         DaggerProjectileEntity dagger = this.constructor.apply(pLevel, player, stack);
-                        dagger.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.125280177187154F, 1.0F);
+                        dagger.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.125F, 1.0F);
                         if (player.getAbilities().instabuild) {
                             dagger.pickup = AbstractArrow.Pickup.ALLOWED;
                         }
@@ -141,4 +147,5 @@ public class DaggerItem extends Item implements IForgeItem {
     public @NotNull UseAnim getUseAnimation(@NotNull ItemStack pStack) {
         return UseAnim.SPEAR;
     }
+
 }

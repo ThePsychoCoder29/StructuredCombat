@@ -1,6 +1,5 @@
 package net.kaicoyote.structuredcombat;
 
-import com.mojang.logging.LogUtils;
 import net.kaicoyote.structuredcombat.block.ModBlocks;
 import net.kaicoyote.structuredcombat.enchantment.ModEnchantments;
 import net.kaicoyote.structuredcombat.entity.ModEntities;
@@ -9,9 +8,7 @@ import net.kaicoyote.structuredcombat.entity.client.renderer.hatchets.*;
 import net.kaicoyote.structuredcombat.item.ModItems;
 import net.kaicoyote.structuredcombat.loot.ModLootModifiers;
 import net.kaicoyote.structuredcombat.util.ModCreativeModeTabs;
-import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.entity.Entity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -22,14 +19,12 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(StructuredCombat.MOD_ID)
 public class StructuredCombat
 {
     public static final String MOD_ID = "structuredcombat";
-    private static final Logger LOGGER = LogUtils.getLogger();
 
     public StructuredCombat()
     {

@@ -98,4 +98,6 @@ public class DaggerProjectileEntity extends AbstractArrow {
     public boolean shouldRender(double pX, double pY, double pZ) {
         return true;
     }
+
+    
 }

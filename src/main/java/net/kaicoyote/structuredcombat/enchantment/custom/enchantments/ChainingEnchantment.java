@@ -1,4 +1,4 @@
-package net.kaicoyote.structuredcombat.enchantment.custom;
+package net.kaicoyote.structuredcombat.enchantment.custom.enchantments;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
