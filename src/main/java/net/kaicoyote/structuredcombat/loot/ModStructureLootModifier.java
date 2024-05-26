@@ -32,9 +32,7 @@ public class ModStructureLootModifier extends LootModifier {
                 return generatedLoot;
             }
         }
-
         generatedLoot.add(new ItemStack(this.item));
-
         return generatedLoot;
     }
 

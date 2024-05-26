@@ -23,6 +23,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('P',  Items.OAK_PLANKS)
                 .define('S', Items.STICK)
                 .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
                 .save(pWriter);
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.STONE_DAGGER.get())
                 .pattern("   ")
@@ -31,6 +32,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C',  Items.STONE)
                 .define('S', Items.STICK)
                 .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
                 .save(pWriter);
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GOLD_DAGGER.get())
                 .pattern("   ")
@@ -39,6 +41,62 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('G',  Items.GOLD_INGOT)
                 .define('S', Items.STICK)
                 .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        //Hatchets
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.WOODEN_HATCHET.get())
+                .pattern("PP")
+                .pattern("S ")
+                .define('P',  Items.OAK_PLANKS)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.STONE_HATCHET.get())
+                .pattern("CC")
+                .pattern("S ")
+                .define('C',  Items.STONE)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GOLD_HATCHET.get())
+                .pattern("GG")
+                .pattern("S ")
+                .define('G',  Items.GOLD_INGOT)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        //Katanas
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.WOODEN_KATANA.get())
+                .pattern("  P")
+                .pattern(" P ")
+                .pattern("S  ")
+                .define('P',  Items.OAK_PLANKS)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.STONE_KATANA.get())
+                .pattern("  C")
+                .pattern(" C ")
+                .pattern("S  ")
+                .define('C',  Items.STONE)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GOLD_KATANA.get())
+                .pattern("  G")
+                .pattern(" G ")
+                .pattern("S  ")
+                .define('G',  Items.GOLD_INGOT)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
                 .save(pWriter);
 
         //Items
@@ -51,6 +109,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('D', Items.DIAMOND)
                 .define('U', ModItems.DIAMOND_UPGRADE.get())
                 .unlockedBy(getHasName(Items.EMERALD), has(ModItems.DIAMOND_UPGRADE.get()))
+                .showNotification(true)
                 .save(pWriter);
     }
 }

@@ -21,6 +21,7 @@ public class ModCreativeModeTabs {
                         .displayItems(((itemDisplayParameters, output) -> {
                             //Items
                             output.accept(ModItems.DIAMOND_UPGRADE.get());
+
                             //Daggers
                             output.accept(ModItems.WOODEN_DAGGER.get());
                             output.accept(ModItems.STONE_DAGGER.get());
@@ -28,6 +29,7 @@ public class ModCreativeModeTabs {
                             output.accept(ModItems.GOLD_DAGGER.get());
                             output.accept(ModItems.DIAMOND_DAGGER.get());
                             output.accept(ModItems.NETHERITE_DAGGER.get());
+
                             //Hatchets
                             output.accept(ModItems.WOODEN_HATCHET.get());
                             output.accept(ModItems.STONE_HATCHET.get());
@@ -35,6 +37,14 @@ public class ModCreativeModeTabs {
                             output.accept(ModItems.GOLD_HATCHET.get());
                             output.accept(ModItems.DIAMOND_HATCHET.get());
                             output.accept(ModItems.NETHERITE_HATCHET.get());
+
+                            //Katanas
+                            output.accept(ModItems.WOODEN_KATANA.get());
+                            output.accept(ModItems.STONE_KATANA.get());
+                            output.accept(ModItems.IRON_KATANA.get());
+                            output.accept(ModItems.GOLD_KATANA.get());
+                            output.accept(ModItems.DIAMOND_KATANA.get());
+                            output.accept(ModItems.NETHERITE_KATANA.get());
                         }))
                         .build());
 

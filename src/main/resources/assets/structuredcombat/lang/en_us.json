@@ -8,19 +8,26 @@
   "item.structuredcombat.diamond_dagger" : "Diamond Dagger",
   "item.structuredcombat.netherite_dagger" : "Netherite Dagger",
 
-  "entity.structuredcombat.wooden_dagger" : "Wooden Dagger",
-  "entity.structuredcombat.stone_dagger" : "Stone Dagger",
-  "entity.structuredcombat.iron_dagger" : "Iron Dagger",
-  "entity.structuredcombat.gold_dagger" : "Gold Dagger",
-  "entity.structuredcombat.diamond_dagger" : "Diamond Dagger",
-  "entity.structuredcombat.netherite_dagger" : "Netherite Dagger",
-
   "item.structuredcombat.wooden_hatchet" : "Wooden Hatchet",
   "item.structuredcombat.stone_hatchet" : "Stone Hatchet",
   "item.structuredcombat.iron_hatchet" : "Iron Hatchet",
   "item.structuredcombat.gold_hatchet" : "Gold Hatchet",
   "item.structuredcombat.diamond_hatchet" : "Diamond Hatchet",
   "item.structuredcombat.netherite_hatchet" : "Netherite Hatchet",
+
+  "item.structuredcombat.wooden_katana" : "Wooden Katana",
+  "item.structuredcombat.stone_katana" : "Stone Katana",
+  "item.structuredcombat.iron_katana" : "Iron Katana",
+  "item.structuredcombat.gold_katana" : "Gold Katana",
+  "item.structuredcombat.diamond_katana" : "Diamond Katana",
+  "item.structuredcombat.netherite_katana" : "Netherite Katana",
+
+  "entity.structuredcombat.wooden_dagger" : "Wooden Dagger",
+  "entity.structuredcombat.stone_dagger" : "Stone Dagger",
+  "entity.structuredcombat.iron_dagger" : "Iron Dagger",
+  "entity.structuredcombat.gold_dagger" : "Gold Dagger",
+  "entity.structuredcombat.diamond_dagger" : "Diamond Dagger",
+  "entity.structuredcombat.netherite_dagger" : "Netherite Dagger",
 
   "entity.structuredcombat.wooden_hatchet" : "Wooden Hatchet",
   "entity.structuredcombat.stone_hatchet" : "Stone Hatchet",

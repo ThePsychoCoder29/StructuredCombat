@@ -8,7 +8,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
-import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 
 public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
@@ -19,6 +18,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     @Override
     protected void start() {
         add("iron_dagger_from_dungeons", structureLIC("simple_dungeons", ModItems.IRON_DAGGER.get()));
+        add("iron_katana_from_dungeons", structureLIC("jungle_temple", ModItems.IRON_KATANA.get()));
         add("iron_hatchet_from_snowy_villages", villageLIC("village_snowy_house", ModItems.IRON_HATCHET.get()));
     }
 

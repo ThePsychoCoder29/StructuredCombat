@@ -36,6 +36,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         handHeldItem(ModItems.DIAMOND_HATCHET);
         handHeldItem(ModItems.NETHERITE_HATCHET);
 
+        //Katanas
+        handHeldItem(ModItems.WOODEN_KATANA);
+        handHeldItem(ModItems.STONE_KATANA);
+        handHeldItem(ModItems.IRON_KATANA);
+        handHeldItem(ModItems.GOLD_KATANA);
+        handHeldItem(ModItems.DIAMOND_KATANA);
+        handHeldItem(ModItems.NETHERITE_KATANA);
+
         //Items
         handHeldItem(ModItems.DIAMOND_UPGRADE);
     }

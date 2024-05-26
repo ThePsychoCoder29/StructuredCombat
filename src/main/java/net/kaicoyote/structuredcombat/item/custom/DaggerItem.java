@@ -91,7 +91,7 @@ public class DaggerItem extends Item implements IForgeItem {
             }
             if (stack.is(ModItems.GOLD_DAGGER.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(2));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-0));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(0));
                 builder.build();
             }
             if (stack.is(ModItems.DIAMOND_DAGGER.get())) {

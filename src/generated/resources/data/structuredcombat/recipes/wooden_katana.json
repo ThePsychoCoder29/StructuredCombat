@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "P": {
+      "item": "minecraft:oak_planks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "  P",
+    " P ",
+    "S  "
+  ],
+  "result": {
+    "item": "structuredcombat:wooden_katana"
+  },
+  "show_notification": true
+}
