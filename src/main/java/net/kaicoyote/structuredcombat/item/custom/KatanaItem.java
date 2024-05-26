@@ -3,6 +3,7 @@ package net.kaicoyote.structuredcombat.item.custom;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.kaicoyote.structuredcombat.item.ModItems;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -21,7 +22,7 @@ public class KatanaItem extends Item {
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        if (slot == EquipmentSlot.MAINHAND){
+        if (slot == EquipmentSlot.MAINHAND) {
             if (stack.is(ModItems.WOODEN_KATANA.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(4.5));
                 builder.put(Attributes.ATTACK_SPEED, attributeSpd(-0));
@@ -57,27 +58,21 @@ public class KatanaItem extends Item {
         return builder.build();
     }
 
-    public AttributeModifier attributeDmg(double amountDmg){
+    public AttributeModifier attributeDmg(double amountDmg) {
         return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);
     }
-    public AttributeModifier attributeSpd(double amountSpd){
+
+    public AttributeModifier attributeSpd(double amountSpd) {
         return new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", amountSpd, AttributeModifier.Operation.ADDITION);
     }
 
     @Override
     public boolean hurtEnemy(@NotNull ItemStack pStack, LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
-        boolean shieldCheck = pTarget.isBlocking();
-        if(pTarget.getArmorSlots().iterator().hasNext() && shieldCheck) {
-            pStack.hurtAndBreak(3, pAttacker, (player) -> player.broadcastBreakEvent(pAttacker.getUsedItemHand()));
-        }
-        else if(pTarget.getArmorSlots().iterator().hasNext()){
-            pStack.hurtAndBreak(2, pAttacker, (player) -> player.broadcastBreakEvent(pAttacker.getUsedItemHand()));
-        }
-        else if (shieldCheck) {
-            pStack.hurtAndBreak(3, pAttacker, (player) -> player.broadcastBreakEvent(pAttacker.getUsedItemHand()));
-        }
-        else {
-            pStack.hurtAndBreak(1, pAttacker, (player) -> player.broadcastBreakEvent(pAttacker.getUsedItemHand()));
+        InteractionHand hand = pAttacker.getUsedItemHand();
+        if (pTarget.isBlocking()) {
+            pStack.hurtAndBreak(3, pAttacker, attacker -> attacker.broadcastBreakEvent(hand));
+        } else if (pTarget.getArmorSlots().iterator().hasNext()) {
+            pStack.hurtAndBreak(2, pAttacker, user -> user.broadcastBreakEvent(hand));
         }
         return true;
     }

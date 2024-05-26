@@ -138,8 +138,9 @@ public class DaggerItem extends Item implements IForgeItem {
     }
 
     @Override
-    public boolean hurtEnemy(ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
-        pStack.hurtAndBreak(1, pAttacker, (player) -> player.broadcastBreakEvent(pAttacker.getUsedItemHand()));
+    public boolean hurtEnemy(ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker){
+        InteractionHand hand = pAttacker.getUsedItemHand();
+        pStack.hurtAndBreak(1, pAttacker, (player) -> player.broadcastBreakEvent(hand));
         return true;
     }
 
