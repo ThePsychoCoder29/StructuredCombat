@@ -1,11 +1,12 @@
 package net.kaicoyote.structuredcombat.datagen;
 
 import net.kaicoyote.structuredcombat.StructuredCombat;
+import net.kaicoyote.structuredcombat.item.ModItems;
+import net.kaicoyote.structuredcombat.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -18,6 +19,10 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-
+        this.tag(ModTags.Items.SMITHING_WEAPONS)
+                .add(ModItems.IRON_DAGGER.get())
+                .add(ModItems.IRON_HATCHET.get())
+                .add(ModItems.IRON_KATANA.get())
+                .add(ModItems.IRON_SABRE.get());
     }
 }

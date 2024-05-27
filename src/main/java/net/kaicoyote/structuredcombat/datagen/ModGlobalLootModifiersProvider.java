@@ -17,8 +17,13 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
 
     @Override
     protected void start() {
+        //Structures
         add("iron_dagger_from_dungeons", structureLIC("simple_dungeons", ModItems.IRON_DAGGER.get()));
         add("iron_katana_from_dungeons", structureLIC("jungle_temple", ModItems.IRON_KATANA.get()));
+        add("iron_sabre_from_shipwrecks_supply", structureLIC("shipwreck_supply", ModItems.IRON_SABRE.get()));
+        add("iron_sabre_from_shipwrecks_treasure", structureLIC("shipwreck_treasure", ModItems.IRON_SABRE.get()));
+        add("iron_sabre_from_buried_treasure", structureLIC("buried_treasure", ModItems.IRON_SABRE.get()));
+
         add("iron_hatchet_from_snowy_villages", villageLIC("village_snowy_house", ModItems.IRON_HATCHET.get()));
     }
 

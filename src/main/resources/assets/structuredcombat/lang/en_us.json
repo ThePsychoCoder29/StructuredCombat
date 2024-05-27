@@ -1,5 +1,6 @@
 {
   "item.structuredcombat.diamond_upgrade" : "Diamond Upgrade",
+  "upgrade.structuredcombat.diamond_upgrade": "Diamond Upgrade",
 
   "item.structuredcombat.wooden_dagger" : "Wooden Dagger",
   "item.structuredcombat.stone_dagger" : "Stone Dagger",
@@ -22,6 +23,13 @@
   "item.structuredcombat.diamond_katana" : "Diamond Katana",
   "item.structuredcombat.netherite_katana" : "Netherite Katana",
 
+  "item.structuredcombat.wooden_sabre" : "Wooden Sabre",
+  "item.structuredcombat.stone_sabre" : "Stone Sabre",
+  "item.structuredcombat.iron_sabre" : "Iron Sabre",
+  "item.structuredcombat.gold_sabre" : "Gold Sabre",
+  "item.structuredcombat.diamond_sabre" : "Diamond Sabre",
+  "item.structuredcombat.netherite_sabre" : "Netherite Sabre",
+
   "entity.structuredcombat.wooden_dagger" : "Wooden Dagger",
   "entity.structuredcombat.stone_dagger" : "Stone Dagger",
   "entity.structuredcombat.iron_dagger" : "Iron Dagger",
@@ -38,6 +46,14 @@
 
   "enchantment.structuredcombat.chaining": "Chaining",
   "enchantment.structuredcombat.eagle_eyes": "Eagle Eyes",
+
+
+  "item.structuredcombat.smithing_template.applies_to": "Applies To:",
+  "item.structuredcombat.smithing_template.ingredients": "Ingredients:",
+  "item.structuredcombat.smithing_template.diamond_upgrade.applies_to": "Structured Combat Weapons",
+  "item.structuredcombat.smithing_template.diamond_upgrade.ingredients": "Diamond",
+  "item.structuredcombat.smithing_template.diamond_upgrade.base_slot_description": "Add Structured Combat's Weapons",
+  "item.structuredcombat.smithing_template.diamond_upgrade.additions_slot_description": "Add Diamond",
 
   "creativetab.structuredcombat.tab": "Structure Combat Tab"
 }

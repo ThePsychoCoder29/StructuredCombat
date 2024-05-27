@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:diamond"
+  },
+  "base": {
+    "item": "structuredcombat:iron_hatchet"
+  },
+  "result": {
+    "item": "structuredcombat:diamond_hatchet"
+  },
+  "template": {
+    "item": "structuredcombat:diamond_upgrade"
+  }
+}

@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "C": {
-      "item": "minecraft:stone"
+      "tag": "minecraft:stone_tool_materials"
     },
     "S": {
       "item": "minecraft:stick"

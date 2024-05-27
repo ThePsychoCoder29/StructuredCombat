@@ -45,6 +45,14 @@ public class ModCreativeModeTabs {
                             output.accept(ModItems.GOLD_KATANA.get());
                             output.accept(ModItems.DIAMOND_KATANA.get());
                             output.accept(ModItems.NETHERITE_KATANA.get());
+
+                            //Sabres
+                            output.accept(ModItems.WOODEN_SABRE.get());
+                            output.accept(ModItems.STONE_SABRE.get());
+                            output.accept(ModItems.IRON_SABRE.get());
+                            output.accept(ModItems.GOLD_SABRE.get());
+                            output.accept(ModItems.DIAMOND_SABRE.get());
+                            output.accept(ModItems.NETHERITE_SABRE.get());
                         }))
                         .build());
 

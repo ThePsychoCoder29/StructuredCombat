@@ -3,9 +3,7 @@ package net.kaicoyote.structuredcombat.item;
 import net.kaicoyote.structuredcombat.StructuredCombat;
 import net.kaicoyote.structuredcombat.entity.custom.entities.daggers.*;
 import net.kaicoyote.structuredcombat.entity.custom.entities.hatchets.*;
-import net.kaicoyote.structuredcombat.item.custom.DaggerItem;
-import net.kaicoyote.structuredcombat.item.custom.HatchetItem;
-import net.kaicoyote.structuredcombat.item.custom.KatanaItem;
+import net.kaicoyote.structuredcombat.item.custom.*;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -13,15 +11,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
+
     //Registry Methods
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, StructuredCombat.MOD_ID);
-    public static Item basicItem(){
-        return new Item(new Item.Properties());
-    }
 
     //Mod Items
-    public static RegistryObject<Item> DIAMOND_UPGRADE = ITEMS.register("diamond_upgrade", ModItems::basicItem);
+    public static RegistryObject<Item> DIAMOND_UPGRADE = ITEMS.register("diamond_upgrade",
+            DiamondUpgradeItem::createDiamondUpgradeTemplate);
 
     //Daggers
     public static RegistryObject<Item> WOODEN_DAGGER = ITEMS.register("wooden_dagger",
@@ -74,6 +71,21 @@ public class ModItems {
             ()-> new KatanaItem(new Item.Properties().durability(190)));
     public static RegistryObject<Item> NETHERITE_KATANA = ITEMS.register("netherite_katana",
             ()-> new KatanaItem(new Item.Properties().durability(238)));
+
+    //Sabres
+
+    public static RegistryObject<Item> WOODEN_SABRE = ITEMS.register("wooden_sabre",
+            ()-> new SabreItem(new Item.Properties().durability(47)));
+    public static RegistryObject<Item> STONE_SABRE = ITEMS.register("stone_sabre",
+            ()-> new SabreItem(new Item.Properties().durability(105)));
+    public static RegistryObject<Item> IRON_SABRE = ITEMS.register("iron_sabre",
+            ()-> new SabreItem(new Item.Properties().durability(200)));
+    public static RegistryObject<Item> GOLD_SABRE = ITEMS.register("gold_sabre",
+            ()-> new SabreItem(new Item.Properties().durability(26)));
+    public static RegistryObject<Item> DIAMOND_SABRE = ITEMS.register("diamond_sabre",
+            ()-> new SabreItem(new Item.Properties().durability(1249)));
+    public static RegistryObject<Item> NETHERITE_SABRE = ITEMS.register("netherite_sabre",
+            ()-> new SabreItem(new Item.Properties().durability(1625)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
