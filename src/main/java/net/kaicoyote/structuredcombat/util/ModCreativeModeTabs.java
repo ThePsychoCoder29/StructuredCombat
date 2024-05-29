@@ -53,6 +53,14 @@ public class ModCreativeModeTabs {
                             output.accept(ModItems.GOLD_SABRE.get());
                             output.accept(ModItems.DIAMOND_SABRE.get());
                             output.accept(ModItems.NETHERITE_SABRE.get());
+
+                            //Spears
+                            output.accept(ModItems.WOODEN_SPEAR.get());
+                            output.accept(ModItems.STONE_SPEAR.get());
+                            output.accept(ModItems.IRON_SPEAR.get());
+                            output.accept(ModItems.GOLD_SPEAR.get());
+                            output.accept(ModItems.DIAMOND_SPEAR.get());
+                            output.accept(ModItems.NETHERITE_SPEAR.get());
                         }))
                         .build());
 

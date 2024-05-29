@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -16,12 +17,11 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.AbstractArrow.Pickup;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.apache.commons.lang3.function.TriFunction;
 import org.jetbrains.annotations.NotNull;
@@ -53,39 +53,23 @@ public class HatchetItem extends Item {
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        if (slot == EquipmentSlot.MAINHAND){
-            if (stack.is(ModItems.WOODEN_HATCHET.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(5.5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3));
-                builder.build();
-            }
-            if (stack.is(ModItems.STONE_HATCHET.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(7));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3));
-                builder.build();
-            }
-            if (stack.is(ModItems.IRON_HATCHET.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(7));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3));
-                builder.build();
-            }
-            if (stack.is(ModItems.GOLD_HATCHET.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(5.5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.6));
-                builder.build();
-            }
-            if (stack.is(ModItems.DIAMOND_HATCHET.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(7.5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.8));
-                builder.build();
-            }
-            if (stack.is(ModItems.NETHERITE_HATCHET.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(8.5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.8));
-                builder.build();
-            }
+        if (slot == EquipmentSlot.MAINHAND) {
+            attributeBuilder(builder, stack, ModItems.WOODEN_HATCHET.get(), 5.5, -3);
+            attributeBuilder(builder, stack, ModItems.STONE_HATCHET.get(), 7, -3);
+            attributeBuilder(builder, stack, ModItems.IRON_HATCHET.get(), 7, -3);
+            attributeBuilder(builder, stack, ModItems.GOLD_HATCHET.get(), 5.5, -2.6);
+            attributeBuilder(builder, stack, ModItems.DIAMOND_HATCHET.get(), 7.5, -2.8);
+            attributeBuilder(builder, stack, ModItems.NETHERITE_HATCHET.get(), 8.5, -2.8);
         }
         return builder.build();
+    }
+
+    public void attributeBuilder(ImmutableMultimap.Builder<Attribute, AttributeModifier> builder, ItemStack stack, Item item ,double dmg, double spd){
+        if(stack.is(item)){
+            builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(dmg));
+            builder.put(Attributes.ATTACK_SPEED, attributeSpd(spd));
+            builder.build();
+        }
     }
     public AttributeModifier attributeDmg(double amountDmg){
         return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);
@@ -101,7 +85,7 @@ public class HatchetItem extends Item {
 
     @Override
     public float getDestroySpeed(@NotNull ItemStack pStack, BlockState pState) {
-        if (pState.is(Blocks.COBWEB)) {
+        if (pState.is(BlockTags.MINEABLE_WITH_AXE)) {
             return 15.0F;
         } else {
             return 1.0F;
@@ -119,12 +103,14 @@ public class HatchetItem extends Item {
                         HatchetProjectileEntity hatchet = this.constructor.apply(pLevel, player, stack);
                         hatchet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.125F, 1.0F);
                         if (player.getAbilities().instabuild) {
-                            hatchet.pickup = AbstractArrow.Pickup.ALLOWED;
+                            hatchet.pickup = Pickup.CREATIVE_ONLY;
                         }
                         pLevel.addFreshEntity(hatchet);
                         pLevel.playSound(null, hatchet, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
                     }
-                    player.getInventory().removeItem(stack);
+                    if (player.getAbilities().instabuild) {
+                        player.getInventory().removeItem(stack);
+                    }
                 }
                 player.awardStat(Stats.ITEM_USED.get(this));
             }
@@ -133,9 +119,18 @@ public class HatchetItem extends Item {
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level pLevel, Player pPlayer, @NotNull InteractionHand pHand) {
-        ItemStack dagger = pPlayer.getItemInHand(pHand);
+        ItemStack hatchet = pPlayer.getItemInHand(pHand);
         pPlayer.startUsingItem(pHand);
-        return InteractionResultHolder.success(dagger);
+        return InteractionResultHolder.success(hatchet);
     }
 
+    @Override
+    public boolean isEnchantable(@NotNull ItemStack pStack) {
+        return true;
+    }
+
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return true;
+    }
 }

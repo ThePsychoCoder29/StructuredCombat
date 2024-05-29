@@ -1,0 +1,10 @@
+{
+  "values": [
+    "structuredcombat:wooden_katana",
+    "structuredcombat:stone_katana",
+    "structuredcombat:iron_katana",
+    "structuredcombat:gold_katana",
+    "structuredcombat:diamond_katana",
+    "structuredcombat:netherite_katana"
+  ]
+}

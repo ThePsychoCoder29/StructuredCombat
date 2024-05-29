@@ -1,2 +1,5 @@
-// 1.20.1	2024-05-27T20:09:58.9211906	Tags for minecraft:item mod id structuredcombat
-2fc176734505866f867af0eae6fa282490b8f784 data/structuredcombat/tags/items/smithing_weapons.json
+// 1.20.1	2024-05-29T16:38:40.5047611	Tags for minecraft:item mod id structuredcombat
+9247f4fdc0a441217d6261ad530f77a40b04555d data/structuredcombat/tags/items/crit_katanas.json
+3268fecaad186fa745d73476791b693ed6abbb02 data/structuredcombat/tags/items/pillager_sabres.json
+af13f16416c0890954064cbe40a30a0c4278509a data/structuredcombat/tags/items/smithing_weapons.json
+0df5928dea997b17ff52c3d39e1dc4fa8447bf07 data/structuredcombat/tags/items/wooden_tools.json

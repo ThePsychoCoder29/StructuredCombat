@@ -1,0 +1,91 @@
+{
+  "parent": "structuredcombat:root",
+  "criteria": {
+    "netherite_dagger": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_dagger"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "netherite_hatchet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_hatchet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "netherite_sabre": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_sabre"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "netherite_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "netherite_spear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_spear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.structuredcombat.obtain_netherite_weapon.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:netherite_upgrade_smithing_template",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.structuredcombat.obtain_netherite_weapon"
+    }
+  },
+  "requirements": [
+    [
+      "netherite_dagger",
+      "netherite_hatchet",
+      "netherite_sabre",
+      "netherite_katana",
+      "netherite_spear"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

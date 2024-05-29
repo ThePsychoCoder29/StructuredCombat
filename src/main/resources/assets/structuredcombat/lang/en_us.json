@@ -30,6 +30,20 @@
   "item.structuredcombat.diamond_sabre" : "Diamond Sabre",
   "item.structuredcombat.netherite_sabre" : "Netherite Sabre",
 
+  "item.structuredcombat.wooden_spear" : "Wooden Spear",
+  "item.structuredcombat.stone_spear" : "Stone Spear",
+  "item.structuredcombat.iron_spear" : "Iron Spear",
+  "item.structuredcombat.gold_spear" : "Gold Spear",
+  "item.structuredcombat.diamond_spear" : "Diamond Spear",
+  "item.structuredcombat.netherite_spear" : "Netherite Spear",
+
+  "item.structuredcombat.smithing_template.applies_to": "Applies To:",
+  "item.structuredcombat.smithing_template.ingredients": "Ingredients:",
+  "item.structuredcombat.smithing_template.diamond_upgrade.applies_to": "Structured Combat Weapons",
+  "item.structuredcombat.smithing_template.diamond_upgrade.ingredients": "Diamond",
+  "item.structuredcombat.smithing_template.diamond_upgrade.base_slot_description": "Add Structured Combat's Weapons",
+  "item.structuredcombat.smithing_template.diamond_upgrade.additions_slot_description": "Add Diamond",
+
   "entity.structuredcombat.wooden_dagger" : "Wooden Dagger",
   "entity.structuredcombat.stone_dagger" : "Stone Dagger",
   "entity.structuredcombat.iron_dagger" : "Iron Dagger",
@@ -44,16 +58,45 @@
   "entity.structuredcombat.diamond_hatchet" : "Diamond Hatchet",
   "entity.structuredcombat.netherite_hatchet" : "Netherite Hatchet",
 
+  "entity.structuredcombat.wooden_spear" : "Wooden Spear",
+  "entity.structuredcombat.stone_spear" : "Stone Spear",
+  "entity.structuredcombat.iron_spear" : "Iron Spear",
+  "entity.structuredcombat.gold_spear" : "Gold Spear",
+  "entity.structuredcombat.diamond_spear" : "Diamond Spear",
+  "entity.structuredcombat.netherite_spear" : "Netherite Spear",
+
   "enchantment.structuredcombat.chaining": "Chaining",
   "enchantment.structuredcombat.eagle_eyes": "Eagle Eyes",
+  "enchantment.structuredcombat.recall": "Recall",
 
+  "advancements.structuredcombat.root" : "Structured Combat",
+  "advancements.structuredcombat.root.description" : "Combat Awaits!",
 
-  "item.structuredcombat.smithing_template.applies_to": "Applies To:",
-  "item.structuredcombat.smithing_template.ingredients": "Ingredients:",
-  "item.structuredcombat.smithing_template.diamond_upgrade.applies_to": "Structured Combat Weapons",
-  "item.structuredcombat.smithing_template.diamond_upgrade.ingredients": "Diamond",
-  "item.structuredcombat.smithing_template.diamond_upgrade.base_slot_description": "Add Structured Combat's Weapons",
-  "item.structuredcombat.smithing_template.diamond_upgrade.additions_slot_description": "Add Diamond",
+  "advancements.structuredcombat.obtain_diamond_weapon" : "Moving Up",
+  "advancements.structuredcombat.obtain_diamond_weapon.description" : "Upgrade any weapon from Iron to Diamond",
+  "advancements.structuredcombat.obtain_netherite_weapon" : "Hot Upgrades",
+  "advancements.structuredcombat.obtain_netherite_weapon.description" : "Upgrade any weapon from Diamond to Netherite",
+  "advancements.structuredcombat.netherite_tools" : "Go Outside",
+  "advancements.structuredcombat.netherite_tools.description" : "Upgrade all weapons in the mod to Netherite",
 
-  "creativetab.structuredcombat.tab": "Structure Combat Tab"
+  "advancements.structuredcombat.obtain_dagger" : "Knife To Meet You",
+  "advancements.structuredcombat.obtain_dagger.description" : "Find a Dagger in the Mines",
+
+  "advancements.structuredcombat.obtain_hatchet" : "Two Certainties : Death, Axes",
+  "advancements.structuredcombat.obtain_hatchet.description" : "Find a Hatchet in a Winter Wonderland",
+
+  "advancements.structuredcombat.obtain_katana" : "To Dai(to) For",
+  "advancements.structuredcombat.obtain_katana.description" : "Find a Katana deep in the Jungle",
+  "advancements.structuredcombat.break_katana" : "Just For Show",
+  "advancements.structuredcombat.break_katana.description" : "Use a Gold Katana until its destroyed",
+
+  "advancements.structuredcombat.obtain_sabre" : "Sabre the Moment",
+  "advancements.structuredcombat.kill_pillager_with_sabre" : "Pillage This!",
+  "advancements.structuredcombat.kill_pillager_with_sabre.description" : "Kill a Pillager with a Sabre",
+  "advancements.structuredcombat.obtain_sabre.description" : "Find a Sabre beneath the Sea",
+
+  "advancements.structuredcombat.obtain_spear" : "Poor Man's Trident",
+  "advancements.structuredcombat.obtain_spear.description" : "Find a Spear in the Savanna Grasslands",
+
+  "creativetab.structuredcombat.tab": "Structured Combat Tab"
 }

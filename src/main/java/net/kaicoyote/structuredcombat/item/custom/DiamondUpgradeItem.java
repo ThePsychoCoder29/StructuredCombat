@@ -14,21 +14,28 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class DiamondUpgradeItem extends SmithingTemplateItem {
-    private static final Component APPLIES_TO_TITLE;
+    //Empty Slots
     private static final ResourceLocation EMPTY_SLOT_DAGGER;
     private static final ResourceLocation EMPTY_SLOT_HATCHET;
     private static final ResourceLocation EMPTY_SLOT_KATANA;
     private static final ResourceLocation EMPTY_SLOT_SABRE;
     private static final ResourceLocation EMPTY_SLOT_DIAMOND;
+    private static final ResourceLocation EMPTY_SLOT_SPEAR;
+
+    //Components
     private static final Component DIAMOND_UPGRADE;
+    private static final Component APPLIES_TO_TITLE;
     private static final Component DIAMOND_UPGRADE_APPLIES_TO;
     private static final Component DIAMOND_UPGRADE_INGREDIENTS;
     private static final Component DIAMOND_UPGRADE_BASE_SLOT_DESCRIPTION;
     private static final Component DIAMOND_UPGRADE_ADDITIONS_SLOT_DESCRIPTION;
     private static final Component INGREDIENTS_TITLE;
+
+    //Variables
     private final Component appliesTo;
     private final Component ingredients;
     private final Component upgradeDescription;
+
     public DiamondUpgradeItem(Component pAppliesTo, Component pIngredients, Component pUpgradeDescription, Component pBaseSlotDescription, Component pAdditionsSlotDescription, List<ResourceLocation> pBaseSlotEmptyIcons, List<ResourceLocation> pAdditionalSlotEmptyIcons) {
         super(pAppliesTo, pIngredients, pUpgradeDescription, pBaseSlotDescription, pAdditionsSlotDescription, pBaseSlotEmptyIcons, pAdditionalSlotEmptyIcons);
         this.appliesTo = pAppliesTo;
@@ -41,7 +48,7 @@ public class DiamondUpgradeItem extends SmithingTemplateItem {
 
     }
     public static List<ResourceLocation> createDiamondUpgradeIconList() {
-        return List.of(EMPTY_SLOT_DAGGER, EMPTY_SLOT_HATCHET, EMPTY_SLOT_KATANA, EMPTY_SLOT_SABRE);
+        return List.of(EMPTY_SLOT_DAGGER, EMPTY_SLOT_HATCHET, EMPTY_SLOT_KATANA, EMPTY_SLOT_SABRE, EMPTY_SLOT_SPEAR);
     }
 
     public static List<ResourceLocation> createDiamondUpgradeMaterialList() {
@@ -72,5 +79,6 @@ public class DiamondUpgradeItem extends SmithingTemplateItem {
         EMPTY_SLOT_HATCHET = new ResourceLocation("structuredcombat:item/empty_slot_hatchet");
         EMPTY_SLOT_KATANA = new ResourceLocation("structuredcombat:item/empty_slot_katana");
         EMPTY_SLOT_SABRE = new ResourceLocation("structuredcombat:item/empty_slot_sabre");
+        EMPTY_SLOT_SPEAR = new ResourceLocation("structuredcombat:item/empty_slot_spear");
     }
 }

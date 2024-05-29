@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "  P",
+    " P ",
+    "S  "
+  ],
+  "result": {
+    "item": "structuredcombat:wooden_spear"
+  },
+  "show_notification": true
+}

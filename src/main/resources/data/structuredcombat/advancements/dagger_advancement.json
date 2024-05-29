@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "structuredcombat:iron_dagger"
+    },
+    "title": {
+      "translate" : "advancements.structuredcombat.obtain_dagger"
+    },
+    "description": {
+      "translate": "advancements.structuredcombat.obtain_dagger.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent" : "structuredcombat:root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:iron_dagger"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

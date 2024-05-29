@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:diamond"
+  },
+  "base": {
+    "item": "structuredcombat:iron_spear"
+  },
+  "result": {
+    "item": "structuredcombat:diamond_spear"
+  },
+  "template": {
+    "item": "structuredcombat:diamond_upgrade"
+  }
+}

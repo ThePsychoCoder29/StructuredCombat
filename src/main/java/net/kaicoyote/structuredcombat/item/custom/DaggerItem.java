@@ -2,12 +2,13 @@ package net.kaicoyote.structuredcombat.item.custom;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import net.kaicoyote.structuredcombat.enchantment.ModEnchantments;
 import net.kaicoyote.structuredcombat.entity.custom.entities.daggers.DaggerProjectileEntity;
 import net.kaicoyote.structuredcombat.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -16,7 +17,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.AbstractArrow.Pickup;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
@@ -52,14 +53,15 @@ public class DaggerItem extends Item implements IForgeItem {
                         DaggerProjectileEntity dagger = this.constructor.apply(pLevel, player, stack);
                         dagger.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.125F, 1.0F);
                         if (player.getAbilities().instabuild) {
-                            dagger.pickup = AbstractArrow.Pickup.ALLOWED;
+                            dagger.pickup = Pickup.CREATIVE_ONLY;
                         }
                         pLevel.addFreshEntity(dagger);
                         pLevel.playSound(null, dagger, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
                     }
-                    player.getInventory().removeItem(stack);
+                    if (!player.getAbilities().instabuild) {
+                        player.getInventory().removeItem(stack);
+                    }
                 }
-                player.awardStat(Stats.ITEM_USED.get(this));
             }
         }
     }
@@ -120,7 +122,7 @@ public class DaggerItem extends Item implements IForgeItem {
         if (pState.is(Blocks.COBWEB)) {
             return 15.0F;
         } else {
-            return 1.0F;
+            return pState.is(BlockTags.SWORD_EFFICIENT) ? 1.5F : 1.0F;
         }
     }
 
@@ -141,6 +143,16 @@ public class DaggerItem extends Item implements IForgeItem {
     @Override
     public @NotNull UseAnim getUseAnimation(@NotNull ItemStack pStack) {
         return UseAnim.SPEAR;
+    }
+
+    @Override
+    public boolean isEnchantable(@NotNull ItemStack pStack) {
+        return true;
+    }
+
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return true;
     }
 
 }

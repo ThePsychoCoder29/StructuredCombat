@@ -16,6 +16,9 @@ public class ModTags {
     }
     public static class Items {
         public static final TagKey<Item> SMITHING_WEAPONS = tag("smithing_weapons");
+        public static final TagKey<Item> CRIT_KATANAS = tag("crit_katanas");
+        public static final TagKey<Item> PILLAGER_SABRES = tag("pillager_sabres");
+        public static final TagKey<Item> WOODEN_TOOLS = tag("wooden_tools");
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(StructuredCombat.MOD_ID, name));
 

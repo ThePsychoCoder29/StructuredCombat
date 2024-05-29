@@ -119,38 +119,72 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         smithingTableRecipeNetherite(ModItems.DIAMOND_KATANA.get(), ModItems.NETHERITE_KATANA.get(), pWriter, "netherite_katana");
 
         //Sabres
-//        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.WOODEN_SABRE.get())
-//                .pattern("  P")
-//                .pattern(" P ")
-//                .pattern("S  ")
-//                .define('P',  ItemTags.PLANKS)
-//                .define('S', Items.STICK)
-//                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
-//                .showNotification(true)
-//                .save(pWriter);
-//
-//        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.STONE_SABRE.get())
-//                .pattern("  C")
-//                .pattern(" C ")
-//                .pattern("S  ")
-//                .define('C',  ItemTags.STONE_TOOL_MATERIALS)
-//                .define('S', Items.STICK)
-//                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
-//                .showNotification(true)
-//                .save(pWriter);
-//
-//        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GOLD_SABRE.get())
-//                .pattern("  G")
-//                .pattern(" G ")
-//                .pattern("S  ")
-//                .define('G',  Items.GOLD_INGOT)
-//                .define('S', Items.STICK)
-//                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
-//                .showNotification(true)
-//                .save(pWriter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.WOODEN_SABRE.get())
+                .pattern(" P")
+                .pattern(" P")
+                .pattern("PS")
+                .define('P',  ItemTags.PLANKS)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.STONE_SABRE.get())
+                .pattern(" C")
+                .pattern(" C")
+                .pattern("CS")
+                .define('C',  ItemTags.STONE_TOOL_MATERIALS)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GOLD_SABRE.get())
+                .pattern(" G")
+                .pattern(" G")
+                .pattern("GS")
+                .define('G',  Items.GOLD_INGOT)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
 
         smithingTableRecipeDiamond(ModItems.IRON_SABRE.get(), ModItems.DIAMOND_SABRE.get(), pWriter, "diamond_sabre");
         smithingTableRecipeNetherite(ModItems.DIAMOND_SABRE.get(), ModItems.NETHERITE_SABRE.get(), pWriter, "netherite_sabre");
+
+        //Sabres
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.WOODEN_SPEAR.get())
+                .pattern("  P")
+                .pattern(" P ")
+                .pattern("S  ")
+                .define('P',  ItemTags.PLANKS)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.STONE_SPEAR.get())
+                .pattern("  C")
+                .pattern(" C ")
+                .pattern("S  ")
+                .define('C',  ItemTags.STONE_TOOL_MATERIALS)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GOLD_SPEAR.get())
+                .pattern("  G")
+                .pattern(" G ")
+                .pattern("S  ")
+                .define('G',  Items.GOLD_INGOT)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        smithingTableRecipeDiamond(ModItems.IRON_SPEAR.get(), ModItems.DIAMOND_SPEAR.get(), pWriter, "diamond_spear");
+        smithingTableRecipeNetherite(ModItems.DIAMOND_SPEAR.get(), ModItems.NETHERITE_SPEAR.get(), pWriter, "netherite_spear");
 
         //Items
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_UPGRADE.get(), 2)

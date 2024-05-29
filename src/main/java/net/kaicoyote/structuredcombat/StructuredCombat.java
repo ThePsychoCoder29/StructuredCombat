@@ -5,6 +5,7 @@ import net.kaicoyote.structuredcombat.enchantment.ModEnchantments;
 import net.kaicoyote.structuredcombat.entity.ModEntities;
 import net.kaicoyote.structuredcombat.entity.client.renderer.daggers.*;
 import net.kaicoyote.structuredcombat.entity.client.renderer.hatchets.*;
+import net.kaicoyote.structuredcombat.entity.client.renderer.spear.*;
 import net.kaicoyote.structuredcombat.item.ModItems;
 import net.kaicoyote.structuredcombat.item.custom.DiamondUpgradeItem;
 import net.kaicoyote.structuredcombat.loot.ModLootModifiers;
@@ -81,6 +82,14 @@ public class StructuredCombat
             EntityRenderers.register(ModEntities.GOLD_HATCHET.get(), GoldHatchetRenderer::new);
             EntityRenderers.register(ModEntities.DIAMOND_HATCHET.get(), DiamondHatchetRenderer::new);
             EntityRenderers.register(ModEntities.NETHERITE_HATCHET.get(), NetheriteHatchetRenderer::new);
+
+            //Spears
+            EntityRenderers.register(ModEntities.WOODEN_SPEAR.get(), WoodenSpearRenderer::new);
+            EntityRenderers.register(ModEntities.STONE_SPEAR.get(), StoneSpearRenderer::new);
+            EntityRenderers.register(ModEntities.IRON_SPEAR.get(), IronSpearRenderer::new);
+            EntityRenderers.register(ModEntities.GOLD_SPEAR.get(), GoldSpearRenderer::new);
+            EntityRenderers.register(ModEntities.DIAMOND_SPEAR.get(), DiamondSpearRenderer::new);
+            EntityRenderers.register(ModEntities.NETHERITE_SPEAR.get(), NetheriteSpearRenderer::new);
         }
     }
 }

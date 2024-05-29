@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "structuredcombat:gold_katana"
+    },
+    "title": {
+      "translate" : "advancements.structuredcombat.break_katana"
+    },
+    "description": {
+      "translate": "advancements.structuredcombat.break_katana.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "structuredcombat:katana_advancement",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:item_durability_changed",
+      "conditions": {
+        "durability": 0,
+        "item": {
+          "items": [
+            "structuredcombat:gold_katana"
+          ]
+        }
+      }
+    }
+  }
+}

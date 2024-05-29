@@ -1,0 +1,62 @@
+{
+  "parent": "structuredcombat:root",
+  "criteria": {
+    "netherite_tools": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_dagger"
+            ]
+          },
+          {
+            "items": [
+              "structuredcombat:netherite_hatchet"
+            ]
+          },
+          {
+            "items": [
+              "structuredcombat:netherite_sabre"
+            ]
+          },
+          {
+            "items": [
+              "structuredcombat:netherite_katana"
+            ]
+          },
+          {
+            "items": [
+              "structuredcombat:netherite_spear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.structuredcombat.netherite_tools.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "structuredcombat:netherite_katana",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.structuredcombat.netherite_tools"
+    }
+  },
+  "requirements": [
+    [
+      "netherite_tools"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

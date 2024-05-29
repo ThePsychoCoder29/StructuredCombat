@@ -1,5 +1,10 @@
 package net.kaicoyote.structuredcombat.entity.custom.entities.hatchets;
 
+import net.kaicoyote.structuredcombat.enchantment.ModEnchantments;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -13,18 +18,29 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
 public class HatchetProjectileEntity extends AbstractArrow {
-    private ItemStack hatchetitem;
+    private static final EntityDataAccessor<Byte> ID_RECALL;
+    private ItemStack hatchetItem;
     private boolean dealtDamage;
+    private int clientSideReturnTridentTickCount;
+
     public HatchetProjectileEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack, EntityType<? extends HatchetProjectileEntity> dagger) {
         super(dagger, pShooter, pLevel);
-        this.hatchetitem = pStack.copy();
+        this.hatchetItem = pStack.copy();
+        this.entityData.set(ID_RECALL, (byte)pStack.getEnchantmentLevel(ModEnchantments.RECALL.get()));
     }
 
     public HatchetProjectileEntity(EntityType<? extends HatchetProjectileEntity> entity, Level pLevel){
         super(entity, pLevel);
+    }
+
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(ID_RECALL, (byte)0);
     }
 
     @Override
@@ -33,12 +49,29 @@ public class HatchetProjectileEntity extends AbstractArrow {
             this.dealtDamage = true;
         }
         Entity owner = this.getOwner();
-        if ((this.dealtDamage || this.isNoPhysics()) && owner != null) {
+        int recall_data = this.entityData.get(ID_RECALL);
+        if (recall_data > 0 && (this.dealtDamage || this.isNoPhysics()) && owner != null) {
             if (!this.isAcceptableReturnOwner()) {
                 if (!this.level().isClientSide && this.pickup == Pickup.ALLOWED) {
-                    this.spawnAtLocation(this.getPickupItem(), -1F);
+                    this.spawnAtLocation(this.getPickupItem(), 0.1F);
                 }
+
                 this.discard();
+            } else {
+                this.setNoPhysics(true);
+                Vec3 owner_pos = owner.getEyePosition().subtract(this.position());
+                this.setPosRaw(this.getX(), this.getY() + owner_pos.y * 0.015 * (double)recall_data, this.getZ());
+                if (this.level().isClientSide) {
+                    this.yOld = this.getY();
+                }
+
+                double scale_factor = 0.05 * (double)recall_data;
+                this.setDeltaMovement(this.getDeltaMovement().scale(0.95).add(owner_pos.normalize().scale(scale_factor)));
+                if (this.clientSideReturnTridentTickCount == 0) {
+                    this.playSound(SoundEvents.TRIDENT_RETURN, 10.0F, 1.0F);
+                }
+
+                ++this.clientSideReturnTridentTickCount;
             }
         }
         super.tick();
@@ -91,11 +124,29 @@ public class HatchetProjectileEntity extends AbstractArrow {
 
     @Override
     protected @NotNull ItemStack getPickupItem() {
-        return this.hatchetitem.copy();
+        return this.hatchetItem.copy();
     }
 
     @Override
     public boolean shouldRender(double pX, double pY, double pZ) {
         return true;
+    }
+
+    @Override
+    public void readAdditionalSaveData(@NotNull CompoundTag pCompound) {
+        super.readAdditionalSaveData(pCompound);
+        this.entityData.set(ID_RECALL, ((byte) hatchetItem.getEnchantmentLevel(ModEnchantments.RECALL.get())));
+    }
+
+    @Override
+    protected void tickDespawn() {
+        int recall = this.entityData.get(ID_RECALL);
+        if (this.pickup != Pickup.ALLOWED || recall <= 0) {
+            super.tickDespawn();
+        }
+    }
+
+    static {
+        ID_RECALL = SynchedEntityData.defineId(HatchetProjectileEntity.class, EntityDataSerializers.BYTE);
     }
 }

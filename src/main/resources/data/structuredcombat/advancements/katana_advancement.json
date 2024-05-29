@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "structuredcombat:iron_katana"
+    },
+    "title": {
+      "translate" : "advancements.structuredcombat.obtain_katana"
+    },
+    "description": {
+      "translate": "advancements.structuredcombat.obtain_katana.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "structuredcombat:dagger_advancement",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:iron_katana"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

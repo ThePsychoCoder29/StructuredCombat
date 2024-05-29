@@ -1,0 +1,91 @@
+{
+  "parent": "structuredcombat:root",
+  "criteria": {
+    "diamond_dagger": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:diamond_dagger"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "diamond_hatchet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:diamond_hatchet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "diamond_sabre": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:diamond_sabre"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "diamond_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:diamond_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "diamond_spear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:diamond_spear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.structuredcombat.obtain_diamond_weapon.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "structuredcombat:diamond_upgrade",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.structuredcombat.obtain_diamond_weapon"
+    }
+  },
+  "requirements": [
+    [
+      "diamond_dagger",
+      "diamond_hatchet",
+      "diamond_sabre",
+      "diamond_katana",
+      "diamond_spear"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

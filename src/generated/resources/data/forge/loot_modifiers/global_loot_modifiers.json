@@ -1,10 +1,11 @@
 {
   "entries": [
     "structuredcombat:iron_hatchet_from_snowy_villages",
-    "structuredcombat:iron_katana_from_dungeons",
+    "structuredcombat:iron_dagger_from_mineshaft",
+    "structuredcombat:iron_spear_from_savanna_villages",
+    "structuredcombat:iron_katana_from_jungle_temple",
     "structuredcombat:iron_sabre_from_shipwrecks_supply",
     "structuredcombat:iron_sabre_from_buried_treasure",
-    "structuredcombat:iron_dagger_from_dungeons",
     "structuredcombat:iron_sabre_from_shipwrecks_treasure"
   ],
   "replace": false

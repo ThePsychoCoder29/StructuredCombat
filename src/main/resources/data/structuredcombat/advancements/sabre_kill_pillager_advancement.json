@@ -1,0 +1,50 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:white_banner",
+      "nbt": "{BlockEntityTag:{Patterns:[{Color:9,Pattern:\"mr\"},{Color:8,Pattern:\"bs\"},{Color:7,Pattern:\"cs\"},{Color:8,Pattern:\"bo\"},{Color:15,Pattern:\"ms\"},{Color:8,Pattern:\"hh\"},{Color:8,Pattern:\"mc\"},{Color:15,Pattern:\"bo\"}],id:\"minecraft:banner\"},HideFlags:32,display:{Name:'{\"color\":\"gold\",\"translate\":\"block.minecraft.ominous_banner\"}'}}"
+    },
+    "title": {
+      "translate": "advancements.structuredcombat.kill_pillager_with_sabre"
+    },
+    "description": {
+      "translate": "advancements.structuredcombat.kill_pillager_with_sabre.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "structuredcombat:sabre_advancement",
+  "criteria": {
+    "killed_pillager": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": [
+                "structuredcombat:wooden_sabre",
+                "structuredcombat:stone_sabre",
+                "structuredcombat:iron_sabre",
+                "structuredcombat:gold_sabre",
+                "structuredcombat:diamond_sabre",
+                "structuredcombat:netherite_sabre"
+              ],
+              "tag": "structuredcombat:pillager_sabres",
+              "count": 1
+            }
+          }
+        ],
+        "entity": {
+          "type": "minecraft:vindicator"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "killed_pillager"
+    ]
+  ]
+}

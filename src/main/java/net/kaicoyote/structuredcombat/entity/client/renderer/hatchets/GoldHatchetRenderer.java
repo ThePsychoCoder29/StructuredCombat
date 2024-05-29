@@ -6,7 +6,6 @@ import com.mojang.math.Axis;
 import net.kaicoyote.structuredcombat.StructuredCombat;
 import net.kaicoyote.structuredcombat.entity.client.ModModelLayers;
 import net.kaicoyote.structuredcombat.entity.custom.entities.hatchets.GoldHatchetProjectileEntity;
-import net.kaicoyote.structuredcombat.entity.custom.models.DaggerModel;
 import net.kaicoyote.structuredcombat.entity.custom.models.HatchetModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;

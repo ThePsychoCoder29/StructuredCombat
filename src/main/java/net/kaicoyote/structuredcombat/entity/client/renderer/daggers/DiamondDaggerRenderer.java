@@ -21,6 +21,7 @@ import org.jetbrains.annotations.NotNull;
 @OnlyIn(Dist.CLIENT)
 public class DiamondDaggerRenderer extends EntityRenderer<DiamondDaggerProjectileEntity>{
     private final DaggerModel model;
+
     public DiamondDaggerRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);
         this.model = new DaggerModel(pContext.bakeLayer(ModModelLayers.DIAMOND_DAGGER));

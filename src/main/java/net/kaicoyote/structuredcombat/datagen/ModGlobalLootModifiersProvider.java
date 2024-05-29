@@ -18,13 +18,15 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     @Override
     protected void start() {
         //Structures
-        add("iron_dagger_from_dungeons", structureLIC("simple_dungeons", ModItems.IRON_DAGGER.get()));
-        add("iron_katana_from_dungeons", structureLIC("jungle_temple", ModItems.IRON_KATANA.get()));
+        add("iron_dagger_from_mineshaft", structureLIC("abandoned_mineshaft", ModItems.IRON_DAGGER.get()));
+        add("iron_katana_from_jungle_temple", structureLIC("jungle_temple", ModItems.IRON_KATANA.get()));
         add("iron_sabre_from_shipwrecks_supply", structureLIC("shipwreck_supply", ModItems.IRON_SABRE.get()));
         add("iron_sabre_from_shipwrecks_treasure", structureLIC("shipwreck_treasure", ModItems.IRON_SABRE.get()));
         add("iron_sabre_from_buried_treasure", structureLIC("buried_treasure", ModItems.IRON_SABRE.get()));
 
-        add("iron_hatchet_from_snowy_villages", villageLIC("village_snowy_house", ModItems.IRON_HATCHET.get()));
+        //Villages
+        add("iron_spear_from_savanna_villages", villageLIC("savanna_house", ModItems.IRON_SPEAR.get()));
+        add("iron_hatchet_from_snowy_villages", villageLIC("snowy_house", ModItems.IRON_HATCHET.get()));
     }
 
     public static ModStructureLootModifier structureLIC(String chestLoc, Item item){
@@ -35,7 +37,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
 
     public static ModStructureLootModifier villageLIC(String chestLoc, Item item){
         return new ModStructureLootModifier(new LootItemCondition[]{
-                new LootTableIdCondition.Builder(new ResourceLocation("chests/village/" + chestLoc)).build()
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/village/village_" + chestLoc)).build()
         }, item);
     }
 }

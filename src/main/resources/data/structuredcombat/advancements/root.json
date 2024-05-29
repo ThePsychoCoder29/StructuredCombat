@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "structuredcombat:diamond_upgrade"
+    },
+    "title": {
+      "translate": "advancements.structuredcombat.root"
+    },
+    "description": {
+      "translate": "advancements.structuredcombat.root.description"
+    },
+    "background": "structuredcombat:textures/block/advancement_tab_bg.png",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "structuredcombat:wooden_tools"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " G",
+    " G",
+    "GS"
+  ],
+  "result": {
+    "item": "structuredcombat:gold_sabre"
+  },
+  "show_notification": true
+}

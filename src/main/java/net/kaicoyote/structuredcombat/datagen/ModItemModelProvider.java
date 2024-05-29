@@ -52,6 +52,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         handHeldItem(ModItems.DIAMOND_SABRE);
         handHeldItem(ModItems.NETHERITE_SABRE);
 
+        //Sabres
+        handHeldItem(ModItems.WOODEN_SPEAR);
+        handHeldItem(ModItems.STONE_SPEAR);
+        handHeldItem(ModItems.IRON_SPEAR);
+        handHeldItem(ModItems.GOLD_SPEAR);
+        handHeldItem(ModItems.DIAMOND_SPEAR);
+        handHeldItem(ModItems.NETHERITE_SPEAR);
+
         //Items
         handHeldItem(ModItems.DIAMOND_UPGRADE);
     }

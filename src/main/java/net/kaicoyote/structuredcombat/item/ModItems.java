@@ -2,7 +2,13 @@ package net.kaicoyote.structuredcombat.item;
 
 import net.kaicoyote.structuredcombat.StructuredCombat;
 import net.kaicoyote.structuredcombat.entity.custom.entities.daggers.*;
-import net.kaicoyote.structuredcombat.entity.custom.entities.hatchets.*;
+import net.kaicoyote.structuredcombat.entity.custom.entities.hatchets.DiamondHatchetProjectileEntity;
+import net.kaicoyote.structuredcombat.entity.custom.entities.hatchets.GoldHatchetProjectileEntity;
+import net.kaicoyote.structuredcombat.entity.custom.entities.hatchets.IronHatchetProjectileEntity;
+import net.kaicoyote.structuredcombat.entity.custom.entities.hatchets.NetheriteHatchetProjectileEntity;
+import net.kaicoyote.structuredcombat.entity.custom.entities.hatchets.StoneHatchetProjectileEntity;
+import net.kaicoyote.structuredcombat.entity.custom.entities.hatchets.WoodenHatchetProjectileEntity;
+import net.kaicoyote.structuredcombat.entity.custom.entities.spears.*;
 import net.kaicoyote.structuredcombat.item.custom.*;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -73,7 +79,6 @@ public class ModItems {
             ()-> new KatanaItem(new Item.Properties().durability(238)));
 
     //Sabres
-
     public static RegistryObject<Item> WOODEN_SABRE = ITEMS.register("wooden_sabre",
             ()-> new SabreItem(new Item.Properties().durability(47)));
     public static RegistryObject<Item> STONE_SABRE = ITEMS.register("stone_sabre",
@@ -85,7 +90,21 @@ public class ModItems {
     public static RegistryObject<Item> DIAMOND_SABRE = ITEMS.register("diamond_sabre",
             ()-> new SabreItem(new Item.Properties().durability(1249)));
     public static RegistryObject<Item> NETHERITE_SABRE = ITEMS.register("netherite_sabre",
-            ()-> new SabreItem(new Item.Properties().durability(1625)));
+            ()-> new SabreItem(new Item.Properties().durability(1625)));//Sabres
+
+    //Spears
+    public static RegistryObject<Item> WOODEN_SPEAR = ITEMS.register("wooden_spear",
+            ()-> new SpearItem(WoodenSpearProjectileEntity::new, new Item.Properties().durability(60)));
+    public static RegistryObject<Item> STONE_SPEAR = ITEMS.register("stone_spear",
+            ()-> new SpearItem(StoneSpearProjectileEntity::new, new Item.Properties().durability(131)));
+    public static RegistryObject<Item> IRON_SPEAR = ITEMS.register("iron_spear",
+            ()-> new SpearItem(IronSpearProjectileEntity::new, new Item.Properties().durability(250)));
+    public static RegistryObject<Item> GOLD_SPEAR = ITEMS.register("gold_spear",
+            ()-> new SpearItem(GoldSpearProjectileEntity::new, new Item.Properties().durability(32)));
+    public static RegistryObject<Item> DIAMOND_SPEAR = ITEMS.register("diamond_spear",
+            ()-> new SpearItem(DiamondSpearProjectileEntity::new, new Item.Properties().durability(1558)));
+    public static RegistryObject<Item> NETHERITE_SPEAR = ITEMS.register("netherite_spear",
+            ()-> new SpearItem(NetheriteSpearProjectileEntity::new, new Item.Properties().durability(2027)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
