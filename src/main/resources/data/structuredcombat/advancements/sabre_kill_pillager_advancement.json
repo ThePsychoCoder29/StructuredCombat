@@ -14,7 +14,7 @@
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "structuredcombat:sabre_advancement",
+  "parent": "structuredcombat:root",
   "criteria": {
     "killed_pillager": {
       "trigger": "minecraft:player_killed_entity",
@@ -23,16 +23,7 @@
           {
             "condition": "minecraft:match_tool",
             "predicate": {
-              "items": [
-                "structuredcombat:wooden_sabre",
-                "structuredcombat:stone_sabre",
-                "structuredcombat:iron_sabre",
-                "structuredcombat:gold_sabre",
-                "structuredcombat:diamond_sabre",
-                "structuredcombat:netherite_sabre"
-              ],
-              "tag": "structuredcombat:pillager_sabres",
-              "count": 1
+              "tag": "structuredcombat:pillager_sabres"
             }
           }
         ],

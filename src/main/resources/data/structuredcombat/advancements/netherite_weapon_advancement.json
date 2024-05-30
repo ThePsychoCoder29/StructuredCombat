@@ -1,5 +1,5 @@
 {
-  "parent": "structuredcombat:root",
+  "parent": "structuredcombat:diamond_weapon_advancement",
   "criteria": {
     "netherite_dagger": {
       "conditions": {

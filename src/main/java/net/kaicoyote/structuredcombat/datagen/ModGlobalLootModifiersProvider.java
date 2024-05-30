@@ -23,6 +23,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("iron_sabre_from_shipwrecks_supply", structureLIC("shipwreck_supply", ModItems.IRON_SABRE.get()));
         add("iron_sabre_from_shipwrecks_treasure", structureLIC("shipwreck_treasure", ModItems.IRON_SABRE.get()));
         add("iron_sabre_from_buried_treasure", structureLIC("buried_treasure", ModItems.IRON_SABRE.get()));
+        add("iron_longsword_from_woodland_mansion", structureLIC("woodland_mansion", ModItems.IRON_LONGSWORD.get()));
 
         //Villages
         add("iron_spear_from_savanna_villages", villageLIC("savanna_house", ModItems.IRON_SPEAR.get()));

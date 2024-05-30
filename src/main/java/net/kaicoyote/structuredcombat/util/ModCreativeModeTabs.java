@@ -61,6 +61,14 @@ public class ModCreativeModeTabs {
                             output.accept(ModItems.GOLD_SPEAR.get());
                             output.accept(ModItems.DIAMOND_SPEAR.get());
                             output.accept(ModItems.NETHERITE_SPEAR.get());
+
+                            //Longswords
+                            output.accept(ModItems.WOODEN_LONGSWORD.get());
+                            output.accept(ModItems.STONE_LONGSWORD.get());
+                            output.accept(ModItems.IRON_LONGSWORD.get());
+                            output.accept(ModItems.GOLD_LONGSWORD.get());
+                            output.accept(ModItems.DIAMOND_LONGSWORD.get());
+                            output.accept(ModItems.NETHERITE_LONGSWORD.get());
                         }))
                         .build());
 

@@ -2,7 +2,6 @@ package net.kaicoyote.structuredcombat.item.custom;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import net.kaicoyote.structuredcombat.enchantment.ModEnchantments;
 import net.kaicoyote.structuredcombat.entity.custom.entities.daggers.DaggerProjectileEntity;
 import net.kaicoyote.structuredcombat.item.ModItems;
 import net.minecraft.core.BlockPos;
@@ -24,6 +23,8 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ToolAction;
+import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.common.extensions.IForgeItem;
 import org.apache.commons.lang3.function.TriFunction;
 import org.jetbrains.annotations.NotNull;
@@ -143,6 +144,11 @@ public class DaggerItem extends Item implements IForgeItem {
     @Override
     public @NotNull UseAnim getUseAnimation(@NotNull ItemStack pStack) {
         return UseAnim.SPEAR;
+    }
+
+    @Override
+    public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
+        return ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction);
     }
 
     @Override

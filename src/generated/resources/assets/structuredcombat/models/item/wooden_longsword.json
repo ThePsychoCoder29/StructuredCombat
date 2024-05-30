@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "structuredcombat:item/diamond_spear"
+    "layer0": "structuredcombat:item/wooden_longsword"
   }
 }

@@ -1,35 +1,63 @@
 {
-  "parent": "structuredcombat:root",
+  "parent": "structuredcombat:netherite_weapon_advancement",
   "criteria": {
-    "netherite_tools": {
+    "netherite_dagger": {
       "conditions": {
-        "items": [
-          {
-            "items": [
-              "structuredcombat:netherite_dagger"
-            ]
-          },
-          {
-            "items": [
-              "structuredcombat:netherite_hatchet"
-            ]
-          },
-          {
-            "items": [
-              "structuredcombat:netherite_sabre"
-            ]
-          },
-          {
-            "items": [
-              "structuredcombat:netherite_katana"
-            ]
-          },
-          {
-            "items": [
-              "structuredcombat:netherite_spear"
-            ]
-          }
-        ]
+        "item": {
+          "items": [
+            "structuredcombat:netherite_dagger"
+          ]
+        }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "netherite_hatchet": {
+      "conditions": {
+        "item": {
+          "items": [
+            "structuredcombat:netherite_hatchet"
+          ]
+        }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "netherite_sabre": {
+      "conditions": {
+        "item": {
+          "items": [
+            "structuredcombat:netherite_sabre"
+          ]
+        }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "netherite_katana": {
+      "conditions": {
+        "item": {
+          "items": [
+            "structuredcombat:netherite_katana"
+          ]
+        }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "netherite_spear": {
+      "conditions": {
+        "item": {
+          "items": [
+            "structuredcombat:netherite_spear"
+          ]
+        }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "netherite_longsword": {
+      "conditions": {
+        "item": {
+          "items": [
+            "structuredcombat:netherite_longsword"
+          ]
+        }
       },
       "trigger": "minecraft:inventory_changed"
     }
@@ -42,8 +70,7 @@
     "frame": "challenge",
     "hidden": false,
     "icon": {
-      "item": "structuredcombat:netherite_katana",
-      "nbt": "{Damage:0}"
+      "item": "structuredcombat:netherite_longsword"
     },
     "show_toast": true,
     "title": {
@@ -52,11 +79,25 @@
   },
   "requirements": [
     [
-      "netherite_tools"
+      "netherite_dagger"
+    ],
+    [
+      "netherite_hatchet"
+    ],
+    [
+      "netherite_sabre"
+    ],
+    [
+      "netherite_katana"
+    ],
+    [
+      "netherite_spear"
+    ],
+    [
+      "netherite_longsword"
     ]
   ],
   "rewards": {
     "experience": 100
-  },
-  "sends_telemetry_event": true
+  }
 }

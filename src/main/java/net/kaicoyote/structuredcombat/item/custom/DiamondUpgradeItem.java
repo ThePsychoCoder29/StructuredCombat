@@ -21,6 +21,7 @@ public class DiamondUpgradeItem extends SmithingTemplateItem {
     private static final ResourceLocation EMPTY_SLOT_SABRE;
     private static final ResourceLocation EMPTY_SLOT_DIAMOND;
     private static final ResourceLocation EMPTY_SLOT_SPEAR;
+    private static final ResourceLocation EMPTY_SLOT_LONGSWORD;
 
     //Components
     private static final Component DIAMOND_UPGRADE;
@@ -48,7 +49,7 @@ public class DiamondUpgradeItem extends SmithingTemplateItem {
 
     }
     public static List<ResourceLocation> createDiamondUpgradeIconList() {
-        return List.of(EMPTY_SLOT_DAGGER, EMPTY_SLOT_HATCHET, EMPTY_SLOT_KATANA, EMPTY_SLOT_SABRE, EMPTY_SLOT_SPEAR);
+        return List.of(EMPTY_SLOT_DAGGER, EMPTY_SLOT_HATCHET, EMPTY_SLOT_KATANA, EMPTY_SLOT_SABRE, EMPTY_SLOT_SPEAR, EMPTY_SLOT_LONGSWORD);
     }
 
     public static List<ResourceLocation> createDiamondUpgradeMaterialList() {
@@ -80,5 +81,6 @@ public class DiamondUpgradeItem extends SmithingTemplateItem {
         EMPTY_SLOT_KATANA = new ResourceLocation("structuredcombat:item/empty_slot_katana");
         EMPTY_SLOT_SABRE = new ResourceLocation("structuredcombat:item/empty_slot_sabre");
         EMPTY_SLOT_SPEAR = new ResourceLocation("structuredcombat:item/empty_slot_spear");
+        EMPTY_SLOT_LONGSWORD = new ResourceLocation("structuredcombat:item/empty_slot_longsword");
     }
 }

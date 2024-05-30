@@ -14,7 +14,7 @@ public class KatanaCriticalHitEvent {
     public static void katanaCritHit(CriticalHitEvent event){
         ItemStack stack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
         if(event.isVanillaCritical() && stack.is(ModTags.Items.CRIT_KATANAS)){
-            event.setDamageModifier(2.25f);
+            event.setDamageModifier(2f);
         }
     }
 }

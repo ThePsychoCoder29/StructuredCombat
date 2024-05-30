@@ -152,10 +152,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         smithingTableRecipeDiamond(ModItems.IRON_SABRE.get(), ModItems.DIAMOND_SABRE.get(), pWriter, "diamond_sabre");
         smithingTableRecipeNetherite(ModItems.DIAMOND_SABRE.get(), ModItems.NETHERITE_SABRE.get(), pWriter, "netherite_sabre");
 
-        //Sabres
+        //Spears
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.WOODEN_SPEAR.get())
                 .pattern("  P")
-                .pattern(" P ")
+                .pattern(" S ")
                 .pattern("S  ")
                 .define('P',  ItemTags.PLANKS)
                 .define('S', Items.STICK)
@@ -165,7 +165,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.STONE_SPEAR.get())
                 .pattern("  C")
-                .pattern(" C ")
+                .pattern(" S ")
                 .pattern("S  ")
                 .define('C',  ItemTags.STONE_TOOL_MATERIALS)
                 .define('S', Items.STICK)
@@ -175,7 +175,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GOLD_SPEAR.get())
                 .pattern("  G")
-                .pattern(" G ")
+                .pattern(" S ")
                 .pattern("S  ")
                 .define('G',  Items.GOLD_INGOT)
                 .define('S', Items.STICK)
@@ -185,6 +185,43 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         smithingTableRecipeDiamond(ModItems.IRON_SPEAR.get(), ModItems.DIAMOND_SPEAR.get(), pWriter, "diamond_spear");
         smithingTableRecipeNetherite(ModItems.DIAMOND_SPEAR.get(), ModItems.NETHERITE_SPEAR.get(), pWriter, "netherite_spear");
+
+        //Longswords
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.WOODEN_LONGSWORD.get())
+                .pattern(" P ")
+                .pattern(" P ")
+                .pattern("SWS")
+                .define('P',  ItemTags.PLANKS)
+                .define('S', Items.STICK)
+                .define('W', Items.WOODEN_SWORD)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.STONE_LONGSWORD.get())
+                .pattern(" C ")
+                .pattern(" C ")
+                .pattern("SWS")
+                .define('C',  ItemTags.STONE_TOOL_MATERIALS)
+                .define('S', Items.STICK)
+                .define('W', Items.STONE_SWORD)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GOLD_LONGSWORD.get())
+                .pattern(" G ")
+                .pattern(" G ")
+                .pattern("SWS")
+                .define('G',  Items.GOLD_INGOT)
+                .define('S', Items.STICK)
+                .define('W', Items.GOLDEN_SWORD)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        smithingTableRecipeDiamond(ModItems.IRON_LONGSWORD.get(), ModItems.DIAMOND_LONGSWORD.get(), pWriter, "diamond_longsword");
+        smithingTableRecipeNetherite(ModItems.DIAMOND_LONGSWORD.get(), ModItems.NETHERITE_LONGSWORD.get(), pWriter, "netherite_longsword");
 
         //Items
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_UPGRADE.get(), 2)

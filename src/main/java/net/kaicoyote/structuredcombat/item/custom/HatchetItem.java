@@ -23,6 +23,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ToolAction;
+import net.minecraftforge.common.ToolActions;
 import org.apache.commons.lang3.function.TriFunction;
 import org.jetbrains.annotations.NotNull;
 
@@ -108,7 +110,7 @@ public class HatchetItem extends Item {
                         pLevel.addFreshEntity(hatchet);
                         pLevel.playSound(null, hatchet, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
                     }
-                    if (player.getAbilities().instabuild) {
+                    if (!player.getAbilities().instabuild) {
                         player.getInventory().removeItem(stack);
                     }
                 }
@@ -122,6 +124,11 @@ public class HatchetItem extends Item {
         ItemStack hatchet = pPlayer.getItemInHand(pHand);
         pPlayer.startUsingItem(pHand);
         return InteractionResultHolder.success(hatchet);
+    }
+
+    @Override
+    public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
+        return ToolActions.DEFAULT_AXE_ACTIONS.contains(toolAction);
     }
 
     @Override

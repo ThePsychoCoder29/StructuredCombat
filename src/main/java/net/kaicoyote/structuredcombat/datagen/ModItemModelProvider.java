@@ -52,44 +52,34 @@ public class ModItemModelProvider extends ItemModelProvider {
         handHeldItem(ModItems.DIAMOND_SABRE);
         handHeldItem(ModItems.NETHERITE_SABRE);
 
-        //Sabres
-        handHeldItem(ModItems.WOODEN_SPEAR);
-        handHeldItem(ModItems.STONE_SPEAR);
-        handHeldItem(ModItems.IRON_SPEAR);
-        handHeldItem(ModItems.GOLD_SPEAR);
-        handHeldItem(ModItems.DIAMOND_SPEAR);
-        handHeldItem(ModItems.NETHERITE_SPEAR);
+        //Spears
+        //Manually done due to small size in hand
+
+        //Longswords
+        handHeldItem(ModItems.WOODEN_LONGSWORD);
+        handHeldItem(ModItems.STONE_LONGSWORD);
+        handHeldItem(ModItems.IRON_LONGSWORD);
+        handHeldItem(ModItems.GOLD_LONGSWORD);
+        handHeldItem(ModItems.DIAMOND_LONGSWORD);
+        handHeldItem(ModItems.NETHERITE_LONGSWORD);
 
         //Items
-        handHeldItem(ModItems.DIAMOND_UPGRADE);
+        simpleItem(ModItems.DIAMOND_UPGRADE);
+        simpleItem(ModItems.STRUCTURED_COMBAT_LOGO);
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(StructuredCombat.MOD_ID, "item/" + item.getId().getPath()));
     }
-    private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
-        return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(StructuredCombat.MOD_ID,"block/" + item.getId().getPath()));
-    }
     public void evenSimplerBlockItem(RegistryObject<Block> block) {
         this.withExistingParent(StructuredCombat.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
                 modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
     }
-    public void trapdoorItem(RegistryObject<Block> block) {
-        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
-                modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath() + "_bottom"));
-    }
-    public void fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
-        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/fence_inventory"))
-                .texture("texture",  new ResourceLocation(StructuredCombat.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
-    }
-    public void buttonItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
-        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/button_inventory"))
-                .texture("texture",  new ResourceLocation(StructuredCombat.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
-    }
+
+    @SuppressWarnings("UnusedReturnValue")
     public ItemModelBuilder handHeldItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/handheld")).texture("layer0", new ResourceLocation(StructuredCombat.MOD_ID, "item/" + item.getId().getPath()));

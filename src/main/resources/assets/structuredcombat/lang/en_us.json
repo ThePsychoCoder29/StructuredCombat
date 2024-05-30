@@ -37,6 +37,13 @@
   "item.structuredcombat.diamond_spear" : "Diamond Spear",
   "item.structuredcombat.netherite_spear" : "Netherite Spear",
 
+  "item.structuredcombat.wooden_longsword" : "Wooden Longsword",
+  "item.structuredcombat.stone_longsword" : "Stone Longsword",
+  "item.structuredcombat.iron_longsword" : "Iron Longsword",
+  "item.structuredcombat.gold_longsword" : "Gold Longsword",
+  "item.structuredcombat.diamond_longsword" : "Diamond Longsword",
+  "item.structuredcombat.netherite_longsword" : "Netherite Longsword",
+
   "item.structuredcombat.smithing_template.applies_to": "Applies To:",
   "item.structuredcombat.smithing_template.ingredients": "Ingredients:",
   "item.structuredcombat.smithing_template.diamond_upgrade.applies_to": "Structured Combat Weapons",
@@ -70,7 +77,7 @@
   "enchantment.structuredcombat.recall": "Recall",
 
   "advancements.structuredcombat.root" : "Structured Combat",
-  "advancements.structuredcombat.root.description" : "Combat Awaits!",
+  "advancements.structuredcombat.root.description" : "Combat Awaits!\nCraft a Wooden Weapon from the mod",
 
   "advancements.structuredcombat.obtain_diamond_weapon" : "Moving Up",
   "advancements.structuredcombat.obtain_diamond_weapon.description" : "Upgrade any weapon from Iron to Diamond",
@@ -97,6 +104,9 @@
 
   "advancements.structuredcombat.obtain_spear" : "Poor Man's Trident",
   "advancements.structuredcombat.obtain_spear.description" : "Find a Spear in the Savanna Grasslands",
+
+  "advancements.structuredcombat.obtain_longsword" : "Long Enough Yet?",
+  "advancements.structuredcombat.obtain_longsword.description" : "Find a Longsword deep within a Mansion",
 
   "creativetab.structuredcombat.tab": "Structured Combat Tab"
 }

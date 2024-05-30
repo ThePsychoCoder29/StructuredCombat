@@ -23,7 +23,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.IRON_HATCHET.get())
                 .add(ModItems.IRON_KATANA.get())
                 .add(ModItems.IRON_SABRE.get())
-                .add(ModItems.IRON_SPEAR.get());
+                .add(ModItems.IRON_SPEAR.get())
+                .add(ModItems.IRON_LONGSWORD.get());
 
         this.tag(ModTags.Items.CRIT_KATANAS)
                 .add(ModItems.WOODEN_KATANA.get())
@@ -46,6 +47,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.WOODEN_HATCHET.get())
                 .add(ModItems.WOODEN_KATANA.get())
                 .add(ModItems.WOODEN_SABRE.get())
-                .add(ModItems.WOODEN_SPEAR.get());
+                .add(ModItems.WOODEN_SPEAR.get())
+                .add(ModItems.WOODEN_LONGSWORD.get());
     }
 }

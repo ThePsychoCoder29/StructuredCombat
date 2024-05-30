@@ -25,6 +25,8 @@ public class ModItems {
     //Mod Items
     public static RegistryObject<Item> DIAMOND_UPGRADE = ITEMS.register("diamond_upgrade",
             DiamondUpgradeItem::createDiamondUpgradeTemplate);
+    public static RegistryObject<Item> STRUCTURED_COMBAT_LOGO = ITEMS.register("structured_combat_logo",
+            ()-> new Item(new Item.Properties()));
 
     //Daggers
     public static RegistryObject<Item> WOODEN_DAGGER = ITEMS.register("wooden_dagger",
@@ -90,13 +92,14 @@ public class ModItems {
     public static RegistryObject<Item> DIAMOND_SABRE = ITEMS.register("diamond_sabre",
             ()-> new SabreItem(new Item.Properties().durability(1249)));
     public static RegistryObject<Item> NETHERITE_SABRE = ITEMS.register("netherite_sabre",
-            ()-> new SabreItem(new Item.Properties().durability(1625)));//Sabres
+            ()-> new SabreItem(new Item.Properties().durability(1625)));
 
     //Spears
     public static RegistryObject<Item> WOODEN_SPEAR = ITEMS.register("wooden_spear",
             ()-> new SpearItem(WoodenSpearProjectileEntity::new, new Item.Properties().durability(60)));
     public static RegistryObject<Item> STONE_SPEAR = ITEMS.register("stone_spear",
             ()-> new SpearItem(StoneSpearProjectileEntity::new, new Item.Properties().durability(131)));
+
     public static RegistryObject<Item> IRON_SPEAR = ITEMS.register("iron_spear",
             ()-> new SpearItem(IronSpearProjectileEntity::new, new Item.Properties().durability(250)));
     public static RegistryObject<Item> GOLD_SPEAR = ITEMS.register("gold_spear",
@@ -106,6 +109,19 @@ public class ModItems {
     public static RegistryObject<Item> NETHERITE_SPEAR = ITEMS.register("netherite_spear",
             ()-> new SpearItem(NetheriteSpearProjectileEntity::new, new Item.Properties().durability(2027)));
 
+    //Sabres
+    public static RegistryObject<Item> WOODEN_LONGSWORD = ITEMS.register("wooden_longsword",
+            ()-> new LongswordItem(new Item.Properties().durability(80)));
+    public static RegistryObject<Item> STONE_LONGSWORD = ITEMS.register("stone_longsword",
+            ()-> new LongswordItem(new Item.Properties().durability(177)));
+    public static RegistryObject<Item> IRON_LONGSWORD = ITEMS.register("iron_longsword",
+            ()-> new LongswordItem(new Item.Properties().durability(338)));
+    public static RegistryObject<Item> GOLD_LONGSWORD = ITEMS.register("gold_longsword",
+            ()-> new LongswordItem(new Item.Properties().durability(43)));
+    public static RegistryObject<Item> DIAMOND_LONGSWORD = ITEMS.register("diamond_longsword",
+            ()-> new LongswordItem(new Item.Properties().durability(2107)));
+    public static RegistryObject<Item> NETHERITE_LONGSWORD = ITEMS.register("netherite_longsword",
+            ()-> new LongswordItem(new Item.Properties().durability(2742)));
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }

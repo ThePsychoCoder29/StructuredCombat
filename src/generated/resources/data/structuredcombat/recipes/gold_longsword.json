@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "minecraft:golden_sword"
+    }
+  },
+  "pattern": [
+    " G ",
+    " G ",
+    "SWS"
+  ],
+  "result": {
+    "item": "structuredcombat:gold_longsword"
+  },
+  "show_notification": true
+}

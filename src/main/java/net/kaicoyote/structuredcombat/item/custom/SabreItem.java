@@ -39,7 +39,7 @@ public class SabreItem extends Item {
 
     @Override
     public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
-        return ToolActions.DEFAULT_SHIELD_ACTIONS.contains(toolAction);
+        return ToolActions.SWORD_SWEEP.equals(toolAction);
     }
 
     @Override

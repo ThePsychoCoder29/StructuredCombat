@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "tag": "minecraft:stone_tool_materials"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "minecraft:stone_sword"
+    }
+  },
+  "pattern": [
+    " C ",
+    " C ",
+    "SWS"
+  ],
+  "result": {
+    "item": "structuredcombat:stone_longsword"
+  },
+  "show_notification": true
+}
