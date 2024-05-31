@@ -1,0 +1,10 @@
+{
+  "values": [
+    "structuredcombat:wooden_longsword",
+    "structuredcombat:stone_longsword",
+    "structuredcombat:iron_longsword",
+    "structuredcombat:gold_longsword",
+    "structuredcombat:diamond_longsword",
+    "structuredcombat:netherite_longsword"
+  ]
+}

@@ -4,7 +4,9 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.kaicoyote.structuredcombat.entity.custom.entities.daggers.DaggerProjectileEntity;
 import net.kaicoyote.structuredcombat.item.ModItems;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
@@ -19,6 +21,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow.Pickup;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -28,6 +31,9 @@ import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.common.extensions.IForgeItem;
 import org.apache.commons.lang3.function.TriFunction;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class DaggerItem extends Item implements IForgeItem {
     private final TriFunction<Level, Player, ItemStack, DaggerProjectileEntity> constructor;
@@ -142,6 +148,17 @@ public class DaggerItem extends Item implements IForgeItem {
     }
 
     @Override
+    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
+        if(Screen.hasShiftDown()){
+            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.dagger.tooltip"));
+        }
+        else {
+            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.dagger_shift.tooltip"));
+            super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+        }
+    }
+
+    @Override
     public @NotNull UseAnim getUseAnimation(@NotNull ItemStack pStack) {
         return UseAnim.SPEAR;
     }
@@ -155,7 +172,6 @@ public class DaggerItem extends Item implements IForgeItem {
     public boolean isEnchantable(@NotNull ItemStack pStack) {
         return true;
     }
-
     @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
         return true;

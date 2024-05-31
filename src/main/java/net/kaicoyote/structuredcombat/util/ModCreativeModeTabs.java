@@ -14,6 +14,7 @@ public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, StructuredCombat.MOD_ID);
 
+    @SuppressWarnings("unused")
     public static final RegistryObject<CreativeModeTab> ITEMS_CREATIVE_MODE_TAB =
         CREATIVE_MODE_TABS.register("items_creative_mode_tab",
                 ()-> CreativeModeTab.builder().icon(()-> new ItemStack(ModItems.DIAMOND_UPGRADE.get()))
@@ -69,6 +70,14 @@ public class ModCreativeModeTabs {
                             output.accept(ModItems.GOLD_LONGSWORD.get());
                             output.accept(ModItems.DIAMOND_LONGSWORD.get());
                             output.accept(ModItems.NETHERITE_LONGSWORD.get());
+
+                            //Scythes
+                            output.accept(ModItems.WOODEN_SCYTHE.get());
+                            output.accept(ModItems.STONE_SCYTHE.get());
+                            output.accept(ModItems.IRON_SCYTHE.get());
+                            output.accept(ModItems.GOLD_SCYTHE.get());
+                            output.accept(ModItems.DIAMOND_SCYTHE.get());
+                            output.accept(ModItems.NETHERITE_SCYTHE.get());
                         }))
                         .build());
 

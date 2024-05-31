@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "structuredcombat:diamond_hatchet"
+    },
+    "title": {
+      "translate": "advancements.structuredcombat.kill_drowned_with_spear"
+    },
+    "description": {
+      "translate": "advancements.structuredcombat.kill_drowned_with_spear.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "structuredcombat:spear_advancement",
+  "criteria": {
+    "killed_drowned": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "tag": "structuredcombat:drowned_spears"
+            }
+          }
+        },
+        "entity": {
+          "type": "minecraft:drowned"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "killed_drowned"
+    ]
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "values": [
+    "structuredcombat:wooden_spear",
+    "structuredcombat:stone_spear",
+    "structuredcombat:iron_spear",
+    "structuredcombat:gold_spear",
+    "structuredcombat:diamond_spear",
+    "structuredcombat:netherite_spear"
+  ]
+}

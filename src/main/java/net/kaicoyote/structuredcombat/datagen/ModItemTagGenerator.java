@@ -24,7 +24,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.IRON_KATANA.get())
                 .add(ModItems.IRON_SABRE.get())
                 .add(ModItems.IRON_SPEAR.get())
-                .add(ModItems.IRON_LONGSWORD.get());
+                .add(ModItems.IRON_LONGSWORD.get())
+                .add(ModItems.IRON_SCYTHE.get());
 
         this.tag(ModTags.Items.CRIT_KATANAS)
                 .add(ModItems.WOODEN_KATANA.get())
@@ -42,12 +43,45 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.DIAMOND_SABRE.get())
                 .add(ModItems.NETHERITE_SABRE.get());
 
+        this.tag(ModTags.Items.VINDICATOR_HATCHETS)
+                .add(ModItems.WOODEN_HATCHET.get())
+                .add(ModItems.STONE_HATCHET.get())
+                .add(ModItems.IRON_HATCHET.get())
+                .add(ModItems.GOLD_HATCHET.get())
+                .add(ModItems.DIAMOND_HATCHET.get())
+                .add(ModItems.NETHERITE_HATCHET.get());
+
+        this.tag(ModTags.Items.DROWNED_SPEARS)
+                .add(ModItems.WOODEN_SPEAR.get())
+                .add(ModItems.STONE_SPEAR.get())
+                .add(ModItems.IRON_SPEAR.get())
+                .add(ModItems.GOLD_SPEAR.get())
+                .add(ModItems.DIAMOND_SPEAR.get())
+                .add(ModItems.NETHERITE_SPEAR.get());
+
+        this.tag(ModTags.Items.DRAGON_LONGSWORDS)
+                .add(ModItems.WOODEN_LONGSWORD.get())
+                .add(ModItems.STONE_LONGSWORD.get())
+                .add(ModItems.IRON_LONGSWORD.get())
+                .add(ModItems.GOLD_LONGSWORD.get())
+                .add(ModItems.DIAMOND_LONGSWORD.get())
+                .add(ModItems.NETHERITE_LONGSWORD.get());
+
         this.tag(ModTags.Items.WOODEN_TOOLS)
                 .add(ModItems.WOODEN_DAGGER.get())
                 .add(ModItems.WOODEN_HATCHET.get())
                 .add(ModItems.WOODEN_KATANA.get())
                 .add(ModItems.WOODEN_SABRE.get())
                 .add(ModItems.WOODEN_SPEAR.get())
-                .add(ModItems.WOODEN_LONGSWORD.get());
+                .add(ModItems.WOODEN_LONGSWORD.get())
+                .add(ModItems.WOODEN_SCYTHE.get());
+
+        this.tag(ModTags.Items.CROP_SCYTHES)
+                .add(ModItems.WOODEN_SCYTHE.get())
+                .add(ModItems.STONE_SCYTHE.get())
+                .add(ModItems.IRON_SCYTHE.get())
+                .add(ModItems.GOLD_SCYTHE.get())
+                .add(ModItems.DIAMOND_SCYTHE.get())
+                .add(ModItems.NETHERITE_SCYTHE.get());
     }
 }

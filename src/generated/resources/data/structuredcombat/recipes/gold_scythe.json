@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "S  ",
+    "S  "
+  ],
+  "result": {
+    "item": "structuredcombat:gold_scythe"
+  },
+  "show_notification": true
+}

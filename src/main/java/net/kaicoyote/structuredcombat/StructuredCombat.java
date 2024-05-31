@@ -1,17 +1,16 @@
 package net.kaicoyote.structuredcombat;
 
 import net.kaicoyote.structuredcombat.block.ModBlocks;
+import net.kaicoyote.structuredcombat.effect.ModEffects;
 import net.kaicoyote.structuredcombat.enchantment.ModEnchantments;
 import net.kaicoyote.structuredcombat.entity.ModEntities;
 import net.kaicoyote.structuredcombat.entity.client.renderer.daggers.*;
 import net.kaicoyote.structuredcombat.entity.client.renderer.hatchets.*;
 import net.kaicoyote.structuredcombat.entity.client.renderer.spear.*;
 import net.kaicoyote.structuredcombat.item.ModItems;
-import net.kaicoyote.structuredcombat.item.custom.DiamondUpgradeItem;
 import net.kaicoyote.structuredcombat.loot.ModLootModifiers;
 import net.kaicoyote.structuredcombat.util.ModCreativeModeTabs;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.item.SmithingTemplateItem;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -34,6 +33,7 @@ public class StructuredCombat
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModEffects.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModEntities.register(modEventBus);
         ModLootModifiers.register(modEventBus);

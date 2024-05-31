@@ -18,6 +18,10 @@ public class ModTags {
         public static final TagKey<Item> SMITHING_WEAPONS = tag("smithing_weapons");
         public static final TagKey<Item> CRIT_KATANAS = tag("crit_katanas");
         public static final TagKey<Item> PILLAGER_SABRES = tag("pillager_sabres");
+        public static final TagKey<Item> VINDICATOR_HATCHETS = tag("vindicator_hatchets");
+        public static final TagKey<Item> DROWNED_SPEARS = tag("drowned_spears");
+        public static final TagKey<Item> DRAGON_LONGSWORDS = tag("dragon_longswords");
+        public static final TagKey<Item> CROP_SCYTHES = tag("crop_scythes");
         public static final TagKey<Item> WOODEN_TOOLS = tag("wooden_tools");
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(StructuredCombat.MOD_ID, name));

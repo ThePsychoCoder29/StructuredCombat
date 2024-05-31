@@ -3,7 +3,9 @@ package net.kaicoyote.structuredcombat.item.custom;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.kaicoyote.structuredcombat.item.ModItems;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -16,10 +18,16 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ToolAction;
+import net.minecraftforge.common.ToolActions;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class LongswordItem extends Item {
     public LongswordItem(Properties pProperties) {
@@ -64,6 +72,17 @@ public class LongswordItem extends Item {
         return builder.build();
     }
 
+    @Override
+    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
+        if(Screen.hasShiftDown()){
+            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.longsword.tooltip"));
+        }
+        else {
+            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.longsword_shift.tooltip"));
+            super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+        }
+    }
+
     public AttributeModifier attributeDmg(double amountDmg){
         return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);
     }
@@ -96,6 +115,11 @@ public class LongswordItem extends Item {
         InteractionHand hand = pAttacker.getUsedItemHand();
         pStack.hurtAndBreak(1, pAttacker, user -> user.broadcastBreakEvent(hand));
         return true;
+    }
+
+    @Override
+    public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
+        return ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction);
     }
 
     @Override

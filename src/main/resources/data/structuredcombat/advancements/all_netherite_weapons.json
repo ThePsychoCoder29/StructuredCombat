@@ -60,6 +60,16 @@
         }
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "netherite_scythe": {
+      "conditions": {
+        "item": {
+          "items": [
+            "structuredcombat:netherite_scythe"
+          ]
+        }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "display": {
@@ -95,6 +105,9 @@
     ],
     [
       "netherite_longsword"
+    ],
+    [
+      "netherite_scythe"
     ]
   ],
   "rewards": {

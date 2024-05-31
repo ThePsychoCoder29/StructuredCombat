@@ -1,8 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "minecraft:white_banner",
-      "nbt": "{BlockEntityTag:{Patterns:[{Color:9,Pattern:\"mr\"},{Color:8,Pattern:\"bs\"},{Color:7,Pattern:\"cs\"},{Color:8,Pattern:\"bo\"},{Color:15,Pattern:\"ms\"},{Color:8,Pattern:\"hh\"},{Color:8,Pattern:\"mc\"},{Color:15,Pattern:\"bo\"}],id:\"minecraft:banner\"},HideFlags:32,display:{Name:'{\"color\":\"gold\",\"translate\":\"block.minecraft.ominous_banner\"}'}}"
+      "item": "structuredcombat:diamond_sabre"
     },
     "title": {
       "translate": "advancements.structuredcombat.kill_pillager_with_sabre"
@@ -10,25 +9,24 @@
     "description": {
       "translate": "advancements.structuredcombat.kill_pillager_with_sabre.description"
     },
-    "frame": "task",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "structuredcombat:root",
+  "parent": "structuredcombat:sabre_advancement",
   "criteria": {
     "killed_pillager": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:match_tool",
-            "predicate": {
+        "player": {
+          "equipment": {
+            "mainhand": {
               "tag": "structuredcombat:pillager_sabres"
             }
           }
-        ],
+        },
         "entity": {
-          "type": "minecraft:vindicator"
+          "type": "minecraft:pillager"
         }
       }
     }

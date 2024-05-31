@@ -44,6 +44,13 @@
   "item.structuredcombat.diamond_longsword" : "Diamond Longsword",
   "item.structuredcombat.netherite_longsword" : "Netherite Longsword",
 
+  "item.structuredcombat.wooden_scythe" : "Wooden Scythe",
+  "item.structuredcombat.stone_scythe" : "Stone Scythe",
+  "item.structuredcombat.iron_scythe" : "Iron Scythe",
+  "item.structuredcombat.gold_scythe" : "Gold Scythe",
+  "item.structuredcombat.diamond_scythe" : "Diamond Scythe",
+  "item.structuredcombat.netherite_scythe" : "Netherite Scythe",
+
   "item.structuredcombat.smithing_template.applies_to": "Applies To:",
   "item.structuredcombat.smithing_template.ingredients": "Ingredients:",
   "item.structuredcombat.smithing_template.diamond_upgrade.applies_to": "Structured Combat Weapons",
@@ -81,6 +88,7 @@
 
   "advancements.structuredcombat.obtain_diamond_weapon" : "Moving Up",
   "advancements.structuredcombat.obtain_diamond_weapon.description" : "Upgrade any weapon from Iron to Diamond",
+
   "advancements.structuredcombat.obtain_netherite_weapon" : "Hot Upgrades",
   "advancements.structuredcombat.obtain_netherite_weapon.description" : "Upgrade any weapon from Diamond to Netherite",
   "advancements.structuredcombat.netherite_tools" : "Go Outside",
@@ -91,6 +99,8 @@
 
   "advancements.structuredcombat.obtain_hatchet" : "Two Certainties : Death, Axes",
   "advancements.structuredcombat.obtain_hatchet.description" : "Find a Hatchet in a Winter Wonderland",
+  "advancements.structuredcombat.kill_vindicator_with_hatchet" : "Mine's Better!",
+  "advancements.structuredcombat.kill_vindicator_with_hatchet.description" : "Kill a Vindicator with a Hatchet",
 
   "advancements.structuredcombat.obtain_katana" : "To Dai(to) For",
   "advancements.structuredcombat.obtain_katana.description" : "Find a Katana deep in the Jungle",
@@ -104,9 +114,40 @@
 
   "advancements.structuredcombat.obtain_spear" : "Poor Man's Trident",
   "advancements.structuredcombat.obtain_spear.description" : "Find a Spear in the Savanna Grasslands",
+  "advancements.structuredcombat.kill_drowned_with_spear" : "Landlocked",
+  "advancements.structuredcombat.kill_drowned_with_spear.description" : "Kill a Drowned with a Spear",
 
   "advancements.structuredcombat.obtain_longsword" : "Long Enough Yet?",
   "advancements.structuredcombat.obtain_longsword.description" : "Find a Longsword deep within a Mansion",
+  "advancements.structuredcombat.kill_dragon_with_longsword" : "Size Matters",
+  "advancements.structuredcombat.kill_dragon_with_longsword.description" : "Kill the Ender Dragon with a Longsword",
+
+  "advancements.structuredcombat.obtain_scythe" : "Multi-Purpose Farming Tool",
+  "advancements.structuredcombat.obtain_scythe.description" : "Find a Scythe in plainsight",
+
+  "advancements.structuredcombat.scythe_harvest_crop" : "Swift Harvest",
+  "advancements.structuredcombat.scythe_harvest_crop.description" : "Harvest a 3×3 grid of Mature Crops with a Scythe",
+
+  "tooltip.structuredcombat.dagger.tooltip": "Daggers are like miniature swords that can be thrown and attack faster",
+  "tooltip.structuredcombat.dagger_shift.tooltip": "Press and Hold SHIFT for more info",
+
+  "tooltip.structuredcombat.hatchet.tooltip": "Hatchets are like miniature axes that can be thrown and attack faster",
+  "tooltip.structuredcombat.hatchet_shift.tooltip": "Press and Hold SHIFT for more info",
+
+  "tooltip.structuredcombat.katana.tooltip": "A swift Sword that deals even more damage on critical hits\nArmor and Shields deplete durability faster",
+  "tooltip.structuredcombat.katana_shift.tooltip": "Press and Hold SHIFT for more info",
+
+  "tooltip.structuredcombat.longsword.tooltip": "A slow but powerful sword that inflicts debuffs to foes wearing armor",
+  "tooltip.structuredcombat.longsword_shift.tooltip": "Press and Hold SHIFT for more info",
+
+  "tooltip.structuredcombat.sabre.tooltip": "A swift sword that can parry attacks\nBlocking over a long time decreases efficiency",
+  "tooltip.structuredcombat.sabre_shift.tooltip": "Press and Hold SHIFT for more info",
+
+  "tooltip.structuredcombat.scythe.tooltip": "Good for dealing with crowds\nDeals additional damage overtime\nAlso harvests crops in an area",
+  "tooltip.structuredcombat.scythe_shift.tooltip": "Press and Hold SHIFT for more info",
+
+  "tooltip.structuredcombat.spear.tooltip": "A knockoff trident that isn’t efficient in water",
+  "tooltip.structuredcombat.spear_shift.tooltip": "Press and hold SHIFT for more info",
 
   "creativetab.structuredcombat.tab": "Structured Combat Tab"
 }

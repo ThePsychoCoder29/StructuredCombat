@@ -4,7 +4,9 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.kaicoyote.structuredcombat.entity.custom.entities.hatchets.HatchetProjectileEntity;
 import net.kaicoyote.structuredcombat.item.ModItems;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -20,6 +22,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow.Pickup;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,6 +30,9 @@ import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import org.apache.commons.lang3.function.TriFunction;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class HatchetItem extends Item {
     private final TriFunction<Level, Player, ItemStack, HatchetProjectileEntity> constructor;
@@ -124,6 +130,17 @@ public class HatchetItem extends Item {
         ItemStack hatchet = pPlayer.getItemInHand(pHand);
         pPlayer.startUsingItem(pHand);
         return InteractionResultHolder.success(hatchet);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        if(Screen.hasShiftDown()){
+            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.hatchet.tooltip"));
+        }
+        else {
+            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.hatchet_shift.tooltip"));
+            super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+        }
     }
 
     @Override

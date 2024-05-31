@@ -223,6 +223,40 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         smithingTableRecipeDiamond(ModItems.IRON_LONGSWORD.get(), ModItems.DIAMOND_LONGSWORD.get(), pWriter, "diamond_longsword");
         smithingTableRecipeNetherite(ModItems.DIAMOND_LONGSWORD.get(), ModItems.NETHERITE_LONGSWORD.get(), pWriter, "netherite_longsword");
 
+        //Scythes
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.WOODEN_SCYTHE.get())
+                .pattern("PPP")
+                .pattern("S  ")
+                .pattern("S  ")
+                .define('P',  ItemTags.PLANKS)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.STONE_SCYTHE.get())
+                .pattern("CCC")
+                .pattern("S  ")
+                .pattern("S  ")
+                .define('C',  ItemTags.STONE_TOOL_MATERIALS)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GOLD_SCYTHE.get())
+                .pattern("GGG")
+                .pattern("S  ")
+                .pattern("S  ")
+                .define('G',  Items.GOLD_INGOT)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        smithingTableRecipeDiamond(ModItems.IRON_SCYTHE.get(), ModItems.DIAMOND_SCYTHE.get(), pWriter, "diamond_scythe");
+        smithingTableRecipeNetherite(ModItems.DIAMOND_SCYTHE.get(), ModItems.NETHERITE_SCYTHE.get(), pWriter, "netherite_scythe");
+
         //Items
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_UPGRADE.get(), 2)
                 .pattern("ESE")

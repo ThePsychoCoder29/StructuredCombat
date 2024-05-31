@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "structuredcombat:diamond_hatchet"
+    },
+    "title": {
+      "translate": "advancements.structuredcombat.kill_vindicator_with_hatchet"
+    },
+    "description": {
+      "translate": "advancements.structuredcombat.kill_vindicator_with_hatchet.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "structuredcombat:hatchet_advancement",
+  "criteria": {
+    "killed_vindicator": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "tag": "structuredcombat:vindicator_hatchets"
+            }
+          }
+        },
+        "entity": {
+          "type": "minecraft:vindicator"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "killed_vindicator"
+    ]
+  ]
+}

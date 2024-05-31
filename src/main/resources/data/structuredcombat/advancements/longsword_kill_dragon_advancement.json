@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "structuredcombat:diamond_longsword"
+    },
+    "title": {
+      "translate": "advancements.structuredcombat.kill_dragon_with_longsword"
+    },
+    "description": {
+      "translate": "advancements.structuredcombat.kill_dragon_with_longsword.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "structuredcombat:longsword_advancement",
+  "criteria": {
+    "killed_dragon": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "tag": "structuredcombat:dragon_longswords"
+            }
+          }
+        },
+        "entity": {
+          "type": "minecraft:ender_dragon"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "killed_dragon"
+    ]
+  ],
+  "rewards" : {
+    "experience" : 100
+  }
+}
