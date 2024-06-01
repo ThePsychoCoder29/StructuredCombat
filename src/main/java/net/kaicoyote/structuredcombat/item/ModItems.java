@@ -123,7 +123,7 @@ public class ModItems {
     public static RegistryObject<Item> NETHERITE_LONGSWORD = ITEMS.register("netherite_longsword",
             ()-> new LongswordItem(new Item.Properties().durability(2742)));
 
-    //Longswords
+    //Scythes
     public static RegistryObject<Item> WOODEN_SCYTHE = ITEMS.register("wooden_scythe",
             ()-> new ScytheItem(new Item.Properties().durability(65)));
     public static RegistryObject<Item> STONE_SCYTHE = ITEMS.register("stone_scythe",
@@ -136,6 +136,20 @@ public class ModItems {
             ()-> new ScytheItem(new Item.Properties().durability(1717)));
     public static RegistryObject<Item> NETHERITE_SCYTHE = ITEMS.register("netherite_scythe",
             ()-> new ScytheItem(new Item.Properties().durability(2234)));
+
+    //Lances
+    public static RegistryObject<Item> WOODEN_LANCE = ITEMS.register("wooden_lance",
+            ()-> new LanceItem(new Item.Properties().durability(50)));
+    public static RegistryObject<Item> STONE_LANCE = ITEMS.register("stone_lance",
+            ()-> new LanceItem(new Item.Properties().durability(111)));
+    public static RegistryObject<Item> IRON_LANCE = ITEMS.register("iron_lance",
+            ()-> new LanceItem(new Item.Properties().durability(213)));
+    public static RegistryObject<Item> GOLD_LANCE = ITEMS.register("gold_lance",
+            ()-> new LanceItem(new Item.Properties().durability(27)));
+    public static RegistryObject<Item> DIAMOND_LANCE = ITEMS.register("diamond_lance",
+            ()-> new LanceItem(new Item.Properties().durability(1327)));
+    public static RegistryObject<Item> NETHERITE_LANCE = ITEMS.register("netherite_lance",
+            ()-> new LanceItem(new Item.Properties().durability(1726)));
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }

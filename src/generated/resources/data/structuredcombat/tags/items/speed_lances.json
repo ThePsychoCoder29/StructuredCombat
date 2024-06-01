@@ -1,0 +1,10 @@
+{
+  "values": [
+    "structuredcombat:wooden_lance",
+    "structuredcombat:stone_lance",
+    "structuredcombat:iron_lance",
+    "structuredcombat:gold_lance",
+    "structuredcombat:diamond_lance",
+    "structuredcombat:netherite_lance"
+  ]
+}

@@ -5,9 +5,8 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import net.kaicoyote.structuredcombat.StructuredCombat;
 import net.kaicoyote.structuredcombat.entity.client.ModModelLayers;
-import net.kaicoyote.structuredcombat.entity.custom.entities.hatchets.WoodenHatchetProjectileEntity;
 import net.kaicoyote.structuredcombat.entity.custom.entities.spears.WoodenSpearProjectileEntity;
-import net.kaicoyote.structuredcombat.entity.custom.models.SpearModel;
+import net.kaicoyote.structuredcombat.entity.custom.models.SpearWithoutGuardModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -21,14 +20,14 @@ import org.jetbrains.annotations.NotNull;
 
 @OnlyIn(Dist.CLIENT)
 public class WoodenSpearRenderer extends EntityRenderer<WoodenSpearProjectileEntity>{
-    private final SpearModel model;
+    private final SpearWithoutGuardModel model;
     public WoodenSpearRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);
-        this.model = new SpearModel(pContext.bakeLayer(ModModelLayers.WOODEN_SPEAR));
+        this.model = new SpearWithoutGuardModel(pContext.bakeLayer(ModModelLayers.WOODEN_SPEAR));
     }
 
     @Override
-    public void render(WoodenSpearProjectileEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(WoodenSpearProjectileEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, @NotNull MultiBufferSource pBuffer, int pPackedLight) {
         pMatrixStack.pushPose();
         pMatrixStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.yRotO, pEntity.getYRot()) - 90.0F));
         pMatrixStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.xRotO, pEntity.getXRot()) + 90.0F));

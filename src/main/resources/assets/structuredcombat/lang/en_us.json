@@ -51,6 +51,13 @@
   "item.structuredcombat.diamond_scythe" : "Diamond Scythe",
   "item.structuredcombat.netherite_scythe" : "Netherite Scythe",
 
+  "item.structuredcombat.wooden_lance" : "Wooden Lance",
+  "item.structuredcombat.stone_lance" : "Stone Lance",
+  "item.structuredcombat.iron_lance" : "Iron Lance",
+  "item.structuredcombat.gold_lance" : "Gold Lance",
+  "item.structuredcombat.diamond_lance" : "Diamond Lance",
+  "item.structuredcombat.netherite_lance" : "Netherite Lance",
+
   "item.structuredcombat.smithing_template.applies_to": "Applies To:",
   "item.structuredcombat.smithing_template.ingredients": "Ingredients:",
   "item.structuredcombat.smithing_template.diamond_upgrade.applies_to": "Structured Combat Weapons",
@@ -82,6 +89,8 @@
   "enchantment.structuredcombat.chaining": "Chaining",
   "enchantment.structuredcombat.eagle_eyes": "Eagle Eyes",
   "enchantment.structuredcombat.recall": "Recall",
+
+  "effect.structuredcombat.bleeding": "Bleeding",
 
   "advancements.structuredcombat.root" : "Structured Combat",
   "advancements.structuredcombat.root.description" : "Combat Awaits!\nCraft a Wooden Weapon from the mod",
@@ -125,6 +134,9 @@
   "advancements.structuredcombat.obtain_scythe" : "Multi-Purpose Farming Tool",
   "advancements.structuredcombat.obtain_scythe.description" : "Find a Scythe in plainsight",
 
+  "advancements.structuredcombat.obtain_lance" : "Joust Enough",
+  "advancements.structuredcombat.obtain_lance.description" : "Find a Lance in a Taiga Hamlet",
+
   "advancements.structuredcombat.scythe_harvest_crop" : "Swift Harvest",
   "advancements.structuredcombat.scythe_harvest_crop.description" : "Harvest a 3×3 grid of Mature Crops with a Scythe",
 
@@ -149,5 +161,7 @@
   "tooltip.structuredcombat.spear.tooltip": "A knockoff trident that isn’t efficient in water",
   "tooltip.structuredcombat.spear_shift.tooltip": "Press and hold SHIFT for more info",
 
-  "creativetab.structuredcombat.tab": "Structured Combat Tab"
+  "creativetab.structuredcombat.tab": "Structured Combat Tab",
+  "tooltip.structuredcombat.lance.tooltip": "Damage dealt is relative to user's movement speed",
+  "tooltip.structuredcombat.lance_shift.tooltip": "Press and Hold SHIFT for more info"
 }

@@ -60,6 +60,42 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "diamond_longsword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:diamond_longsword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "diamond_scythe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:diamond_scythe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "diamond_lance": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:diamond_lance"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "display": {
@@ -84,7 +120,10 @@
       "diamond_hatchet",
       "diamond_sabre",
       "diamond_katana",
-      "diamond_spear"
+      "diamond_spear",
+      "diamond_longsword",
+      "diamond_scythe",
+      "diamond_lance"
     ]
   ],
   "sends_telemetry_event": true

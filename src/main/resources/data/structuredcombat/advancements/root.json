@@ -59,6 +59,42 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "wooden_longsword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:wooden_longsword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "wooden_scythe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:wooden_scythe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "wooden_lance": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:wooden_lance"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "display": {
@@ -84,7 +120,10 @@
       "wooden_hatchet",
       "wooden_sabre",
       "wooden_katana",
-      "wooden_spear"
+      "wooden_spear",
+      "wooden_longsword",
+      "wooden_scythe",
+      "wooden_lance"
     ]
   ],
   "sends_telemetry_event": true

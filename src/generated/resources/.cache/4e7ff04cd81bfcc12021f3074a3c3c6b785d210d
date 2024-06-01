@@ -1,9 +1,10 @@
-// 1.20.1	2024-05-31T16:12:06.8370852	Tags for minecraft:item mod id structuredcombat
+// 1.20.1	2024-06-01T14:01:18.755397	Tags for minecraft:item mod id structuredcombat
 9247f4fdc0a441217d6261ad530f77a40b04555d data/structuredcombat/tags/items/crit_katanas.json
 6fbe85e07bd82ea495cbbaa8d320caf027ee4650 data/structuredcombat/tags/items/crop_scythes.json
 b67b92b96aa728eb2903248849e02aa64df01425 data/structuredcombat/tags/items/dragon_longswords.json
 6ed04005ec0efadaef1cde7b53ca4a0163ebccb7 data/structuredcombat/tags/items/drowned_spears.json
 3268fecaad186fa745d73476791b693ed6abbb02 data/structuredcombat/tags/items/pillager_sabres.json
 4d804b45d5ad411a254eedaa559d3ea0c38291f5 data/structuredcombat/tags/items/smithing_weapons.json
+c574fe8cfafb44a38580ba11ed1ae773d1db6a32 data/structuredcombat/tags/items/speed_lances.json
 7ee95cea541a682dd29425734bded4b7b2ee7f8d data/structuredcombat/tags/items/vindicator_hatchets.json
 a86a90bcc9d828051089aa783679b5ecd776fda7 data/structuredcombat/tags/items/wooden_tools.json

@@ -6,7 +6,7 @@ import com.mojang.math.Axis;
 import net.kaicoyote.structuredcombat.StructuredCombat;
 import net.kaicoyote.structuredcombat.entity.client.ModModelLayers;
 import net.kaicoyote.structuredcombat.entity.custom.entities.spears.IronSpearProjectileEntity;
-import net.kaicoyote.structuredcombat.entity.custom.models.SpearModel;
+import net.kaicoyote.structuredcombat.entity.custom.models.SpearWithGuardModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -20,10 +20,10 @@ import org.jetbrains.annotations.NotNull;
 
 @OnlyIn(Dist.CLIENT)
 public class IronSpearRenderer extends EntityRenderer<IronSpearProjectileEntity>{
-    private final SpearModel model;
+    private final SpearWithGuardModel model;
     public IronSpearRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);
-        this.model = new SpearModel(pContext.bakeLayer(ModModelLayers.IRON_SPEAR));
+        this.model = new SpearWithGuardModel(pContext.bakeLayer(ModModelLayers.IRON_SPEAR));
     }
 
     @Override

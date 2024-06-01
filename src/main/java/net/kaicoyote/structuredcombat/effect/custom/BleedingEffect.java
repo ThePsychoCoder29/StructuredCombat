@@ -25,7 +25,7 @@ public class BleedingEffect extends MobEffect {
 
     @Override
     public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
-        return true;
+        return pDuration % 20 == 0;
     }
 
 }

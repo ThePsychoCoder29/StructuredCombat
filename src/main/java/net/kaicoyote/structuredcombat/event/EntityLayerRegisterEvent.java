@@ -4,7 +4,8 @@ import net.kaicoyote.structuredcombat.StructuredCombat;
 import net.kaicoyote.structuredcombat.entity.client.ModModelLayers;
 import net.kaicoyote.structuredcombat.entity.custom.models.DaggerModel;
 import net.kaicoyote.structuredcombat.entity.custom.models.HatchetModel;
-import net.kaicoyote.structuredcombat.entity.custom.models.SpearModel;
+import net.kaicoyote.structuredcombat.entity.custom.models.SpearWithGuardModel;
+import net.kaicoyote.structuredcombat.entity.custom.models.SpearWithoutGuardModel;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -31,11 +32,11 @@ public class EntityLayerRegisterEvent {
         event.registerLayerDefinition(ModModelLayers.NETHERITE_HATCHET, HatchetModel::createLayer);
 
         //Spears
-        event.registerLayerDefinition(ModModelLayers.WOODEN_SPEAR, SpearModel::createLayer);
-        event.registerLayerDefinition(ModModelLayers.STONE_SPEAR, SpearModel::createLayer);
-        event.registerLayerDefinition(ModModelLayers.IRON_SPEAR, SpearModel::createLayer);
-        event.registerLayerDefinition(ModModelLayers.GOLD_SPEAR, SpearModel::createLayer);
-        event.registerLayerDefinition(ModModelLayers.DIAMOND_SPEAR, SpearModel::createLayer);
-        event.registerLayerDefinition(ModModelLayers.NETHERITE_SPEAR, SpearModel::createLayer);
+        event.registerLayerDefinition(ModModelLayers.WOODEN_SPEAR, SpearWithoutGuardModel::createLayer);
+        event.registerLayerDefinition(ModModelLayers.STONE_SPEAR, SpearWithoutGuardModel::createLayer);
+        event.registerLayerDefinition(ModModelLayers.IRON_SPEAR, SpearWithGuardModel::createLayer);
+        event.registerLayerDefinition(ModModelLayers.GOLD_SPEAR, SpearWithGuardModel::createLayer);
+        event.registerLayerDefinition(ModModelLayers.DIAMOND_SPEAR, SpearWithGuardModel::createLayer);
+        event.registerLayerDefinition(ModModelLayers.NETHERITE_SPEAR, SpearWithGuardModel::createLayer);
     }
 }

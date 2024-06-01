@@ -23,60 +23,64 @@ public class ModCreativeModeTabs {
                             //Items
                             output.accept(ModItems.DIAMOND_UPGRADE.get());
 
-                            //Daggers
+                            //Wooden
                             output.accept(ModItems.WOODEN_DAGGER.get());
-                            output.accept(ModItems.STONE_DAGGER.get());
-                            output.accept(ModItems.IRON_DAGGER.get());
-                            output.accept(ModItems.GOLD_DAGGER.get());
-                            output.accept(ModItems.DIAMOND_DAGGER.get());
-                            output.accept(ModItems.NETHERITE_DAGGER.get());
-
-                            //Hatchets
-                            output.accept(ModItems.WOODEN_HATCHET.get());
-                            output.accept(ModItems.STONE_HATCHET.get());
-                            output.accept(ModItems.IRON_HATCHET.get());
-                            output.accept(ModItems.GOLD_HATCHET.get());
-                            output.accept(ModItems.DIAMOND_HATCHET.get());
-                            output.accept(ModItems.NETHERITE_HATCHET.get());
-
-                            //Katanas
                             output.accept(ModItems.WOODEN_KATANA.get());
-                            output.accept(ModItems.STONE_KATANA.get());
-                            output.accept(ModItems.IRON_KATANA.get());
-                            output.accept(ModItems.GOLD_KATANA.get());
-                            output.accept(ModItems.DIAMOND_KATANA.get());
-                            output.accept(ModItems.NETHERITE_KATANA.get());
-
-                            //Sabres
                             output.accept(ModItems.WOODEN_SABRE.get());
-                            output.accept(ModItems.STONE_SABRE.get());
-                            output.accept(ModItems.IRON_SABRE.get());
-                            output.accept(ModItems.GOLD_SABRE.get());
-                            output.accept(ModItems.DIAMOND_SABRE.get());
-                            output.accept(ModItems.NETHERITE_SABRE.get());
-
-                            //Spears
+                            output.accept(ModItems.WOODEN_LANCE.get());
                             output.accept(ModItems.WOODEN_SPEAR.get());
-                            output.accept(ModItems.STONE_SPEAR.get());
-                            output.accept(ModItems.IRON_SPEAR.get());
-                            output.accept(ModItems.GOLD_SPEAR.get());
-                            output.accept(ModItems.DIAMOND_SPEAR.get());
-                            output.accept(ModItems.NETHERITE_SPEAR.get());
-
-                            //Longswords
                             output.accept(ModItems.WOODEN_LONGSWORD.get());
-                            output.accept(ModItems.STONE_LONGSWORD.get());
-                            output.accept(ModItems.IRON_LONGSWORD.get());
-                            output.accept(ModItems.GOLD_LONGSWORD.get());
-                            output.accept(ModItems.DIAMOND_LONGSWORD.get());
-                            output.accept(ModItems.NETHERITE_LONGSWORD.get());
-
-                            //Scythes
+                            output.accept(ModItems.WOODEN_HATCHET.get());
                             output.accept(ModItems.WOODEN_SCYTHE.get());
+                            //Stone
+                            output.accept(ModItems.STONE_DAGGER.get());
+                            output.accept(ModItems.STONE_KATANA.get());
+                            output.accept(ModItems.STONE_SABRE.get());
+                            output.accept(ModItems.STONE_LANCE.get());
+                            output.accept(ModItems.STONE_SPEAR.get());
+                            output.accept(ModItems.STONE_LONGSWORD.get());
+                            output.accept(ModItems.STONE_HATCHET.get());
                             output.accept(ModItems.STONE_SCYTHE.get());
+
+                            //Iron
+                            output.accept(ModItems.IRON_DAGGER.get());
+                            output.accept(ModItems.IRON_KATANA.get());
+                            output.accept(ModItems.IRON_SABRE.get());
+                            output.accept(ModItems.IRON_LANCE.get());
+                            output.accept(ModItems.IRON_SPEAR.get());
+                            output.accept(ModItems.IRON_LONGSWORD.get());
+                            output.accept(ModItems.IRON_HATCHET.get());
                             output.accept(ModItems.IRON_SCYTHE.get());
+                            output.accept(ModItems.GOLD_KATANA.get());
+
+                            //Gold
+                            output.accept(ModItems.GOLD_DAGGER.get());
+                            output.accept(ModItems.GOLD_LANCE.get());
+                            output.accept(ModItems.GOLD_SABRE.get());
+                            output.accept(ModItems.GOLD_LANCE.get());
+                            output.accept(ModItems.GOLD_SPEAR.get());
+                            output.accept(ModItems.GOLD_LONGSWORD.get());
+                            output.accept(ModItems.GOLD_HATCHET.get());
                             output.accept(ModItems.GOLD_SCYTHE.get());
+
+                            //Diamond
+                            output.accept(ModItems.DIAMOND_DAGGER.get());
+                            output.accept(ModItems.DIAMOND_KATANA.get());
+                            output.accept(ModItems.DIAMOND_SABRE.get());
+                            output.accept(ModItems.DIAMOND_LANCE.get());
+                            output.accept(ModItems.DIAMOND_SPEAR.get());
+                            output.accept(ModItems.DIAMOND_LONGSWORD.get());
+                            output.accept(ModItems.DIAMOND_HATCHET.get());
                             output.accept(ModItems.DIAMOND_SCYTHE.get());
+
+                            //Netherite
+                            output.accept(ModItems.NETHERITE_DAGGER.get());
+                            output.accept(ModItems.NETHERITE_KATANA.get());
+                            output.accept(ModItems.NETHERITE_SABRE.get());
+                            output.accept(ModItems.NETHERITE_LANCE.get());
+                            output.accept(ModItems.NETHERITE_SPEAR.get());
+                            output.accept(ModItems.NETHERITE_LONGSWORD.get());
+                            output.accept(ModItems.NETHERITE_HATCHET.get());
                             output.accept(ModItems.NETHERITE_SCYTHE.get());
                         }))
                         .build());

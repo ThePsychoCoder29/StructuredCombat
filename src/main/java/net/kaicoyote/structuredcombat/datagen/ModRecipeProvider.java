@@ -257,6 +257,40 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         smithingTableRecipeDiamond(ModItems.IRON_SCYTHE.get(), ModItems.DIAMOND_SCYTHE.get(), pWriter, "diamond_scythe");
         smithingTableRecipeNetherite(ModItems.DIAMOND_SCYTHE.get(), ModItems.NETHERITE_SCYTHE.get(), pWriter, "netherite_scythe");
 
+        //Lances
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.WOODEN_LANCE.get())
+                .pattern(" P ")
+                .pattern(" P ")
+                .pattern("PSP")
+                .define('P',  ItemTags.PLANKS)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.STONE_LANCE.get())
+                .pattern(" C ")
+                .pattern(" C ")
+                .pattern("CSC")
+                .define('C',  ItemTags.STONE_TOOL_MATERIALS)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GOLD_LANCE.get())
+                .pattern(" G ")
+                .pattern(" G ")
+                .pattern("GSG")
+                .define('G',  Items.GOLD_INGOT)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        smithingTableRecipeDiamond(ModItems.IRON_LANCE.get(), ModItems.DIAMOND_LANCE.get(), pWriter, "diamond_lance");
+        smithingTableRecipeNetherite(ModItems.DIAMOND_LANCE.get(), ModItems.NETHERITE_LANCE.get(), pWriter, "netherite_lance");
+
         //Items
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_UPGRADE.get(), 2)
                 .pattern("ESE")
@@ -281,7 +315,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 RecipeCategory.TOOLS,
                 output
             )
-                .unlocks(getHasName(ModItems.DIAMOND_UPGRADE.get()), has(ModTags.Items.SMITHING_WEAPONS))
+                .unlocks(getHasName(ModItems.DIAMOND_UPGRADE.get()), has(input))
                 .save(writer, name + "_from_smithing_table");
     }
     @SuppressWarnings("UnusedReturnValue")
@@ -293,7 +327,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 RecipeCategory.TOOLS,
                 output
             )
-                .unlocks(getHasName(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), has(ModTags.Items.SMITHING_WEAPONS))
+                .unlocks(getHasName(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), has(input))
                 .save(writer, name + "_from_smithing_table");
     }
 }

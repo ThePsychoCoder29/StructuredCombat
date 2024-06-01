@@ -59,6 +59,14 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.DIAMOND_SPEAR.get())
                 .add(ModItems.NETHERITE_SPEAR.get());
 
+        this.tag(ModTags.Items.SPEED_LANCES)
+                .add(ModItems.WOODEN_LANCE.get())
+                .add(ModItems.STONE_LANCE.get())
+                .add(ModItems.IRON_LANCE.get())
+                .add(ModItems.GOLD_LANCE.get())
+                .add(ModItems.DIAMOND_LANCE.get())
+                .add(ModItems.NETHERITE_LANCE.get());
+
         this.tag(ModTags.Items.DRAGON_LONGSWORDS)
                 .add(ModItems.WOODEN_LONGSWORD.get())
                 .add(ModItems.STONE_LONGSWORD.get())

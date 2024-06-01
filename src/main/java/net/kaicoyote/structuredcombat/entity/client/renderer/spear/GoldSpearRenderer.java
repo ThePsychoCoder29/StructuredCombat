@@ -5,9 +5,8 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import net.kaicoyote.structuredcombat.StructuredCombat;
 import net.kaicoyote.structuredcombat.entity.client.ModModelLayers;
-import net.kaicoyote.structuredcombat.entity.custom.entities.hatchets.GoldHatchetProjectileEntity;
 import net.kaicoyote.structuredcombat.entity.custom.entities.spears.GoldSpearProjectileEntity;
-import net.kaicoyote.structuredcombat.entity.custom.models.SpearModel;
+import net.kaicoyote.structuredcombat.entity.custom.models.SpearWithGuardModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -21,10 +20,10 @@ import org.jetbrains.annotations.NotNull;
 
 @OnlyIn(Dist.CLIENT)
 public class GoldSpearRenderer extends EntityRenderer<GoldSpearProjectileEntity>{
-    private final SpearModel model;
+    private final SpearWithGuardModel model;
     public GoldSpearRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);
-        this.model = new SpearModel(pContext.bakeLayer(ModModelLayers.GOLD_SPEAR));
+        this.model = new SpearWithGuardModel(pContext.bakeLayer(ModModelLayers.GOLD_SPEAR));
     }
 
     @Override

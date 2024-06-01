@@ -29,6 +29,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("iron_hatchet_from_snowy_villages", villageLIC("snowy_house", ModItems.IRON_HATCHET.get()));
         add("iron_spear_from_savanna_villages", villageLIC("savanna_house", ModItems.IRON_SPEAR.get()));
         add("iron_scythe_from_snowy_villages", villageLIC("plains_house", ModItems.IRON_SCYTHE.get()));
+        add("iron_lance_from_taiga_villages", villageLIC("taiga_house", ModItems.IRON_LANCE.get()));
     }
 
     public static ModStructureLootModifier structureLIC(String chestLoc, Item item){

@@ -5,7 +5,9 @@
       "conditions": {
         "items": [
           {
-            "tag": "structuredcombat:smithing_weapons"
+            "items": [
+              "structuredcombat:diamond_sabre"
+            ]
           }
         ]
       },

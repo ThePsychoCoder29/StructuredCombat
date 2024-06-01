@@ -39,6 +39,10 @@ public class NetheriteUpgradeSmithingTemplateIconListMixin {
     private static final ResourceLocation EMPTY_SLOT_SPEAR;
     @Unique
     private static final ResourceLocation EMPTY_SLOT_LONGSWORD;
+    @Unique
+    private static final ResourceLocation EMPTY_SLOT_SCYTHE;
+    @Unique
+    private static final ResourceLocation EMPTY_SLOT_LANCE;
 
     /**
      * @author MrMisc29 / KaiCoyote
@@ -49,7 +53,7 @@ public class NetheriteUpgradeSmithingTemplateIconListMixin {
         return List.of(EMPTY_SLOT_HELMET, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_BOOTS,
                 EMPTY_SLOT_HOE, EMPTY_SLOT_AXE, EMPTY_SLOT_SWORD, EMPTY_SLOT_SHOVEL, EMPTY_SLOT_PICKAXE,
                 EMPTY_SLOT_DAGGER, EMPTY_SLOT_HATCHET, EMPTY_SLOT_KATANA, EMPTY_SLOT_SABRE, EMPTY_SLOT_SPEAR,
-                EMPTY_SLOT_LONGSWORD);
+                EMPTY_SLOT_LONGSWORD, EMPTY_SLOT_SCYTHE, EMPTY_SLOT_LANCE);
     }
 
     static {
@@ -68,5 +72,7 @@ public class NetheriteUpgradeSmithingTemplateIconListMixin {
         EMPTY_SLOT_SABRE = new ResourceLocation("structuredcombat:item/empty_slot_sabre");
         EMPTY_SLOT_SPEAR = new ResourceLocation("structuredcombat:item/empty_slot_spear");
         EMPTY_SLOT_LONGSWORD = new ResourceLocation("structuredcombat:item/empty_slot_longsword");
+        EMPTY_SLOT_SCYTHE = new ResourceLocation("structuredcombat:item/empty_slot_scythe");
+        EMPTY_SLOT_LANCE = new ResourceLocation("structuredcombat:item/empty_slot_lance");
     }
 }

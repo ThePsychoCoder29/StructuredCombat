@@ -60,6 +60,42 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "netherite_longsword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_longsword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "netherite_scythe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_scythe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "netherite_lance": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_lance"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "display": {
@@ -84,7 +120,10 @@
       "netherite_hatchet",
       "netherite_sabre",
       "netherite_katana",
-      "netherite_spear"
+      "netherite_spear",
+      "netherite_longsword",
+      "netherite_scythe",
+      "netherite_lance"
     ]
   ],
   "sends_telemetry_event": true

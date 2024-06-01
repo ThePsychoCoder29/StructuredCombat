@@ -61,13 +61,21 @@ public class ModItemModelProvider extends ItemModelProvider {
         handHeldItem(ModItems.DIAMOND_LONGSWORD);
         handHeldItem(ModItems.NETHERITE_LONGSWORD);
 
-        //Scythe
+        //Scythes
         handHeldItem(ModItems.WOODEN_SCYTHE);
         handHeldItem(ModItems.STONE_SCYTHE);
         handHeldItem(ModItems.IRON_SCYTHE);
         handHeldItem(ModItems.GOLD_SCYTHE);
         handHeldItem(ModItems.DIAMOND_SCYTHE);
         handHeldItem(ModItems.NETHERITE_SCYTHE);
+
+        //Lances
+        handHeldItem(ModItems.WOODEN_LANCE);
+        handHeldItem(ModItems.STONE_LANCE);
+        handHeldItem(ModItems.IRON_LANCE);
+        handHeldItem(ModItems.GOLD_LANCE);
+        handHeldItem(ModItems.DIAMOND_LANCE);
+        handHeldItem(ModItems.NETHERITE_LANCE);
 
         //Items
         simpleItem(ModItems.DIAMOND_UPGRADE);

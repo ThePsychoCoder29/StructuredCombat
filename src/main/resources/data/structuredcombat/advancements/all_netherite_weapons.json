@@ -3,71 +3,85 @@
   "criteria": {
     "netherite_dagger": {
       "conditions": {
-        "item": {
-          "items": [
-            "structuredcombat:netherite_dagger"
-          ]
-        }
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_dagger"
+            ]
+          }
+        ]
       },
       "trigger": "minecraft:inventory_changed"
     },
     "netherite_hatchet": {
       "conditions": {
-        "item": {
-          "items": [
-            "structuredcombat:netherite_hatchet"
-          ]
-        }
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_hatchet"
+            ]
+          }
+        ]
       },
       "trigger": "minecraft:inventory_changed"
     },
     "netherite_sabre": {
       "conditions": {
-        "item": {
-          "items": [
-            "structuredcombat:netherite_sabre"
-          ]
-        }
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_sabre"
+            ]
+          }
+        ]
       },
       "trigger": "minecraft:inventory_changed"
     },
     "netherite_katana": {
       "conditions": {
-        "item": {
-          "items": [
-            "structuredcombat:netherite_katana"
-          ]
-        }
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_katana"
+            ]
+          }
+        ]
       },
       "trigger": "minecraft:inventory_changed"
     },
     "netherite_spear": {
       "conditions": {
-        "item": {
-          "items": [
-            "structuredcombat:netherite_spear"
-          ]
-        }
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_spear"
+            ]
+          }
+        ]
       },
       "trigger": "minecraft:inventory_changed"
     },
     "netherite_longsword": {
       "conditions": {
-        "item": {
-          "items": [
-            "structuredcombat:netherite_longsword"
-          ]
-        }
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_longsword"
+            ]
+          }
+        ]
       },
       "trigger": "minecraft:inventory_changed"
     },
     "netherite_scythe": {
       "conditions": {
-        "item": {
-          "items": [
-            "structuredcombat:netherite_scythe"
-          ]
-        }
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_scythe"
+            ]
+          }
+        ]
       },
       "trigger": "minecraft:inventory_changed"
     }

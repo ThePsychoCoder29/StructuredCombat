@@ -21,6 +21,7 @@ public class ModTags {
         public static final TagKey<Item> VINDICATOR_HATCHETS = tag("vindicator_hatchets");
         public static final TagKey<Item> DROWNED_SPEARS = tag("drowned_spears");
         public static final TagKey<Item> DRAGON_LONGSWORDS = tag("dragon_longswords");
+        public static final TagKey<Item> SPEED_LANCES = tag("speed_lances");
         public static final TagKey<Item> CROP_SCYTHES = tag("crop_scythes");
         public static final TagKey<Item> WOODEN_TOOLS = tag("wooden_tools");
         private static TagKey<Item> tag(String name) {
