@@ -77,6 +77,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         handHeldItem(ModItems.DIAMOND_LANCE);
         handHeldItem(ModItems.NETHERITE_LANCE);
 
+        //Labyrs'
+        handHeldItem(ModItems.WOODEN_LABYRS);
+        handHeldItem(ModItems.STONE_LABYRS);
+        handHeldItem(ModItems.IRON_LABYRS);
+        handHeldItem(ModItems.GOLD_LABYRS);
+        handHeldItem(ModItems.DIAMOND_LABYRS);
+        handHeldItem(ModItems.NETHERITE_LABYRS);
+
         //Items
         simpleItem(ModItems.DIAMOND_UPGRADE);
         simpleItem(ModItems.STRUCTURED_COMBAT_LOGO);

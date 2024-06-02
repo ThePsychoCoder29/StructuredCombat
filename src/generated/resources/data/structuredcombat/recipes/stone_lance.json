@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "tag": "minecraft:stone_tool_materials"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " C ",
+    " C ",
+    "CSC"
+  ],
+  "result": {
+    "item": "structuredcombat:stone_lance"
+  },
+  "show_notification": true
+}

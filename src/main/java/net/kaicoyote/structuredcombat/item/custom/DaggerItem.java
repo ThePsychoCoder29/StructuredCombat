@@ -153,7 +153,7 @@ public class DaggerItem extends Item implements IForgeItem {
             pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.dagger.tooltip"));
         }
         else {
-            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.dagger_shift.tooltip"));
+            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.shift.tooltip"));
             super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
         }
     }

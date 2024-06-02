@@ -101,7 +101,7 @@ public class KatanaItem extends Item {
             pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.katana.tooltip"));
         }
         else {
-            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.katana_shift.tooltip"));
+            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.shift.tooltip"));
             super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
         }
     }

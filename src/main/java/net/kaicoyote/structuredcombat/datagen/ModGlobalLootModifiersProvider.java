@@ -30,6 +30,12 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("iron_spear_from_savanna_villages", villageLIC("savanna_house", ModItems.IRON_SPEAR.get()));
         add("iron_scythe_from_snowy_villages", villageLIC("plains_house", ModItems.IRON_SCYTHE.get()));
         add("iron_lance_from_taiga_villages", villageLIC("taiga_house", ModItems.IRON_LANCE.get()));
+
+        //Bastions
+        add("iron_labyrs_from_bridge_bastion", bastionLIC("bridge", ModItems.IRON_LABYRS.get()));
+        add("iron_labyrs_from_hoglin_stable_bastion", bastionLIC("hoglin_stable", ModItems.IRON_LABYRS.get()));
+        add("iron_labyrs_from_other_bastion", bastionLIC("other", ModItems.IRON_LABYRS.get()));
+        add("iron_labyrs_from_treasure_bastion", bastionLIC("treasure", ModItems.IRON_LABYRS.get()));
     }
 
     public static ModStructureLootModifier structureLIC(String chestLoc, Item item){
@@ -41,6 +47,11 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     public static ModStructureLootModifier villageLIC(String chestLoc, Item item){
         return new ModStructureLootModifier(new LootItemCondition[]{
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/village/village_" + chestLoc)).build()
+        }, item);
+    }
+    public static ModStructureLootModifier bastionLIC(String chestLoc, Item item){
+        return new ModStructureLootModifier(new LootItemCondition[]{
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/bastion_" + chestLoc)).build()
         }, item);
     }
 }

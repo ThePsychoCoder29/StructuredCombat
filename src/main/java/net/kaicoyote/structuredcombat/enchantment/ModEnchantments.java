@@ -3,6 +3,7 @@ package net.kaicoyote.structuredcombat.enchantment;
 import net.kaicoyote.structuredcombat.StructuredCombat;
 import net.kaicoyote.structuredcombat.enchantment.custom.enchantments.ChainingEnchantment;
 import net.kaicoyote.structuredcombat.enchantment.custom.enchantments.EagleEyesEnchantment;
+import net.kaicoyote.structuredcombat.enchantment.custom.enchantments.ParalyzedEnchantment;
 import net.kaicoyote.structuredcombat.enchantment.custom.enchantments.RecallEnchantment;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -21,6 +22,8 @@ public class ModEnchantments {
             ()-> new EagleEyesEnchantment(Enchantment.Rarity.COMMON, EnchantmentCategory.BOW, EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND));
     public static final RegistryObject<Enchantment> RECALL = ENCHANTMENTS.register("recall",
             ()-> new RecallEnchantment(Enchantment.Rarity.COMMON, EnchantmentCategory.WEAPON, EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND));
+    public static final RegistryObject<Enchantment> PARALYZED = ENCHANTMENTS.register("paralyzed",
+            ()-> new ParalyzedEnchantment(Enchantment.Rarity.COMMON, EnchantmentCategory.WEAPON, EquipmentSlot.MAINHAND));
 
     public static void register(IEventBus eventBus){
         ENCHANTMENTS.register(eventBus);

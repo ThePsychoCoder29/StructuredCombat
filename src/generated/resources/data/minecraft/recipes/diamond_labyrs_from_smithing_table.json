@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:diamond"
+  },
+  "base": {
+    "item": "structuredcombat:iron_labyrs"
+  },
+  "result": {
+    "item": "structuredcombat:diamond_labyrs"
+  },
+  "template": {
+    "item": "structuredcombat:diamond_upgrade"
+  }
+}

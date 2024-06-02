@@ -15,7 +15,6 @@ public class ModTags {
         }
     }
     public static class Items {
-        public static final TagKey<Item> SMITHING_WEAPONS = tag("smithing_weapons");
         public static final TagKey<Item> CRIT_KATANAS = tag("crit_katanas");
         public static final TagKey<Item> PILLAGER_SABRES = tag("pillager_sabres");
         public static final TagKey<Item> VINDICATOR_HATCHETS = tag("vindicator_hatchets");

@@ -58,6 +58,13 @@
   "item.structuredcombat.diamond_lance" : "Diamond Lance",
   "item.structuredcombat.netherite_lance" : "Netherite Lance",
 
+  "item.structuredcombat.wooden_labyrs" : "Wooden Labyrs",
+  "item.structuredcombat.stone_labyrs" : "Stone Labyrs",
+  "item.structuredcombat.iron_labyrs" : "Iron Labyrs",
+  "item.structuredcombat.gold_labyrs" : "Gold Labyrs",
+  "item.structuredcombat.diamond_labyrs" : "Diamond Labyrs",
+  "item.structuredcombat.netherite_labyrs" : "Netherite Labyrs",
+
   "item.structuredcombat.smithing_template.applies_to": "Applies To:",
   "item.structuredcombat.smithing_template.ingredients": "Ingredients:",
   "item.structuredcombat.smithing_template.diamond_upgrade.applies_to": "Structured Combat Weapons",
@@ -89,8 +96,10 @@
   "enchantment.structuredcombat.chaining": "Chaining",
   "enchantment.structuredcombat.eagle_eyes": "Eagle Eyes",
   "enchantment.structuredcombat.recall": "Recall",
+  "enchantment.structuredcombat.paralyzed": "Paralyzed",
 
   "effect.structuredcombat.bleeding": "Bleeding",
+  "effect.structuredcombat.paralyze": "Paralyze",
 
   "advancements.structuredcombat.root" : "Structured Combat",
   "advancements.structuredcombat.root.description" : "Combat Awaits!\nCraft a Wooden Weapon from the mod",
@@ -137,31 +146,26 @@
   "advancements.structuredcombat.obtain_lance" : "Joust Enough",
   "advancements.structuredcombat.obtain_lance.description" : "Find a Lance in a Taiga Hamlet",
 
+  "advancements.structuredcombat.obtain_labyrs" : "Axe Of Kindness. NOT!",
+  "advancements.structuredcombat.obtain_labyrs.description" : "Find a Labyrs in the Remnants",
+
   "advancements.structuredcombat.scythe_harvest_crop" : "Swift Harvest",
   "advancements.structuredcombat.scythe_harvest_crop.description" : "Harvest a 3×3 grid of Mature Crops with a Scythe",
 
+  "advancements.structuredcombat.lance_hurt_with_max_damage" : "Speed is the key!",
+  "advancements.structuredcombat.lance_hurt_with_max_damage.description" : "Damage a target with a lance while at full speed",
+
+
+  "tooltip.structuredcombat.shift.tooltip": "Press and Hold SHIFT for more info",
   "tooltip.structuredcombat.dagger.tooltip": "Daggers are like miniature swords that can be thrown and attack faster",
-  "tooltip.structuredcombat.dagger_shift.tooltip": "Press and Hold SHIFT for more info",
-
   "tooltip.structuredcombat.hatchet.tooltip": "Hatchets are like miniature axes that can be thrown and attack faster",
-  "tooltip.structuredcombat.hatchet_shift.tooltip": "Press and Hold SHIFT for more info",
-
   "tooltip.structuredcombat.katana.tooltip": "A swift Sword that deals even more damage on critical hits\nArmor and Shields deplete durability faster",
-  "tooltip.structuredcombat.katana_shift.tooltip": "Press and Hold SHIFT for more info",
-
   "tooltip.structuredcombat.longsword.tooltip": "A slow but powerful sword that inflicts debuffs to foes wearing armor",
-  "tooltip.structuredcombat.longsword_shift.tooltip": "Press and Hold SHIFT for more info",
-
   "tooltip.structuredcombat.sabre.tooltip": "A swift sword that can parry attacks\nBlocking over a long time decreases efficiency",
-  "tooltip.structuredcombat.sabre_shift.tooltip": "Press and Hold SHIFT for more info",
-
   "tooltip.structuredcombat.scythe.tooltip": "Good for dealing with crowds\nDeals additional damage overtime\nAlso harvests crops in an area",
-  "tooltip.structuredcombat.scythe_shift.tooltip": "Press and Hold SHIFT for more info",
-
   "tooltip.structuredcombat.spear.tooltip": "A knockoff trident that isn’t efficient in water",
-  "tooltip.structuredcombat.spear_shift.tooltip": "Press and hold SHIFT for more info",
-
-  "creativetab.structuredcombat.tab": "Structured Combat Tab",
   "tooltip.structuredcombat.lance.tooltip": "Damage dealt is relative to user's movement speed",
-  "tooltip.structuredcombat.lance_shift.tooltip": "Press and Hold SHIFT for more info"
+  "tooltip.structuredcombat.labyrs.tooltip": "Good Crowd Control\nAlso functions like an Axe",
+
+  "creativetab.structuredcombat.tab": "Structured Combat Tab"
 }

@@ -90,7 +90,7 @@ public class SpearItem extends Item {
             pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.spear.tooltip"));
         }
         else {
-            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.spear_shift.tooltip"));
+            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.shift.tooltip"));
             super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
         }
     }

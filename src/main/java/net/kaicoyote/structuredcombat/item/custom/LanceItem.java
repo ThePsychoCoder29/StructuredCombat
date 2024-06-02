@@ -24,6 +24,8 @@ import java.util.List;
 
 public class LanceItem extends Item {
 
+    private static float spd = 0;
+    private static boolean isCrit = false;
     public LanceItem(Properties pProperties) {
         super(pProperties);
     }
@@ -73,24 +75,28 @@ public class LanceItem extends Item {
     public AttributeModifier attributeSpd(double amountSpd) {
         return new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", amountSpd, AttributeModifier.Operation.ADDITION);
     }
-    public static float dmgWithSpd(Player player){
-        double deltaX = player.getX() - player.xOld;
-        double deltaY = player.getY() - player.yOld;
-        double deltaZ = player.getZ() - player.zOld;
-        double speed = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2) + Math.pow(deltaZ, 2));
-        if(speed >= 14) {
-            return 3;
+
+    public static void setSpd(float amt){
+        spd = amt;
+    }
+
+    public static void setIsCrit(boolean isCriticalHit){
+        isCrit = isCriticalHit;
+    }
+
+    public float getDmg(){
+        if(!isCrit) {
+            float damage = spd;
+            float multiplier = damage - 6;
+            if (multiplier >= 8) {
+                return 3;
+            } else {
+                return (float) ((multiplier * 0.25) + 1);
+            }
         }
-        else if (speed < 14 && speed >= 12) {
-            return 2.5f;
+        else {
+            return 1;
         }
-        else if (speed < 12 && speed >= 10) {
-            return 2f;
-        }
-        else if (speed < 10 && speed >= 8) {
-            return 1.5f;
-        }
-        return 1;
     }
 
     @Override
@@ -104,7 +110,7 @@ public class LanceItem extends Item {
             pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.lance.tooltip"));
         }
         else {
-            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.lance_shift.tooltip"));
+            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.shift.tooltip"));
             super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
         }
     }
@@ -112,7 +118,9 @@ public class LanceItem extends Item {
     @Override
     public boolean hurtEnemy(@NotNull ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
         if(pAttacker instanceof Player player) {
-            float amount = (float) (player.getAttributeValue(Attributes.ATTACK_DAMAGE) * dmgWithSpd(player));
+            player.sendSystemMessage(Component.literal("Speed is " + spd));
+            float amount = (float) (player.getAttributeValue(Attributes.ATTACK_DAMAGE) * getDmg());
+            player.sendSystemMessage(Component.literal("Damage done is " + amount));
             return pTarget.hurt(pAttacker.damageSources().playerAttack(player), amount);
         }
         return true;

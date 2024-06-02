@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "tag": "minecraft:stone_tool_materials"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "CSC",
+    "CSC",
+    " S "
+  ],
+  "result": {
+    "item": "structuredcombat:stone_labyrs"
+  },
+  "show_notification": true
+}

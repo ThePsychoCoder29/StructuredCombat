@@ -291,6 +291,40 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         smithingTableRecipeDiamond(ModItems.IRON_LANCE.get(), ModItems.DIAMOND_LANCE.get(), pWriter, "diamond_lance");
         smithingTableRecipeNetherite(ModItems.DIAMOND_LANCE.get(), ModItems.NETHERITE_LANCE.get(), pWriter, "netherite_lance");
 
+        //Labyrs
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.WOODEN_LABYRS.get())
+                .pattern("PSP")
+                .pattern("PSP")
+                .pattern(" S ")
+                .define('P',  ItemTags.PLANKS)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.STONE_LABYRS.get())
+                .pattern("CSC")
+                .pattern("CSC")
+                .pattern(" S ")
+                .define('C',  ItemTags.STONE_TOOL_MATERIALS)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GOLD_LABYRS.get())
+                .pattern("GSG")
+                .pattern("GSG")
+                .pattern(" S ")
+                .define('G',  Items.GOLD_INGOT)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(Items.OAK_PLANKS), has(Items.STICK))
+                .showNotification(true)
+                .save(pWriter);
+
+        smithingTableRecipeDiamond(ModItems.IRON_LABYRS.get(), ModItems.DIAMOND_LABYRS.get(), pWriter, "diamond_labyrs");
+        smithingTableRecipeNetherite(ModItems.DIAMOND_LABYRS.get(), ModItems.NETHERITE_LABYRS.get(), pWriter, "netherite_labyrs");
+
         //Items
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_UPGRADE.get(), 2)
                 .pattern("ESE")

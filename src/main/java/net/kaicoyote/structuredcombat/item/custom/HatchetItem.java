@@ -138,7 +138,7 @@ public class HatchetItem extends Item {
             pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.hatchet.tooltip"));
         }
         else {
-            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.hatchet_shift.tooltip"));
+            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.shift.tooltip"));
             super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
         }
     }

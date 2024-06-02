@@ -95,6 +95,18 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "wooden_labyrs": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:wooden_labyrs"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "display": {
@@ -123,7 +135,8 @@
       "wooden_spear",
       "wooden_longsword",
       "wooden_scythe",
-      "wooden_lance"
+      "wooden_lance",
+      "wooden_labyrs"
     ]
   ],
   "sends_telemetry_event": true

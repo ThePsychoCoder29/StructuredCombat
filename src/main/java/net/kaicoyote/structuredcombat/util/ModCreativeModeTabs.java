@@ -31,6 +31,7 @@ public class ModCreativeModeTabs {
                             output.accept(ModItems.WOODEN_SPEAR.get());
                             output.accept(ModItems.WOODEN_LONGSWORD.get());
                             output.accept(ModItems.WOODEN_HATCHET.get());
+                            output.accept(ModItems.WOODEN_LABYRS.get());
                             output.accept(ModItems.WOODEN_SCYTHE.get());
                             //Stone
                             output.accept(ModItems.STONE_DAGGER.get());
@@ -40,6 +41,7 @@ public class ModCreativeModeTabs {
                             output.accept(ModItems.STONE_SPEAR.get());
                             output.accept(ModItems.STONE_LONGSWORD.get());
                             output.accept(ModItems.STONE_HATCHET.get());
+                            output.accept(ModItems.STONE_LABYRS.get());
                             output.accept(ModItems.STONE_SCYTHE.get());
 
                             //Iron
@@ -50,17 +52,18 @@ public class ModCreativeModeTabs {
                             output.accept(ModItems.IRON_SPEAR.get());
                             output.accept(ModItems.IRON_LONGSWORD.get());
                             output.accept(ModItems.IRON_HATCHET.get());
+                            output.accept(ModItems.IRON_LABYRS.get());
                             output.accept(ModItems.IRON_SCYTHE.get());
-                            output.accept(ModItems.GOLD_KATANA.get());
 
                             //Gold
                             output.accept(ModItems.GOLD_DAGGER.get());
-                            output.accept(ModItems.GOLD_LANCE.get());
+                            output.accept(ModItems.GOLD_KATANA.get());
                             output.accept(ModItems.GOLD_SABRE.get());
                             output.accept(ModItems.GOLD_LANCE.get());
                             output.accept(ModItems.GOLD_SPEAR.get());
                             output.accept(ModItems.GOLD_LONGSWORD.get());
                             output.accept(ModItems.GOLD_HATCHET.get());
+                            output.accept(ModItems.GOLD_LABYRS.get());
                             output.accept(ModItems.GOLD_SCYTHE.get());
 
                             //Diamond
@@ -71,6 +74,7 @@ public class ModCreativeModeTabs {
                             output.accept(ModItems.DIAMOND_SPEAR.get());
                             output.accept(ModItems.DIAMOND_LONGSWORD.get());
                             output.accept(ModItems.DIAMOND_HATCHET.get());
+                            output.accept(ModItems.DIAMOND_LABYRS.get());
                             output.accept(ModItems.DIAMOND_SCYTHE.get());
 
                             //Netherite
@@ -81,6 +85,7 @@ public class ModCreativeModeTabs {
                             output.accept(ModItems.NETHERITE_SPEAR.get());
                             output.accept(ModItems.NETHERITE_LONGSWORD.get());
                             output.accept(ModItems.NETHERITE_HATCHET.get());
+                            output.accept(ModItems.NETHERITE_LABYRS.get());
                             output.accept(ModItems.NETHERITE_SCYTHE.get());
                         }))
                         .build());

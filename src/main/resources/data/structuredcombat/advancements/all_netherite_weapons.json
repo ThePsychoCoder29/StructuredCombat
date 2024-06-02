@@ -84,6 +84,30 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "netherite_lance": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_lance"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "netherite_labyrs": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "structuredcombat:netherite_labyrs"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "display": {
@@ -122,6 +146,12 @@
     ],
     [
       "netherite_scythe"
+    ],
+    [
+      "netherite_lance"
+    ],
+    [
+      "netherite_lance"
     ]
   ],
   "rewards": {

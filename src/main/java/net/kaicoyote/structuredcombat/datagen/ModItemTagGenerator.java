@@ -18,14 +18,6 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
-        this.tag(ModTags.Items.SMITHING_WEAPONS)
-                .add(ModItems.IRON_DAGGER.get())
-                .add(ModItems.IRON_HATCHET.get())
-                .add(ModItems.IRON_KATANA.get())
-                .add(ModItems.IRON_SABRE.get())
-                .add(ModItems.IRON_SPEAR.get())
-                .add(ModItems.IRON_LONGSWORD.get())
-                .add(ModItems.IRON_SCYTHE.get());
 
         this.tag(ModTags.Items.CRIT_KATANAS)
                 .add(ModItems.WOODEN_KATANA.get())

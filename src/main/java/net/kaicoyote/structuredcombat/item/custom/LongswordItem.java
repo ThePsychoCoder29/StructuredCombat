@@ -78,7 +78,7 @@ public class LongswordItem extends Item {
             pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.longsword.tooltip"));
         }
         else {
-            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.longsword_shift.tooltip"));
+            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.shift.tooltip"));
             super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
         }
     }

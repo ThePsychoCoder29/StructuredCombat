@@ -13,7 +13,7 @@
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "structuredcombat:dagger_advancement",
+  "parent": "structuredcombat:spear_advancement",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",

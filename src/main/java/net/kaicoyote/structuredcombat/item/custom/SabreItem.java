@@ -116,7 +116,7 @@ public class SabreItem extends Item {
             pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.sabre.tooltip"));
         }
         else {
-            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.sabre_shift.tooltip"));
+            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.shift.tooltip"));
             super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
         }
     }

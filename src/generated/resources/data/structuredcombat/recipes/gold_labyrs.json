@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "GSG",
+    "GSG",
+    " S "
+  ],
+  "result": {
+    "item": "structuredcombat:gold_labyrs"
+  },
+  "show_notification": true
+}

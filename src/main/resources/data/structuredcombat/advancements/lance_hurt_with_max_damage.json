@@ -1,0 +1,129 @@
+{
+  "display": {
+    "icon": {
+      "item": "structuredcombat:diamond_lance"
+    },
+    "title": {
+      "translate" : "advancements.structuredcombat.lance_hurt_with_max_damage"
+    },
+    "description": {
+      "translate": "advancements.structuredcombat.lance_hurt_with_max_damage.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "structuredcombat:lance_advancement",
+  "criteria": {
+    "wooden_lance": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "structuredcombat:wooden_lance"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "dealt": 9
+        }
+      }
+    },
+    "stone_lance": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "structuredcombat:stone_lance"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "dealt": 10.5
+        }
+      }
+    },
+    "iron_lance": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "structuredcombat:iron_lance"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "dealt": 12
+        }
+      }
+    },
+    "gold_lance": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "structuredcombat:gold_lance"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "dealt": 9
+        }
+      }
+    },
+    "diamond_lance": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "structuredcombat:diamond_lance"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "dealt": 15
+        }
+      }
+    },
+    "netherite_lance": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "structuredcombat:netherite_lance"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "dealt": 18
+        }
+      }
+    }
+  },
+  "requirements": [
+    "wooden_lance",
+    "stone_lance",
+    "iron_lance",
+    "gold_lance",
+    "diamond_lance",
+    "netherite_lance"
+  ]
+}

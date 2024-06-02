@@ -9,7 +9,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -20,7 +19,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -28,42 +26,12 @@ import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ScytheItem extends Item {
     public ScytheItem(Properties pProperties) {
         super(pProperties);
-    }
-
-    @Override
-    public @NotNull InteractionResult useOn(UseOnContext pContext) {
-        Level level = pContext.getLevel();
-        Player player = pContext.getPlayer();
-        BlockPos pos = pContext.getClickedPos();
-        BlockState state = level.getBlockState(pos);
-        assert player != null;
-        InteractionHand hand = player.getUsedItemHand();
-        ItemStack stack = player.getItemInHand(hand);
-        if(state.is(BlockTags.CROPS)){
-            List<BlockPos> cropPos = getBlockPos(pos);
-            CropBlock block = (CropBlock) state.getBlock();
-            if(block.isMaxAge(state)) {
-                for (BlockPos crop : cropPos) {
-                    BlockState gridState = level.getBlockState(crop);
-                    if (gridState.is(BlockTags.CROPS)) {
-                        CropBlock gridBlock = (CropBlock) gridState.getBlock();
-                        if(gridBlock.isMaxAge(gridState)) {
-                            level.destroyBlock(crop, true, player);
-                            stack.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(hand));
-                        }
-                    }
-                }
-            }
-            return InteractionResult.SUCCESS;
-        }
-        return InteractionResult.SUCCESS;
     }
 
     @NotNull
@@ -82,6 +50,28 @@ public class ScytheItem extends Item {
         blockPosList.add(new BlockPos(x - 1, y, z + 1));
         blockPosList.add(new BlockPos(x + 1, y, z - 1));
         return blockPosList;
+    }
+
+    @Override
+    public boolean mineBlock(@NotNull ItemStack stack, @NotNull Level level, BlockState state, @NotNull BlockPos pos, @NotNull LivingEntity pMiningEntity) {
+        if(state.is(BlockTags.CROPS)) {
+            List<BlockPos> cropPos = getBlockPos(pos);
+            CropBlock block = (CropBlock) state.getBlock();
+            if (block.isMaxAge(state)) {
+                for (BlockPos crop : cropPos) {
+                    BlockState gridState = level.getBlockState(crop);
+                    if (gridState.is(BlockTags.CROPS)) {
+                        CropBlock gridBlock = (CropBlock) gridState.getBlock();
+                        if (gridBlock.isMaxAge(gridState)) {
+                            level.destroyBlock(crop, true, pMiningEntity);
+                            stack.hurtAndBreak(1, pMiningEntity, user -> user.broadcastBreakEvent(pMiningEntity.getUsedItemHand()));
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     @Override
@@ -136,7 +126,7 @@ public class ScytheItem extends Item {
             pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.scythe.tooltip"));
         }
         else {
-            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.scythe_shift.tooltip"));
+            pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.shift.tooltip"));
             super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
         }
     }
@@ -150,7 +140,8 @@ public class ScytheItem extends Item {
     public float getDestroySpeed(@NotNull ItemStack pStack, BlockState pState) {
         if (pState.is(BlockTags.MINEABLE_WITH_HOE)) {
             return 15.0F;
-        } else {
+        }
+        else {
             return 1.5F;
         }
     }
@@ -166,7 +157,7 @@ public class ScytheItem extends Item {
 
     @Override
     public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
-        return ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction);
+        return ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction) || ToolActions.DEFAULT_HOE_ACTIONS.contains(toolAction);
     }
 
     @Override

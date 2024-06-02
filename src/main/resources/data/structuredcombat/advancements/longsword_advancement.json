@@ -13,7 +13,7 @@
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "structuredcombat:hatchet_advancement",
+  "parent": "structuredcombat:labrys_advancement",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",
