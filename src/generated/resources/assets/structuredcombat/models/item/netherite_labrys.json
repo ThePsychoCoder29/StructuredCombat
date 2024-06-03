@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "structuredcombat:item/netherite_labyrs"
+    "layer0": "structuredcombat:item/netherite_labrys"
   }
 }

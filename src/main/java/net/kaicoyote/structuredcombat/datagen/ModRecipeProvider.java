@@ -1,7 +1,6 @@
 package net.kaicoyote.structuredcombat.datagen;
 
 import net.kaicoyote.structuredcombat.item.ModItems;
-import net.kaicoyote.structuredcombat.util.ModTags;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
@@ -291,8 +290,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         smithingTableRecipeDiamond(ModItems.IRON_LANCE.get(), ModItems.DIAMOND_LANCE.get(), pWriter, "diamond_lance");
         smithingTableRecipeNetherite(ModItems.DIAMOND_LANCE.get(), ModItems.NETHERITE_LANCE.get(), pWriter, "netherite_lance");
 
-        //Labyrs
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.WOODEN_LABYRS.get())
+        //Labryes
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.WOODEN_LABRYS.get())
                 .pattern("PSP")
                 .pattern("PSP")
                 .pattern(" S ")
@@ -302,7 +301,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .showNotification(true)
                 .save(pWriter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.STONE_LABYRS.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.STONE_LABRYS.get())
                 .pattern("CSC")
                 .pattern("CSC")
                 .pattern(" S ")
@@ -312,7 +311,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .showNotification(true)
                 .save(pWriter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GOLD_LABYRS.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.GOLD_LABRYS.get())
                 .pattern("GSG")
                 .pattern("GSG")
                 .pattern(" S ")
@@ -322,8 +321,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .showNotification(true)
                 .save(pWriter);
 
-        smithingTableRecipeDiamond(ModItems.IRON_LABYRS.get(), ModItems.DIAMOND_LABYRS.get(), pWriter, "diamond_labyrs");
-        smithingTableRecipeNetherite(ModItems.DIAMOND_LABYRS.get(), ModItems.NETHERITE_LABYRS.get(), pWriter, "netherite_labyrs");
+        smithingTableRecipeDiamond(ModItems.IRON_LABRYS.get(), ModItems.DIAMOND_LABRYS.get(), pWriter, "diamond_labrys");
+        smithingTableRecipeNetherite(ModItems.DIAMOND_LABRYS.get(), ModItems.NETHERITE_LABRYS.get(), pWriter, "netherite_labrys");
 
         //Items
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DIAMOND_UPGRADE.get(), 2)

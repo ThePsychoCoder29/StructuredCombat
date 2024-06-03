@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "structuredcombat:wooden_labyrs"
+        "recipe": "structuredcombat:stone_labrys"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "structuredcombat:wooden_labyrs"
+      "structuredcombat:stone_labrys"
     ]
   },
   "sends_telemetry_event": false

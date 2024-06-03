@@ -16,11 +16,6 @@ import org.joml.Vector3d;
 public class PlayerSpeedEvent {
 
     @SubscribeEvent
-    public static void avoidCritOrJumpHitDetector(CriticalHitEvent event){
-        LanceItem.setIsCrit(!event.isVanillaCritical());
-    }
-
-    @SubscribeEvent
     public static void playerSpeed(TickEvent.PlayerTickEvent event){
         Player player = event.player;
         ItemStack stack = player.getItemInHand(InteractionHand.MAIN_HAND);

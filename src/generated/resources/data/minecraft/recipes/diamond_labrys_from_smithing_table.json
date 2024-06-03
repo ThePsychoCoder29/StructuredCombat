@@ -4,10 +4,10 @@
     "item": "minecraft:diamond"
   },
   "base": {
-    "item": "structuredcombat:iron_labyrs"
+    "item": "structuredcombat:iron_labrys"
   },
   "result": {
-    "item": "structuredcombat:diamond_labyrs"
+    "item": "structuredcombat:diamond_labrys"
   },
   "template": {
     "item": "structuredcombat:diamond_upgrade"

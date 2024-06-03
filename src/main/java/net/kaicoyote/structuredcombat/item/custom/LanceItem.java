@@ -25,7 +25,6 @@ import java.util.List;
 public class LanceItem extends Item {
 
     private static float spd = 0;
-    private static boolean isCrit = false;
     public LanceItem(Properties pProperties) {
         super(pProperties);
     }
@@ -80,22 +79,17 @@ public class LanceItem extends Item {
         spd = amt;
     }
 
-    public static void setIsCrit(boolean isCriticalHit){
-        isCrit = isCriticalHit;
-    }
-
     public float getDmg(){
-        if(!isCrit) {
-            float damage = spd;
-            float multiplier = damage - 6;
-            if (multiplier >= 8) {
-                return 3;
-            } else {
-                return (float) ((multiplier * 0.25) + 1);
-            }
+        float damage = spd;
+        float multiplier = damage - 6;
+        if (multiplier >= 8) {
+            return 3;
+        }
+        else if (multiplier <= 0) {
+            return 1;
         }
         else {
-            return 1;
+            return (float) ((multiplier * 0.25) + 1);
         }
     }
 
@@ -118,11 +112,11 @@ public class LanceItem extends Item {
     @Override
     public boolean hurtEnemy(@NotNull ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
         if(pAttacker instanceof Player player) {
-            player.sendSystemMessage(Component.literal("Speed is " + spd));
+            pStack.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(player.getUsedItemHand()));
             float amount = (float) (player.getAttributeValue(Attributes.ATTACK_DAMAGE) * getDmg());
-            player.sendSystemMessage(Component.literal("Damage done is " + amount));
             return pTarget.hurt(pAttacker.damageSources().playerAttack(player), amount);
         }
+        pStack.hurtAndBreak(1, pAttacker, user -> user.broadcastBreakEvent(pAttacker.getUsedItemHand()));
         return true;
     }
 }

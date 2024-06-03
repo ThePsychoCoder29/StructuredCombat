@@ -4,10 +4,10 @@
     "item": "minecraft:netherite_ingot"
   },
   "base": {
-    "item": "structuredcombat:diamond_labyrs"
+    "item": "structuredcombat:diamond_labrys"
   },
   "result": {
-    "item": "structuredcombat:netherite_labyrs"
+    "item": "structuredcombat:netherite_labrys"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"

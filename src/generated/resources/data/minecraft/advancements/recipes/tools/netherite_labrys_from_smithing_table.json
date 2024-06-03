@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_diamond_upgrade": {
+    "has_netherite_upgrade_smithing_template": {
       "conditions": {
         "items": [
           {
             "items": [
-              "structuredcombat:iron_labyrs"
+              "structuredcombat:diamond_labrys"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:diamond_labyrs_from_smithing_table"
+        "recipe": "minecraft:netherite_labrys_from_smithing_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_diamond_upgrade",
+      "has_netherite_upgrade_smithing_template",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:diamond_labyrs_from_smithing_table"
+      "minecraft:netherite_labrys_from_smithing_table"
     ]
   },
   "sends_telemetry_event": false

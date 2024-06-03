@@ -32,10 +32,10 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("iron_lance_from_taiga_villages", villageLIC("taiga_house", ModItems.IRON_LANCE.get()));
 
         //Bastions
-        add("iron_labyrs_from_bridge_bastion", bastionLIC("bridge", ModItems.IRON_LABYRS.get()));
-        add("iron_labyrs_from_hoglin_stable_bastion", bastionLIC("hoglin_stable", ModItems.IRON_LABYRS.get()));
-        add("iron_labyrs_from_other_bastion", bastionLIC("other", ModItems.IRON_LABYRS.get()));
-        add("iron_labyrs_from_treasure_bastion", bastionLIC("treasure", ModItems.IRON_LABYRS.get()));
+        add("iron_labrys_from_bridge_bastion", bastionLIC("bridge", ModItems.IRON_LABRYS.get()));
+        add("iron_labrys_from_hoglin_stable_bastion", bastionLIC("hoglin_stable", ModItems.IRON_LABRYS.get()));
+        add("iron_labrys_from_other_bastion", bastionLIC("other", ModItems.IRON_LABRYS.get()));
+        add("iron_labrys_from_treasure_bastion", bastionLIC("treasure", ModItems.IRON_LABRYS.get()));
     }
 
     public static ModStructureLootModifier structureLIC(String chestLoc, Item item){

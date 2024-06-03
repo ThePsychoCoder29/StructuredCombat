@@ -1,38 +1,38 @@
-[02Jun2024 21:53:56.081] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\desktop\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.2.32, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, structuredcombat, --all, --output, D:\MrMisc29-D\KaiCoyote's Mod\src\generated\resources, --existing, D:\MrMisc29-D\KaiCoyote's Mod\src\main\resources, --mixin.config, mixins.mymod.json]
-[02Jun2024 21:53:56.096] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.10 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
-[02Jun2024 21:53:56.968] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[02Jun2024 21:53:57.447] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/desktop/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[02Jun2024 21:53:59.646] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\desktop\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.2.32\9d7e04e58b558bf95759e2d94b77944a0845d1cb\javafmllanguage-1.20.1-47.2.32.jar is missing mods.toml file
-[02Jun2024 21:53:59.657] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\desktop\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.2.32\38d24291ba53d0eebaa2830618f331bc728d4b90\lowcodelanguage-1.20.1-47.2.32.jar is missing mods.toml file
-[02Jun2024 21:53:59.685] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\desktop\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.2.32\63a076b8fcbb860cfddb7cec5c1374338a5043da\mclanguage-1.20.1-47.2.32.jar is missing mods.toml file
-[02Jun2024 21:53:59.704] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\desktop\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.2.32\cb79ea145f390bce56ce90e2cc62eb6928911801\fmlcore-1.20.1-47.2.32.jar is missing mods.toml file
-[02Jun2024 21:54:00.067] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[02Jun2024 21:54:07.550] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[02Jun2024 21:54:07.550] [main/ERROR] [mixin/]: Mixin config mixins.mymod.json does not specify "minVersion" property
-[02Jun2024 21:54:07.656] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\desktop\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, structuredcombat, --all, --output, D:\MrMisc29-D\KaiCoyote's Mod\src\generated\resources, --existing, D:\MrMisc29-D\KaiCoyote's Mod\src\main\resources]
-[02Jun2024 21:54:09.550] [main/WARN] [mixin/]: Reference map 'structuredcombat.mixin-refmap.json' for mixins.mymod.json could not be read. If this is a development environment you can ignore this message
-[02Jun2024 21:54:11.434] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [structuredcombat]
-[02Jun2024 21:54:21.009] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.2.32, for MC 1.20.1 with MCP 20230612.114412
-[02Jun2024 21:54:21.047] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.2.32 Initialized
-[02Jun2024 21:54:23.012] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/MrMisc29-D/KaiCoyote's%20Mod/build/fg_cache/net/minecraftforge/forge/1.20.1-47.2.32_mapped_parchment_2023.06.26-1.20.1/forge-1.20.1-47.2.32_mapped_parchment_2023.06.26-1.20.1.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[02Jun2024 21:54:23.012] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/MrMisc29-D/KaiCoyote's%20Mod/build/fg_cache/net/minecraftforge/forge/1.20.1-47.2.32_mapped_parchment_2023.06.26-1.20.1/forge-1.20.1-47.2.32_mapped_parchment_2023.06.26-1.20.1.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[02Jun2024 21:54:23.277] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[02Jun2024 21:54:23.893] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 607 ms
-[02Jun2024 21:54:23.894] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[02Jun2024 21:54:23.904] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 10 ms
-[02Jun2024 21:54:23.905] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: structuredcombat
-[02Jun2024 21:54:23.905] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: structuredcombat finished after 0 ms
-[02Jun2024 21:54:23.906] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: structuredcombat
-[02Jun2024 21:54:23.993] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: structuredcombat finished after 86 ms
-[02Jun2024 21:54:23.993] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id structuredcombat
-[02Jun2024 21:54:23.998] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id structuredcombat finished after 4 ms
-[02Jun2024 21:54:23.998] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id structuredcombat
-[02Jun2024 21:54:24.020] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id structuredcombat finished after 21 ms
-[02Jun2024 21:54:24.020] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
-[02Jun2024 21:54:24.020] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 3 ms
-[02Jun2024 21:54:24.020] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:point_of_interest_type mod id structuredcombat
-[02Jun2024 21:54:24.020] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:point_of_interest_type mod id structuredcombat finished after 0 ms
-[02Jun2024 21:54:24.020] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : structuredcombat
-[02Jun2024 21:54:24.051] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : structuredcombat finished after 29 ms
-[02Jun2024 21:54:24.051] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 771 ms
-[02Jun2024 21:54:24.067] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 166, old count: 136, new count: 166, removed stale: 1, written: 31
+[03Jun2024 14:26:43.351] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\desktop\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.2.32, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, structuredcombat, --all, --output, D:\MrMisc29-D\KaiCoyote's Mod\src\generated\resources, --existing, D:\MrMisc29-D\KaiCoyote's Mod\src\main\resources, --mixin.config, mixins.mymod.json]
+[03Jun2024 14:26:43.383] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.10 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
+[03Jun2024 14:26:43.659] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[03Jun2024 14:26:43.798] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/desktop/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[03Jun2024 14:26:44.290] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\desktop\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.2.32\9d7e04e58b558bf95759e2d94b77944a0845d1cb\javafmllanguage-1.20.1-47.2.32.jar is missing mods.toml file
+[03Jun2024 14:26:44.297] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\desktop\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.2.32\38d24291ba53d0eebaa2830618f331bc728d4b90\lowcodelanguage-1.20.1-47.2.32.jar is missing mods.toml file
+[03Jun2024 14:26:44.303] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\desktop\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.2.32\63a076b8fcbb860cfddb7cec5c1374338a5043da\mclanguage-1.20.1-47.2.32.jar is missing mods.toml file
+[03Jun2024 14:26:44.314] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\desktop\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.2.32\cb79ea145f390bce56ce90e2cc62eb6928911801\fmlcore-1.20.1-47.2.32.jar is missing mods.toml file
+[03Jun2024 14:26:44.487] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[03Jun2024 14:26:48.031] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[03Jun2024 14:26:48.032] [main/ERROR] [mixin/]: Mixin config mixins.mymod.json does not specify "minVersion" property
+[03Jun2024 14:26:48.063] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\desktop\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, structuredcombat, --all, --output, D:\MrMisc29-D\KaiCoyote's Mod\src\generated\resources, --existing, D:\MrMisc29-D\KaiCoyote's Mod\src\main\resources]
+[03Jun2024 14:26:48.501] [main/WARN] [mixin/]: Reference map 'structuredcombat.mixin-refmap.json' for mixins.mymod.json could not be read. If this is a development environment you can ignore this message
+[03Jun2024 14:26:49.744] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [structuredcombat]
+[03Jun2024 14:26:59.900] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.2.32, for MC 1.20.1 with MCP 20230612.114412
+[03Jun2024 14:26:59.919] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.2.32 Initialized
+[03Jun2024 14:27:01.732] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/MrMisc29-D/KaiCoyote's%20Mod/build/fg_cache/net/minecraftforge/forge/1.20.1-47.2.32_mapped_parchment_2023.06.26-1.20.1/forge-1.20.1-47.2.32_mapped_parchment_2023.06.26-1.20.1.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[03Jun2024 14:27:01.733] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/MrMisc29-D/KaiCoyote's%20Mod/build/fg_cache/net/minecraftforge/forge/1.20.1-47.2.32_mapped_parchment_2023.06.26-1.20.1/forge-1.20.1-47.2.32_mapped_parchment_2023.06.26-1.20.1.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[03Jun2024 14:27:02.217] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[03Jun2024 14:27:02.635] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 418 ms
+[03Jun2024 14:27:02.635] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[03Jun2024 14:27:02.644] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 9 ms
+[03Jun2024 14:27:02.644] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: structuredcombat
+[03Jun2024 14:27:02.644] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: structuredcombat finished after 0 ms
+[03Jun2024 14:27:02.644] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: structuredcombat
+[03Jun2024 14:27:02.740] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: structuredcombat finished after 92 ms
+[03Jun2024 14:27:02.741] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id structuredcombat
+[03Jun2024 14:27:02.746] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id structuredcombat finished after 4 ms
+[03Jun2024 14:27:02.746] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id structuredcombat
+[03Jun2024 14:27:02.769] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id structuredcombat finished after 21 ms
+[03Jun2024 14:27:02.769] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[03Jun2024 14:27:02.773] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 3 ms
+[03Jun2024 14:27:02.773] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:point_of_interest_type mod id structuredcombat
+[03Jun2024 14:27:02.774] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:point_of_interest_type mod id structuredcombat finished after 0 ms
+[03Jun2024 14:27:02.774] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : structuredcombat
+[03Jun2024 14:27:02.804] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : structuredcombat finished after 30 ms
+[03Jun2024 14:27:02.805] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 589 ms
+[03Jun2024 14:27:02.869] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 185, old count: 165, new count: 166, removed stale: 20, written: 21

@@ -152,18 +152,19 @@ public class ModItems {
             ()-> new LanceItem(new Item.Properties().durability(1726)));
 
     //Labyrs
-    public static RegistryObject<Item> WOODEN_LABYRS = ITEMS.register("wooden_labyrs",
-            ()-> new LabyrsItem(new Item.Properties().durability(74)));
-    public static RegistryObject<Item> STONE_LABYRS = ITEMS.register("stone_labyrs",
-            ()-> new LabyrsItem(new Item.Properties().durability(164)));
-    public static RegistryObject<Item> IRON_LABYRS = ITEMS.register("iron_labyrs",
-            ()-> new LabyrsItem(new Item.Properties().durability(313)));
-    public static RegistryObject<Item> GOLD_LABYRS = ITEMS.register("gold_labyrs",
-            ()-> new LabyrsItem(new Item.Properties().durability(40)));
-    public static RegistryObject<Item> DIAMOND_LABYRS = ITEMS.register("diamond_labyrs",
-            ()-> new LabyrsItem(new Item.Properties().durability(1951)));
-    public static RegistryObject<Item> NETHERITE_LABYRS = ITEMS.register("netherite_labyrs",
-            ()-> new LabyrsItem(new Item.Properties().durability(2539)));
+    public static RegistryObject<Item> WOODEN_LABRYS = ITEMS.register("wooden_labrys",
+            ()-> new LabrysItem(new Item.Properties().durability(74)));
+    public static RegistryObject<Item> STONE_LABRYS = ITEMS.register("stone_labrys",
+            ()-> new LabrysItem(new Item.Properties().durability(164)));
+    public static RegistryObject<Item> IRON_LABRYS = ITEMS.register("iron_labrys",
+            ()-> new LabrysItem(new Item.Properties().durability(313)));
+    public static RegistryObject<Item> GOLD_LABRYS = ITEMS.register("gold_labrys",
+            ()-> new LabrysItem(new Item.Properties().durability(40)));
+    public static RegistryObject<Item> DIAMOND_LABRYS = ITEMS.register("diamond_labrys",
+            ()-> new LabrysItem(new Item.Properties().durability(1951)));
+    public static RegistryObject<Item> NETHERITE_LABRYS = ITEMS.register("netherite_labrys",
+            ()-> new LabrysItem(new Item.Properties().durability(2539)));
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }

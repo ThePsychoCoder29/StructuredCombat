@@ -24,8 +24,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class LabyrsItem extends Item{
-    public LabyrsItem(Properties pProperties) {
+public class LabrysItem extends Item{
+    public LabrysItem(Properties pProperties) {
         super(pProperties);
     }
 
@@ -33,32 +33,32 @@ public class LabyrsItem extends Item{
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         if (slot == EquipmentSlot.MAINHAND){
-            if (stack.is(ModItems.WOODEN_LABYRS.get())) {
+            if (stack.is(ModItems.WOODEN_LABRYS.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(9));
                 builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.6));
                 builder.build();
             }
-            if (stack.is(ModItems.STONE_LABYRS.get())) {
+            if (stack.is(ModItems.STONE_LABRYS.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(10));
                 builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.6));
                 builder.build();
             }
-            if (stack.is(ModItems.IRON_LABYRS.get())) {
+            if (stack.is(ModItems.IRON_LABRYS.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(12));
                 builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.6));
                 builder.build();
             }
-            if (stack.is(ModItems.GOLD_LABYRS.get())) {
+            if (stack.is(ModItems.GOLD_LABRYS.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(9));
                 builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.7));
                 builder.build();
             }
-            if (stack.is(ModItems.DIAMOND_LABYRS.get())) {
+            if (stack.is(ModItems.DIAMOND_LABRYS.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(16));
                 builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.4));
                 builder.build();
             }
-            if (stack.is(ModItems.NETHERITE_LABYRS.get())) {
+            if (stack.is(ModItems.NETHERITE_LABRYS.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(20));
                 builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.4));
                 builder.build();

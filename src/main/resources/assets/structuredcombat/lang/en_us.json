@@ -58,12 +58,12 @@
   "item.structuredcombat.diamond_lance" : "Diamond Lance",
   "item.structuredcombat.netherite_lance" : "Netherite Lance",
 
-  "item.structuredcombat.wooden_labyrs" : "Wooden Labyrs",
-  "item.structuredcombat.stone_labyrs" : "Stone Labyrs",
-  "item.structuredcombat.iron_labyrs" : "Iron Labyrs",
-  "item.structuredcombat.gold_labyrs" : "Gold Labyrs",
-  "item.structuredcombat.diamond_labyrs" : "Diamond Labyrs",
-  "item.structuredcombat.netherite_labyrs" : "Netherite Labyrs",
+  "item.structuredcombat.wooden_labrys" : "Wooden Labrys",
+  "item.structuredcombat.stone_labrys" : "Stone Labrys",
+  "item.structuredcombat.iron_labrys" : "Iron Labrys",
+  "item.structuredcombat.gold_labrys" : "Gold Labrys",
+  "item.structuredcombat.diamond_labrys" : "Diamond Labrys",
+  "item.structuredcombat.netherite_labrys" : "Netherite Labrys",
 
   "item.structuredcombat.smithing_template.applies_to": "Applies To:",
   "item.structuredcombat.smithing_template.ingredients": "Ingredients:",
@@ -146,8 +146,8 @@
   "advancements.structuredcombat.obtain_lance" : "Joust Enough",
   "advancements.structuredcombat.obtain_lance.description" : "Find a Lance in a Taiga Hamlet",
 
-  "advancements.structuredcombat.obtain_labyrs" : "Axe Of Kindness. NOT!",
-  "advancements.structuredcombat.obtain_labyrs.description" : "Find a Labyrs in the Remnants",
+  "advancements.structuredcombat.obtain_labrys" : "Axe Of Kindness. NOT!",
+  "advancements.structuredcombat.obtain_labrys.description" : "Find a Labrys in the Remnants",
 
   "advancements.structuredcombat.scythe_harvest_crop" : "Swift Harvest",
   "advancements.structuredcombat.scythe_harvest_crop.description" : "Harvest a 3×3 grid of Mature Crops with a Scythe",
@@ -165,7 +165,7 @@
   "tooltip.structuredcombat.scythe.tooltip": "Good for dealing with crowds\nDeals additional damage overtime\nAlso harvests crops in an area",
   "tooltip.structuredcombat.spear.tooltip": "A knockoff trident that isn’t efficient in water",
   "tooltip.structuredcombat.lance.tooltip": "Damage dealt is relative to user's movement speed",
-  "tooltip.structuredcombat.labyrs.tooltip": "Good Crowd Control\nAlso functions like an Axe",
+  "tooltip.structuredcombat.labrys.tooltip": "Good Crowd Control\nAlso functions like an Axe",
 
   "creativetab.structuredcombat.tab": "Structured Combat Tab"
 }

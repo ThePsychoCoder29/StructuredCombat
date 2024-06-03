@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "structuredcombat:item/diamond_labyrs"
+    "layer0": "structuredcombat:item/stone_labrys"
   }
 }

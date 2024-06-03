@@ -1,13 +1,13 @@
 {
   "display": {
     "icon": {
-      "item": "structuredcombat:iron_labyrs"
+      "item": "structuredcombat:iron_labrys"
     },
     "title": {
-      "translate" : "advancements.structuredcombat.obtain_labyrs"
+      "translate" : "advancements.structuredcombat.obtain_labrys"
     },
     "description": {
-      "translate": "advancements.structuredcombat.obtain_labyrs.description"
+      "translate": "advancements.structuredcombat.obtain_labrys.description"
     },
     "frame": "task",
     "show_toast": true,
@@ -21,7 +21,7 @@
         "items": [
           {
             "items": [
-              "structuredcombat:iron_labyrs"
+              "structuredcombat:iron_labrys"
             ]
           }
         ]

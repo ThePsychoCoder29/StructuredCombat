@@ -1,9 +1,10 @@
 package net.kaicoyote.structuredcombat.enchantment.custom.enchantments;
 
+import net.kaicoyote.structuredcombat.enchantment.ModEnchantments;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -24,12 +25,14 @@ public class ChainingEnchantment extends Enchantment {
         AABB area = pTarget.getBoundingBox().inflate(5);
         List<Entity> entities = level.getEntitiesOfClass(Entity.class, area);
         float hurt = 15;
-        if(pAttacker instanceof ServerPlayer){
-            for (Entity entity : entities) {
-                if (!(entity instanceof Player)) {
-                    EntityType.LIGHTNING_BOLT.spawn((ServerLevel) level, entity.blockPosition(), MobSpawnType.TRIGGERED);
-                    entity.hurt(entity.damageSources().lightningBolt(), hurt);
-                    hurt = (float) (hurt * 0.005);
+        if(pAttacker instanceof ServerPlayer player){
+            if(player.getItemInHand(InteractionHand.MAIN_HAND).getEnchantmentLevel(ModEnchantments.CHAINING.get()) > 0) {
+                for (Entity entity : entities) {
+                    if (!(entity == player)) {
+                        EntityType.LIGHTNING_BOLT.spawn((ServerLevel) level, entity.blockPosition(), MobSpawnType.TRIGGERED);
+                        entity.hurt(entity.damageSources().lightningBolt(), hurt);
+                        hurt = (float) (hurt * 0.005);
+                    }
                 }
             }
         }

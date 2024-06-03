@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_netherite_upgrade_smithing_template": {
+    "has_oak_planks": {
       "conditions": {
         "items": [
           {
             "items": [
-              "structuredcombat:diamond_labyrs"
+              "minecraft:stick"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:netherite_labyrs_from_smithing_table"
+        "recipe": "structuredcombat:gold_labrys"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_netherite_upgrade_smithing_template",
+      "has_oak_planks",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:netherite_labyrs_from_smithing_table"
+      "structuredcombat:gold_labrys"
     ]
   },
   "sends_telemetry_event": false
