@@ -19,10 +19,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow.Pickup;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -35,10 +32,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class DaggerItem extends Item implements IForgeItem {
+public class DaggerItem extends SwordItem implements IForgeItem {
     private final TriFunction<Level, Player, ItemStack, DaggerProjectileEntity> constructor;
-    public DaggerItem(TriFunction<Level, Player, ItemStack, DaggerProjectileEntity> constructor, Properties pProperties) {
-        super(pProperties);
+
+    public DaggerItem(Tier pTier, TriFunction<Level, Player, ItemStack, DaggerProjectileEntity> constructor , Properties pProperties) {
+        super(pTier, 0, 0, pProperties);
         this.constructor = constructor;
     }
 
@@ -159,12 +157,17 @@ public class DaggerItem extends Item implements IForgeItem {
     }
 
     @Override
+    public boolean isCorrectToolForDrops(BlockState pBlock) {
+        return pBlock.is(Blocks.COBWEB);
+    }
+
+    @Override
     public @NotNull UseAnim getUseAnimation(@NotNull ItemStack pStack) {
         return UseAnim.SPEAR;
     }
 
     @Override
-    public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
+    public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction) {
         return ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction);
     }
 

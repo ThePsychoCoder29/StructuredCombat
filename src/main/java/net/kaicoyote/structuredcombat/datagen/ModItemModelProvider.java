@@ -43,7 +43,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         handHeldItem(ModItems.NETHERITE_KATANA);
 
         //Sabres
-        handHeldItem(ModItems.WOODEN_SABRE);
         handHeldItem(ModItems.STONE_SABRE);
         handHeldItem(ModItems.IRON_SABRE);
         handHeldItem(ModItems.GOLD_SABRE);

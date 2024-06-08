@@ -7,6 +7,7 @@ import net.kaicoyote.structuredcombat.entity.ModEntities;
 import net.kaicoyote.structuredcombat.entity.client.renderer.daggers.*;
 import net.kaicoyote.structuredcombat.entity.client.renderer.hatchets.*;
 import net.kaicoyote.structuredcombat.entity.client.renderer.spear.*;
+import net.kaicoyote.structuredcombat.item.ModItemProperties;
 import net.kaicoyote.structuredcombat.item.ModItems;
 import net.kaicoyote.structuredcombat.loot.ModLootModifiers;
 import net.kaicoyote.structuredcombat.util.ModCreativeModeTabs;
@@ -90,6 +91,9 @@ public class StructuredCombat
             EntityRenderers.register(ModEntities.GOLD_SPEAR.get(), GoldSpearRenderer::new);
             EntityRenderers.register(ModEntities.DIAMOND_SPEAR.get(), DiamondSpearRenderer::new);
             EntityRenderers.register(ModEntities.NETHERITE_SPEAR.get(), NetheriteSpearRenderer::new);
+
+            //Item Properties
+            ModItemProperties.addCustomItemProperties();
         }
     }
 }

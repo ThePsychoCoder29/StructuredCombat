@@ -16,9 +16,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,9 +27,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class LongswordItem extends Item {
-    public LongswordItem(Properties pProperties) {
-        super(pProperties);
+public class LongswordItem extends SwordItem {
+
+    public LongswordItem(Tier pTier, Properties pProperties) {
+        super(pTier, 0, 0, pProperties);
     }
 
     @Override

@@ -12,9 +12,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
@@ -22,11 +20,12 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class LanceItem extends Item {
+public class LanceItem extends SwordItem {
 
     private static float spd = 0;
-    public LanceItem(Properties pProperties) {
-        super(pProperties);
+
+    public LanceItem(Tier pTier, Properties pProperties) {
+        super(pTier, 0, 0, pProperties);
     }
 
     @Override
@@ -83,7 +82,7 @@ public class LanceItem extends Item {
         float damage = spd;
         float multiplier = damage - 6;
         if (multiplier >= 8) {
-            return 3;
+            return 4;
         }
         else if (multiplier <= 0) {
             return 1;

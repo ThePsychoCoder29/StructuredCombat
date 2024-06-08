@@ -1,9 +1,9 @@
 package net.kaicoyote.structuredcombat.datagen;
 
 import net.kaicoyote.structuredcombat.StructuredCombat;
+import net.kaicoyote.structuredcombat.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
@@ -18,6 +18,6 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
-
+        this.tag(ModTags.Blocks.NEEDS_STRUCTURED_COMBAT_TOOL);
     }
 }

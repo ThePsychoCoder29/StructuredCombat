@@ -20,10 +20,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow.Pickup;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
@@ -34,10 +31,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class HatchetItem extends Item {
+public class HatchetItem extends AxeItem {
     private final TriFunction<Level, Player, ItemStack, HatchetProjectileEntity> constructor;
-    public HatchetItem(TriFunction<Level, Player, ItemStack, HatchetProjectileEntity> constructor, Properties pProperties) {
-        super(pProperties);
+
+    public HatchetItem(Tier pTier, TriFunction<Level, Player, ItemStack, HatchetProjectileEntity> constructor, Properties pProperties) {
+        super(pTier, 0, 0, pProperties);
         this.constructor = constructor;
     }
 
@@ -133,7 +131,7 @@ public class HatchetItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         if(Screen.hasShiftDown()){
             pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.hatchet.tooltip"));
         }
@@ -144,7 +142,12 @@ public class HatchetItem extends Item {
     }
 
     @Override
-    public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
+    public boolean isCorrectToolForDrops(@NotNull ItemStack stack, BlockState state) {
+        return state.is(BlockTags.MINEABLE_WITH_AXE);
+    }
+
+    @Override
+    public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction) {
         return ToolActions.DEFAULT_AXE_ACTIONS.contains(toolAction);
     }
 

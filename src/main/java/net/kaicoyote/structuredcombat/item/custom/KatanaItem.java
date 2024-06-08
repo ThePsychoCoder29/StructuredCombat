@@ -14,9 +14,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,10 +25,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class KatanaItem extends Item {
+public class KatanaItem extends SwordItem {
 
-    public KatanaItem(Properties pProperties) {
-        super(pProperties);
+    public KatanaItem(Tier pTier, Properties pProperties) {
+        super(pTier, 0, 0, pProperties);
     }
 
     @Override
@@ -96,7 +94,7 @@ public class KatanaItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         if(Screen.hasShiftDown()){
             pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.katana.tooltip"));
         }
@@ -112,7 +110,7 @@ public class KatanaItem extends Item {
     }
 
     @Override
-    public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
+    public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction) {
         return ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction);
     }
 
