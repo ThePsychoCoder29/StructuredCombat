@@ -97,12 +97,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "netherite_labyrs": {
+    "netherite_labrys": {
       "conditions": {
         "items": [
           {
             "items": [
-              "structuredcombat:netherite_labyrs"
+              "structuredcombat:netherite_labrys"
             ]
           }
         ]
@@ -136,7 +136,7 @@
       "netherite_longsword",
       "netherite_scythe",
       "netherite_lance",
-      "netherite_labyrs"
+      "netherite_labrys"
     ]
   ],
   "sends_telemetry_event": true

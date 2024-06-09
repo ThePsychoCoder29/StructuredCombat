@@ -119,11 +119,13 @@
     }
   },
   "requirements": [
-    "wooden_lance",
-    "stone_lance",
-    "iron_lance",
-    "gold_lance",
-    "diamond_lance",
-    "netherite_lance"
+    [
+      "wooden_lance",
+      "stone_lance",
+      "iron_lance",
+      "gold_lance",
+      "diamond_lance",
+      "netherite_lance"
+    ]
   ]
 }

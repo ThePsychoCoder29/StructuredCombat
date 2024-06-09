@@ -10,6 +10,7 @@ import net.kaicoyote.structuredcombat.entity.client.renderer.spear.*;
 import net.kaicoyote.structuredcombat.item.ModItemProperties;
 import net.kaicoyote.structuredcombat.item.ModItems;
 import net.kaicoyote.structuredcombat.loot.ModLootModifiers;
+import net.kaicoyote.structuredcombat.particle.ModParticleTypes;
 import net.kaicoyote.structuredcombat.util.ModCreativeModeTabs;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
@@ -39,6 +40,7 @@ public class StructuredCombat
         ModEntities.register(modEventBus);
         ModLootModifiers.register(modEventBus);
         ModEnchantments.register(modEventBus);
+        ModParticleTypes.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);

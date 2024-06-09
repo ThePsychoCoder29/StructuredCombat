@@ -97,12 +97,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "diamond_labyrs": {
+    "diamond_labrys": {
       "conditions": {
         "items": [
           {
             "items": [
-              "structuredcombat:diamond_labyrs"
+              "structuredcombat:diamond_labrys"
             ]
           }
         ]
@@ -136,7 +136,7 @@
       "diamond_longsword",
       "diamond_scythe",
       "diamond_lance",
-      "diamond_labyrs"
+      "diamond_labrys"
     ]
   ],
   "sends_telemetry_event": true

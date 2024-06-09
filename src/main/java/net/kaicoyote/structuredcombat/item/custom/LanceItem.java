@@ -3,6 +3,7 @@ package net.kaicoyote.structuredcombat.item.custom;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.kaicoyote.structuredcombat.item.ModItems;
+import net.kaicoyote.structuredcombat.particle.ModParticleTypes;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -111,8 +112,20 @@ public class LanceItem extends SwordItem {
     @Override
     public boolean hurtEnemy(@NotNull ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
         if(pAttacker instanceof Player player) {
+            Level level = pTarget.level();
+            int x = pTarget.getBlockX();
+            int y = pTarget.getBlockY();
+            int z = pTarget.getBlockZ();
             pStack.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(player.getUsedItemHand()));
             float amount = (float) (player.getAttributeValue(Attributes.ATTACK_DAMAGE) * getDmg());
+            if(getDmg() >= 4){
+                for(int i = 0; i < 360; i++) {
+                    if(i % 20 == 0) {
+                        level.addParticle(ModParticleTypes.LANCE_MAX_DAMAGE.get(),
+                                x, y + 1, z,
+                                Math.cos(i) * 0.15d, 0.15d, Math.sin(i) * 0.15d);
+                    }
+                }            }
             return pTarget.hurt(pAttacker.damageSources().playerAttack(player), amount);
         }
         pStack.hurtAndBreak(1, pAttacker, user -> user.broadcastBreakEvent(pAttacker.getUsedItemHand()));
