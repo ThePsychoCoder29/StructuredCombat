@@ -36,6 +36,9 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("iron_labrys_from_hoglin_stable_bastion", bastionLIC("hoglin_stable", ModItems.IRON_LABRYS.get()));
         add("iron_labrys_from_other_bastion", bastionLIC("other", ModItems.IRON_LABRYS.get()));
         add("iron_labrys_from_treasure_bastion", bastionLIC("treasure", ModItems.IRON_LABRYS.get()));
+
+        //Trail Ruins
+        add("diamond_upgrade_from_treasure_bastion", trailRuinsLIC("trail_ruins_rare", ModItems.DIAMOND_UPGRADE.get()));
     }
 
     public static ModStructureLootModifier structureLIC(String chestLoc, Item item){
@@ -52,6 +55,12 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     public static ModStructureLootModifier bastionLIC(String chestLoc, Item item){
         return new ModStructureLootModifier(new LootItemCondition[]{
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/bastion_" + chestLoc)).build()
+        }, item);
+    }
+
+    public static ModStructureLootModifier trailRuinsLIC(String chestLoc, Item item){
+        return new ModStructureLootModifier(new LootItemCondition[]{
+                new LootTableIdCondition.Builder(new ResourceLocation("archaeology/" + chestLoc)).build()
         }, item);
     }
 }

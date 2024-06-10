@@ -1,14 +1,6 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "structuredcombat:item/templates/handheld32",
   "textures": {
     "layer0": "structuredcombat:item/netherite_spear"
-  },
-  "display": {
-    "thirdperson_righthand": {
-      "scale": [1.5, 1.5, 1.5]
-    },
-    "thirdperson_lefthand": {
-      "scale": [1.5, 1.5, 1.5]
-    }
   }
 }

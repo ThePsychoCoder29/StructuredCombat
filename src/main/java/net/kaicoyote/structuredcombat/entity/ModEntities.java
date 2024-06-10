@@ -24,62 +24,62 @@ public class ModEntities {
     //Daggers
     public static RegistryObject<EntityType<WoodenDaggerProjectileEntity>> WOODEN_DAGGER =
             ENTITY_TYPES.register("wooden_dagger" , ()-> EntityType.Builder.<WoodenDaggerProjectileEntity>of(WoodenDaggerProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("wooden_dagger"));
+                    .sized(0.35f , 0.35f).build("wooden_dagger"));
     public static RegistryObject<EntityType<StoneDaggerProjectileEntity>> STONE_DAGGER =
             ENTITY_TYPES.register("stone_dagger" , ()-> EntityType.Builder.<StoneDaggerProjectileEntity>of(StoneDaggerProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("stone_dagger"));
+                    .sized(0.35f , 0.35f).build("stone_dagger"));
     public static RegistryObject<EntityType<IronDaggerProjectileEntity>> IRON_DAGGER=
             ENTITY_TYPES.register("iron_dagger" , ()-> EntityType.Builder.<IronDaggerProjectileEntity>of(IronDaggerProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("iron_dagger"));
+                    .sized(0.35f , 0.35f).build("iron_dagger"));
     public static RegistryObject<EntityType<GoldDaggerProjectileEntity>> GOLD_DAGGER =
             ENTITY_TYPES.register("gold_dagger" , ()-> EntityType.Builder.<GoldDaggerProjectileEntity>of(GoldDaggerProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("gold_dagger"));
+                    .sized(0.35f , 0.35f).build("gold_dagger"));
     public static RegistryObject<EntityType<DiamondDaggerProjectileEntity>> DIAMOND_DAGGER =
             ENTITY_TYPES.register("diamond_dagger" , ()-> EntityType.Builder.<DiamondDaggerProjectileEntity>of(DiamondDaggerProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("diamond_dagger"));
+                    .sized(0.35f , 0.35f).build("diamond_dagger"));
     public static RegistryObject<EntityType<NetheriteDaggerProjectileEntity>> NETHERITE_DAGGER =
             ENTITY_TYPES.register("netherite_dagger" , ()-> EntityType.Builder.<NetheriteDaggerProjectileEntity>of(NetheriteDaggerProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("netherite_dagger"));
+                    .sized(0.35f , 0.35f).build("netherite_dagger"));
 
     //Hatchets
     public static RegistryObject<EntityType<WoodenHatchetProjectileEntity>> WOODEN_HATCHET =
             ENTITY_TYPES.register("wooden_hatchet" , ()-> EntityType.Builder.<WoodenHatchetProjectileEntity>of(WoodenHatchetProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("wooden_hatchet"));
+                    .sized(0.35f , 0.35f).build("wooden_hatchet"));
     public static RegistryObject<EntityType<StoneHatchetProjectileEntity>> STONE_HATCHET =
             ENTITY_TYPES.register("stone_hatchet" , ()-> EntityType.Builder.<StoneHatchetProjectileEntity>of(StoneHatchetProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("stone_hatchet"));
+                    .sized(0.35f , 0.35f).build("stone_hatchet"));
     public static RegistryObject<EntityType<IronHatchetProjectileEntity>> IRON_HATCHET=
             ENTITY_TYPES.register("iron_hatchet" , ()-> EntityType.Builder.<IronHatchetProjectileEntity>of(IronHatchetProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("iron_hatchet"));
+                    .sized(0.35f , 0.35f).build("iron_hatchet"));
     public static RegistryObject<EntityType<GoldHatchetProjectileEntity>> GOLD_HATCHET =
             ENTITY_TYPES.register("gold_hatchet" , ()-> EntityType.Builder.<GoldHatchetProjectileEntity>of(GoldHatchetProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("gold_hatchet"));
+                    .sized(0.35f , 0.35f).build("gold_hatchet"));
     public static RegistryObject<EntityType<DiamondHatchetProjectileEntity>> DIAMOND_HATCHET =
             ENTITY_TYPES.register("diamond_hatchet" , ()-> EntityType.Builder.<DiamondHatchetProjectileEntity>of(DiamondHatchetProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("diamond_hatchet"));
+                    .sized(0.35f , 0.35f).build("diamond_hatchet"));
     public static RegistryObject<EntityType<NetheriteHatchetProjectileEntity>> NETHERITE_HATCHET =
             ENTITY_TYPES.register("netherite_hatchet" , ()-> EntityType.Builder.<NetheriteHatchetProjectileEntity>of(NetheriteHatchetProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("netherite_hatchet"));
+                    .sized(0.35f , 0.35f).build("netherite_hatchet"));
 
     //Spears
-    public static RegistryObject<EntityType<net.kaicoyote.structuredcombat.entity.custom.entities.spears.WoodenSpearProjectileEntity>> WOODEN_SPEAR =
-            ENTITY_TYPES.register("wooden_spear" , ()-> EntityType.Builder.<net.kaicoyote.structuredcombat.entity.custom.entities.spears.WoodenSpearProjectileEntity>of(net.kaicoyote.structuredcombat.entity.custom.entities.spears.WoodenSpearProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("wooden_spear"));
-    public static RegistryObject<EntityType<net.kaicoyote.structuredcombat.entity.custom.entities.spears.StoneSpearProjectileEntity>> STONE_SPEAR =
-            ENTITY_TYPES.register("stone_spear" , ()-> EntityType.Builder.<net.kaicoyote.structuredcombat.entity.custom.entities.spears.StoneSpearProjectileEntity>of(net.kaicoyote.structuredcombat.entity.custom.entities.spears.StoneSpearProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("stone_spear"));
-    public static RegistryObject<EntityType<net.kaicoyote.structuredcombat.entity.custom.entities.spears.IronSpearProjectileEntity>> IRON_SPEAR=
-            ENTITY_TYPES.register("iron_spear" , ()-> EntityType.Builder.<net.kaicoyote.structuredcombat.entity.custom.entities.spears.IronSpearProjectileEntity>of(net.kaicoyote.structuredcombat.entity.custom.entities.spears.IronSpearProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("iron_spear"));
+    public static RegistryObject<EntityType<WoodenSpearProjectileEntity>> WOODEN_SPEAR =
+            ENTITY_TYPES.register("wooden_spear" , ()-> EntityType.Builder.<WoodenSpearProjectileEntity>of(WoodenSpearProjectileEntity::new , MobCategory.MISC)
+                    .sized(0.35f , 0.35f).build("wooden_spear"));
+    public static RegistryObject<EntityType<StoneSpearProjectileEntity>> STONE_SPEAR =
+            ENTITY_TYPES.register("stone_spear" , ()-> EntityType.Builder.<StoneSpearProjectileEntity>of(StoneSpearProjectileEntity::new , MobCategory.MISC)
+                    .sized(0.35f , 0.35f).build("stone_spear"));
+    public static RegistryObject<EntityType<IronSpearProjectileEntity>> IRON_SPEAR=
+            ENTITY_TYPES.register("iron_spear" , ()-> EntityType.Builder.<IronSpearProjectileEntity>of(IronSpearProjectileEntity::new , MobCategory.MISC)
+                    .sized(0.35f , 0.35f).build("iron_spear"));
     public static RegistryObject<EntityType<GoldSpearProjectileEntity>> GOLD_SPEAR =
             ENTITY_TYPES.register("gold_spear" , ()-> EntityType.Builder.<GoldSpearProjectileEntity>of(GoldSpearProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("gold_spear"));
+                    .sized(0.35f , 0.35f).build("gold_spear"));
     public static RegistryObject<EntityType<DiamondSpearProjectileEntity>> DIAMOND_SPEAR =
             ENTITY_TYPES.register("diamond_spear" , ()-> EntityType.Builder.<DiamondSpearProjectileEntity>of(DiamondSpearProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("diamond_spear"));
-    public static RegistryObject<EntityType<net.kaicoyote.structuredcombat.entity.custom.entities.spears.NetheriteSpearProjectileEntity>> NETHERITE_SPEAR =
-            ENTITY_TYPES.register("netherite_spear" , ()-> EntityType.Builder.<net.kaicoyote.structuredcombat.entity.custom.entities.spears.NetheriteSpearProjectileEntity>of(net.kaicoyote.structuredcombat.entity.custom.entities.spears.NetheriteSpearProjectileEntity::new , MobCategory.MISC)
-                    .sized(0.5f , 1.0f).build("netherite_spear"));
+                    .sized(0.35f , 0.35f).build("diamond_spear"));
+    public static RegistryObject<EntityType<NetheriteSpearProjectileEntity>> NETHERITE_SPEAR =
+            ENTITY_TYPES.register("netherite_spear" , ()-> EntityType.Builder.<NetheriteSpearProjectileEntity>of(NetheriteSpearProjectileEntity::new , MobCategory.MISC)
+                    .sized(0.35f , 0.35f).build("netherite_spear"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

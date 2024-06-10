@@ -16,6 +16,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ToolAction;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -130,5 +131,10 @@ public class LanceItem extends SwordItem {
         }
         pStack.hurtAndBreak(1, pAttacker, user -> user.broadcastBreakEvent(pAttacker.getUsedItemHand()));
         return true;
+    }
+
+    @Override
+    public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction) {
+        return false;
     }
 }

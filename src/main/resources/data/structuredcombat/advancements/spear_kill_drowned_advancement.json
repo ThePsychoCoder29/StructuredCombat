@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "structuredcombat:diamond_hatchet"
+      "item": "structuredcombat:diamond_spear"
     },
     "title": {
       "translate": "advancements.structuredcombat.kill_drowned_with_spear"

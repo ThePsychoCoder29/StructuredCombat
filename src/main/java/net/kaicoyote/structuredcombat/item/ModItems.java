@@ -45,7 +45,7 @@ public class ModItems {
             ()-> new DaggerItem(ModToolTiers.DIAMOND, DiamondDaggerProjectileEntity::new, new Item.Properties().durability(1172)));
 
     public static RegistryObject<Item> NETHERITE_DAGGER = ITEMS.register("netherite_dagger",
-            ()-> new DaggerItem(ModToolTiers.NETHERITE, NetheriteDaggerProjectileEntity::new, new Item.Properties().durability(1523)));
+            ()-> new DaggerItem(ModToolTiers.NETHERITE, NetheriteDaggerProjectileEntity::new, new Item.Properties().durability(1523).fireResistant()));
 
     //Hatchets
     public static RegistryObject<Item> WOODEN_HATCHET = ITEMS.register("wooden_hatchet",
@@ -64,7 +64,7 @@ public class ModItems {
             ()-> new HatchetItem(ModToolTiers.DIAMOND, DiamondHatchetProjectileEntity::new, new Item.Properties().durability(1249)));
 
     public static RegistryObject<Item> NETHERITE_HATCHET = ITEMS.register("netherite_hatchet",
-            ()-> new HatchetItem(ModToolTiers.NETHERITE, NetheriteHatchetProjectileEntity::new, new Item.Properties().durability(1625)));
+            ()-> new HatchetItem(ModToolTiers.NETHERITE, NetheriteHatchetProjectileEntity::new, new Item.Properties().durability(1625).fireResistant()));
 
     //Katanas
     public static RegistryObject<Item> WOODEN_KATANA = ITEMS.register("wooden_katana",
@@ -78,7 +78,7 @@ public class ModItems {
     public static RegistryObject<Item> DIAMOND_KATANA = ITEMS.register("diamond_katana",
             ()-> new KatanaItem(ModToolTiers.DIAMOND, new Item.Properties().durability(190)));
     public static RegistryObject<Item> NETHERITE_KATANA = ITEMS.register("netherite_katana",
-            ()-> new KatanaItem(ModToolTiers.NETHERITE, new Item.Properties().durability(238)));
+            ()-> new KatanaItem(ModToolTiers.NETHERITE, new Item.Properties().durability(238).fireResistant()));
 
     //Sabres
     public static RegistryObject<Item> WOODEN_SABRE = ITEMS.register("wooden_sabre",
@@ -92,7 +92,7 @@ public class ModItems {
     public static RegistryObject<Item> DIAMOND_SABRE = ITEMS.register("diamond_sabre",
             ()-> new SabreItem(ModToolTiers.DIAMOND, new Item.Properties().durability(1249)));
     public static RegistryObject<Item> NETHERITE_SABRE = ITEMS.register("netherite_sabre",
-            ()-> new SabreItem(ModToolTiers.NETHERITE, new Item.Properties().durability(1625)));
+            ()-> new SabreItem(ModToolTiers.NETHERITE, new Item.Properties().durability(1625).fireResistant()));
 
     //Spears
     public static RegistryObject<Item> WOODEN_SPEAR = ITEMS.register("wooden_spear",
@@ -111,7 +111,7 @@ public class ModItems {
             ()-> new SpearItem(ModToolTiers.DIAMOND, DiamondSpearProjectileEntity::new, new Item.Properties().durability(1558)));
 
     public static RegistryObject<Item> NETHERITE_SPEAR = ITEMS.register("netherite_spear",
-            ()-> new SpearItem(ModToolTiers.NETHERITE, NetheriteSpearProjectileEntity::new, new Item.Properties().durability(2027)));
+            ()-> new SpearItem(ModToolTiers.NETHERITE, NetheriteSpearProjectileEntity::new, new Item.Properties().durability(2027).fireResistant()));
 
     //Longswords
     public static RegistryObject<Item> WOODEN_LONGSWORD = ITEMS.register("wooden_longsword",
@@ -125,7 +125,7 @@ public class ModItems {
     public static RegistryObject<Item> DIAMOND_LONGSWORD = ITEMS.register("diamond_longsword",
             ()-> new LongswordItem(ModToolTiers.DIAMOND, new Item.Properties().durability(2107)));
     public static RegistryObject<Item> NETHERITE_LONGSWORD = ITEMS.register("netherite_longsword",
-            ()-> new LongswordItem(ModToolTiers.NETHERITE, new Item.Properties().durability(2742)));
+            ()-> new LongswordItem(ModToolTiers.NETHERITE, new Item.Properties().durability(2742).fireResistant()));
 
     //Scythes
     public static RegistryObject<Item> WOODEN_SCYTHE = ITEMS.register("wooden_scythe",
@@ -139,7 +139,7 @@ public class ModItems {
     public static RegistryObject<Item> DIAMOND_SCYTHE = ITEMS.register("diamond_scythe",
             ()-> new ScytheItem(ModToolTiers.DIAMOND, new Item.Properties().durability(1717)));
     public static RegistryObject<Item> NETHERITE_SCYTHE = ITEMS.register("netherite_scythe",
-            ()-> new ScytheItem(ModToolTiers.NETHERITE, new Item.Properties().durability(2234)));
+            ()-> new ScytheItem(ModToolTiers.NETHERITE, new Item.Properties().durability(2234).fireResistant()));
 
     //Lances
     public static RegistryObject<Item> WOODEN_LANCE = ITEMS.register("wooden_lance",
@@ -153,7 +153,7 @@ public class ModItems {
     public static RegistryObject<Item> DIAMOND_LANCE = ITEMS.register("diamond_lance",
             ()-> new LanceItem(ModToolTiers.DIAMOND, new Item.Properties().durability(1327)));
     public static RegistryObject<Item> NETHERITE_LANCE = ITEMS.register("netherite_lance",
-            ()-> new LanceItem(ModToolTiers.NETHERITE, new Item.Properties().durability(1726)));
+            ()-> new LanceItem(ModToolTiers.NETHERITE, new Item.Properties().durability(1726).fireResistant()));
 
     //Labyrs
     public static RegistryObject<Item> WOODEN_LABRYS = ITEMS.register("wooden_labrys",
@@ -167,7 +167,7 @@ public class ModItems {
     public static RegistryObject<Item> DIAMOND_LABRYS = ITEMS.register("diamond_labrys",
             ()-> new LabrysItem(ModToolTiers.DIAMOND, new Item.Properties().durability(1951)));
     public static RegistryObject<Item> NETHERITE_LABRYS = ITEMS.register("netherite_labrys",
-            ()-> new LabrysItem(ModToolTiers.NETHERITE, new Item.Properties().durability(2539)));
+            ()-> new LabrysItem(ModToolTiers.NETHERITE, new Item.Properties().durability(2539).fireResistant()));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

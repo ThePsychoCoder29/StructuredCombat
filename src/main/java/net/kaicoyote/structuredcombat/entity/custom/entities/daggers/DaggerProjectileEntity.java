@@ -27,6 +27,7 @@ public class DaggerProjectileEntity extends AbstractArrow {
     private boolean dealtDamage;
     private int clientSideReturnDaggerTickCount;
 
+
     public DaggerProjectileEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack, EntityType<? extends DaggerProjectileEntity> dagger) {
         super(dagger, pShooter, pLevel);
         this.daggerItem = pStack.copy();
