@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-03T14:27:02.8068866	Item Models: structuredcombat
+// 1.20.1	2024-06-11T12:05:31.5343843	Item Models: structuredcombat
 3b5977557c55a236c72543defd268aceb0b9af35 assets/structuredcombat/models/item/diamond_dagger.json
 db25f3ed47897ecc6f0b551db41dd1a6eed61ef8 assets/structuredcombat/models/item/diamond_hatchet.json
 f7b1df88710314280cf586aea9bd76cb226a1fa6 assets/structuredcombat/models/item/diamond_katana.json
@@ -47,5 +47,4 @@ e4690b25db3bf290df86171df8c892f6cb52682d assets/structuredcombat/models/item/woo
 2f538e21b611c2caa4f82091cb12309b68b5ecee assets/structuredcombat/models/item/wooden_labrys.json
 d581465043ebd8a8e66030ea89b9d83ec1d22757 assets/structuredcombat/models/item/wooden_lance.json
 ae36b3116cfcaed5abc3849cfba7f321c9e3bdf5 assets/structuredcombat/models/item/wooden_longsword.json
-63374b402b499ce2feecde8f5dc42ba15129feff assets/structuredcombat/models/item/wooden_sabre.json
 6eb2ad191b6f34ce562d252e8290424e2e657ea7 assets/structuredcombat/models/item/wooden_scythe.json

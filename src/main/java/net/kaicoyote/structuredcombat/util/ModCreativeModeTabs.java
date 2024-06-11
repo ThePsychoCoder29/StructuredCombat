@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -22,6 +23,13 @@ public class ModCreativeModeTabs {
                         .displayItems(((itemDisplayParameters, output) -> {
                             //Items
                             output.accept(ModItems.DIAMOND_UPGRADE.get());
+                            output.accept(Items.OAK_PLANKS);
+                            output.accept(Items.COBBLESTONE);
+                            output.accept(Items.IRON_INGOT);
+                            output.accept(Items.GOLD_INGOT);
+                            output.accept(Items.DIAMOND);
+                            output.accept(Items.NETHERITE_INGOT);
+                            output.accept(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE);
 
                             //Wooden
                             output.accept(ModItems.WOODEN_DAGGER.get());

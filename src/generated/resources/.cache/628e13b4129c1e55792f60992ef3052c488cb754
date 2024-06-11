@@ -1,5 +1,6 @@
-// 1.20.1	2024-06-03T14:27:02.8108871	Global Loot Modifiers : structuredcombat
-af9a2a0c1718da8839d089f7b46e86d28143d9ad data/forge/loot_modifiers/global_loot_modifiers.json
+// 1.20.1	2024-06-11T12:05:31.5397169	Global Loot Modifiers : structuredcombat
+ba72ea8e1e0d0670cfb9cb44a05362cdfcb6459f data/forge/loot_modifiers/global_loot_modifiers.json
+51e14ba54be9114402aa64b22cbd9800dc949257 data/structuredcombat/loot_modifiers/diamond_upgrade_from_treasure_bastion.json
 b35b9f817bc3facadc0fe2d0af9a26c33e722f30 data/structuredcombat/loot_modifiers/iron_dagger_from_mineshaft.json
 f5c2782683af06b8916c7fb6b61012991641a7ad data/structuredcombat/loot_modifiers/iron_hatchet_from_snowy_villages.json
 0dd35bff8f700e5327946e59acc0ddff47256734 data/structuredcombat/loot_modifiers/iron_katana_from_jungle_temple.json

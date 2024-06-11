@@ -7,8 +7,10 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class BleedingEffect extends MobEffect {
+    public static int durationTick;
     public BleedingEffect(MobEffectCategory pCategory, int pColor) {
         super(pCategory, pColor);
     }
@@ -22,10 +24,16 @@ public class BleedingEffect extends MobEffect {
     public List<ItemStack> getCurativeItems() {
         return new ArrayList<>();
     }
+    public static void setTickDuration(int duration, int mod){
+        durationTick = duration % mod;
+    }
+
+    public static int getTickDuration() {
+        return durationTick;
+    }
 
     @Override
     public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
-        return pDuration % 20 == 0;
+        return getTickDuration() == 0;
     }
-
 }

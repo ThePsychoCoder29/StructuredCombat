@@ -10,6 +10,8 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.function.UnaryOperator;
+
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -50,39 +52,22 @@ public class ModItemModelProvider extends ItemModelProvider {
         handHeldItem(ModItems.NETHERITE_SABRE);
 
         //Spears
-        //Manually done due to small size in hand
+        //Manually done due to 32x textures
 
         //Longswords
-        handHeldItem(ModItems.WOODEN_LONGSWORD);
-        handHeldItem(ModItems.STONE_LONGSWORD);
-        handHeldItem(ModItems.IRON_LONGSWORD);
-        handHeldItem(ModItems.GOLD_LONGSWORD);
-        handHeldItem(ModItems.DIAMOND_LONGSWORD);
-        handHeldItem(ModItems.NETHERITE_LONGSWORD);
+        //Manually done due to 32x textures
+
 
         //Scythes
-        handHeldItem(ModItems.WOODEN_SCYTHE);
-        handHeldItem(ModItems.STONE_SCYTHE);
-        handHeldItem(ModItems.IRON_SCYTHE);
-        handHeldItem(ModItems.GOLD_SCYTHE);
-        handHeldItem(ModItems.DIAMOND_SCYTHE);
-        handHeldItem(ModItems.NETHERITE_SCYTHE);
+        //Manually done due to 32x textures
+
 
         //Lances
-        handHeldItem(ModItems.WOODEN_LANCE);
-        handHeldItem(ModItems.STONE_LANCE);
-        handHeldItem(ModItems.IRON_LANCE);
-        handHeldItem(ModItems.GOLD_LANCE);
-        handHeldItem(ModItems.DIAMOND_LANCE);
-        handHeldItem(ModItems.NETHERITE_LANCE);
+        //Manually done due to 32x textures
 
         //Labyrs'
-        handHeldItem(ModItems.WOODEN_LABRYS);
-        handHeldItem(ModItems.STONE_LABRYS);
-        handHeldItem(ModItems.IRON_LABRYS);
-        handHeldItem(ModItems.GOLD_LABRYS);
-        handHeldItem(ModItems.DIAMOND_LABRYS);
-        handHeldItem(ModItems.NETHERITE_LABRYS);
+        //Manually done due to 32x textures
+
 
         //Items
         simpleItem(ModItems.DIAMOND_UPGRADE);

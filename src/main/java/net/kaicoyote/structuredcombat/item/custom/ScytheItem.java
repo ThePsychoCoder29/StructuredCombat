@@ -9,6 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -18,7 +19,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
@@ -26,6 +26,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ScytheItem extends HoeItem {
 
@@ -52,24 +53,8 @@ public class ScytheItem extends HoeItem {
     }
 
     @Override
-    public boolean mineBlock(@NotNull ItemStack stack, @NotNull Level level, BlockState state, @NotNull BlockPos pos, @NotNull LivingEntity pMiningEntity) {
-        if(state.is(BlockTags.CROPS)) {
-            List<BlockPos> cropPos = getBlockPos(pos);
-            CropBlock block = (CropBlock) state.getBlock();
-            if (block.isMaxAge(state)) {
-                for (BlockPos crop : cropPos) {
-                    BlockState gridState = level.getBlockState(crop);
-                    if (gridState.is(BlockTags.CROPS)) {
-                        CropBlock gridBlock = (CropBlock) gridState.getBlock();
-                        if (gridBlock.isMaxAge(gridState)) {
-                            level.destroyBlock(crop, true, pMiningEntity);
-                            stack.hurtAndBreak(1, pMiningEntity, user -> user.broadcastBreakEvent(pMiningEntity.getUsedItemHand()));
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
+    public boolean mineBlock(@NotNull ItemStack stack, @NotNull Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull LivingEntity pMiningEntity) {
+        stack.hurtAndBreak(1, pMiningEntity, user -> user.broadcastBreakEvent(pMiningEntity.getUsedItemHand()));
         return true;
     }
 
@@ -145,18 +130,33 @@ public class ScytheItem extends HoeItem {
         }
     }
 
-    @Override
-    public boolean hurtEnemy(ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker){
+    public void applyBleeding(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker){
         InteractionHand hand = pAttacker.getUsedItemHand();
+        MobEffect effect = ModEffects.BLEEDING_EFFECT.get();
         pStack.hurtAndBreak(1, pAttacker, (player) -> player.broadcastBreakEvent(hand));
-        MobEffectInstance scytheEffect = new MobEffectInstance(ModEffects.BLEEDING_EFFECT.get(), 100, 1, false, false, true);
+        MobEffectInstance scytheEffect = new MobEffectInstance(ModEffects.BLEEDING_EFFECT.get(), 140, 1, false, false, true);
         pTarget.addEffect(scytheEffect);
+        if(pTarget.hasEffect(effect)){
+            MobEffectInstance bleedingEffect = pTarget.getEffect(effect);
+            assert bleedingEffect != null;
+            if((bleedingEffect).getAmplifier() > 0){
+                int amplifier = bleedingEffect.getAmplifier();
+                if(amplifier == 1){
+                    pAttacker.sendSystemMessage(Component.literal("bleeding"));
+                }
+            }
+        }
+    }
+
+    @Override
+    public boolean hurtEnemy(@NotNull ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker){
+        applyBleeding(pStack, pTarget, pAttacker);
         return true;
     }
 
     @Override
-    public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
-        return ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction) || ToolActions.DEFAULT_HOE_ACTIONS.contains(toolAction);
+    public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction) {
+        return ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction) || super.canPerformAction(stack, toolAction);
     }
 
     @Override

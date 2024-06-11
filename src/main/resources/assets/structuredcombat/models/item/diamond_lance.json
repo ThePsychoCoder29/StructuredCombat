@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "structuredcombat:item/templates/handheld32",
   "textures": {
     "layer0": "structuredcombat:item/diamond_lance"
   }

@@ -16,6 +16,6 @@ public class ParalyzeEffect extends MobEffect {
 
     @Override
     public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
-        return pDuration < 30;
+        return pDuration <= 30;
     }
 }
