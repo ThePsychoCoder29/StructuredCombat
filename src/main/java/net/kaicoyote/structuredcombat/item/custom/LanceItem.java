@@ -35,32 +35,32 @@ public class LanceItem extends SwordItem {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         if (slot == EquipmentSlot.MAINHAND){
             if (stack.is(ModItems.WOODEN_LANCE.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(3));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.6));
-                builder.build();
-            }
-            if (stack.is(ModItems.STONE_LANCE.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(3.5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.6));
-                builder.build();
-            }
-            if (stack.is(ModItems.IRON_LANCE.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(4));
                 builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.6));
                 builder.build();
             }
+            if (stack.is(ModItems.STONE_LANCE.get())) {
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(4.5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.6));
+                builder.build();
+            }
+            if (stack.is(ModItems.IRON_LANCE.get())) {
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.6));
+                builder.build();
+            }
             if (stack.is(ModItems.GOLD_LANCE.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(3));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(4));
                 builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.2));
                 builder.build();
             }
             if (stack.is(ModItems.DIAMOND_LANCE.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(5));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(6));
                 builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.4));
                 builder.build();
             }
             if (stack.is(ModItems.NETHERITE_LANCE.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(6));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(7));
                 builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.4));
                 builder.build();
             }
@@ -72,7 +72,8 @@ public class LanceItem extends SwordItem {
     public AttributeModifier attributeDmg(double amountDmg) {
         return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);
     }
-    public AttributeModifier attributeSpd(double amountSpd) {
+
+    public  AttributeModifier attributeSpd(double amountSpd) {
         return new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", amountSpd, AttributeModifier.Operation.ADDITION);
     }
 

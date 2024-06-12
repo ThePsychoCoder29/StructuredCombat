@@ -9,6 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -18,7 +19,9 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
@@ -26,9 +29,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-public class ScytheItem extends HoeItem {
+public class ScytheItem extends HoeItem  {
 
     public ScytheItem(Tier pTier, Properties pProperties) {
         super(pTier, 0, 0, pProperties);
@@ -54,8 +56,44 @@ public class ScytheItem extends HoeItem {
 
     @Override
     public boolean mineBlock(@NotNull ItemStack stack, @NotNull Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull LivingEntity pMiningEntity) {
-        stack.hurtAndBreak(1, pMiningEntity, user -> user.broadcastBreakEvent(pMiningEntity.getUsedItemHand()));
+        if (!level.isClientSide() && state.getDestroySpeed(level, pos) != 0.0F) {
+            stack.hurtAndBreak(1, pMiningEntity, (user) -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+        }
+
         return true;
+    }
+
+    @Override
+    public @NotNull InteractionResult useOn(@NotNull UseOnContext pContext) {
+        Player player = pContext.getPlayer();
+        Level level = pContext.getLevel();
+        BlockPos pos = pContext.getClickedPos();
+        BlockState state = level.getBlockState(pos);
+        ItemStack stack = pContext.getItemInHand();
+        assert player != null;
+        if(player.isCrouching()){
+            if (state.is(BlockTags.CROPS)) {
+                CropBlock block = (CropBlock) state.getBlock();
+                int age = block.getAge(state);
+                int maxAge = block.getMaxAge();
+                if (age == maxAge) {
+                    List<BlockPos> posList = getBlockPos(pos);
+                    for (BlockPos blockPos : posList) {
+                        BlockState blockState = level.getBlockState(blockPos);
+                        if (blockState.is(BlockTags.CROPS)) {
+                            CropBlock cropBlock = (CropBlock) blockState.getBlock();
+                            int cropAge = cropBlock.getAge(blockState);
+                            int cropMaxAge = cropBlock.getMaxAge();
+                            if (cropAge == cropMaxAge) {
+                                level.destroyBlock(blockPos, true);
+                                stack.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(player.getUsedItemHand()));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return InteractionResult.FAIL;
     }
 
     @Override
@@ -63,33 +101,33 @@ public class ScytheItem extends HoeItem {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         if (slot == EquipmentSlot.MAINHAND){
             if (stack.is(ModItems.WOODEN_SCYTHE.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(4));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.5));
                 builder.build();
             }
             if (stack.is(ModItems.STONE_SCYTHE.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(7));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.5));
                 builder.build();
             }
             if (stack.is(ModItems.IRON_SCYTHE.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(9));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(6.5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.5));
                 builder.build();
             }
             if (stack.is(ModItems.GOLD_SCYTHE.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.6));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(4));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2));
                 builder.build();
             }
             if (stack.is(ModItems.DIAMOND_SCYTHE.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(10.5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.8));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(7));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.2));
                 builder.build();
             }
             if (stack.is(ModItems.NETHERITE_SCYTHE.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(13));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.8));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(9));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.2));
                 builder.build();
             }
         }
@@ -97,10 +135,11 @@ public class ScytheItem extends HoeItem {
         return builder.build();
     }
 
-    public AttributeModifier attributeDmg(double amountDmg){
+    public AttributeModifier attributeDmg(double amountDmg) {
         return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);
     }
-    public AttributeModifier attributeSpd(double amountSpd){
+
+    public  AttributeModifier attributeSpd(double amountSpd) {
         return new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", amountSpd, AttributeModifier.Operation.ADDITION);
     }
 
@@ -115,10 +154,6 @@ public class ScytheItem extends HoeItem {
         }
     }
 
-    @Override
-    public boolean canAttackBlock(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, Player pPlayer) {
-        return !pPlayer.isCreative();
-    }
 
     @Override
     public float getDestroySpeed(@NotNull ItemStack pStack, BlockState pState) {
@@ -142,7 +177,7 @@ public class ScytheItem extends HoeItem {
             if((bleedingEffect).getAmplifier() > 0){
                 int amplifier = bleedingEffect.getAmplifier();
                 if(amplifier == 1){
-                    pAttacker.sendSystemMessage(Component.literal("bleeding"));
+                    pAttacker.sendSystemMessage(Component.literal("Bleeding"));
                 }
             }
         }
@@ -157,6 +192,11 @@ public class ScytheItem extends HoeItem {
     @Override
     public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction) {
         return ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction) || super.canPerformAction(stack, toolAction);
+    }
+
+    @Override
+    public boolean canAttackBlock(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, Player pPlayer) {
+        return !pPlayer.isCreative();
     }
 
     @Override

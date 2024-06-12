@@ -22,9 +22,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class LabrysItem extends AxeItem {
-
-
+public class LabrysItem extends AxeItem{
     public LabrysItem(Tier pTier, Properties pProperties) {
         super(pTier, 0, 0, pProperties);
     }
@@ -34,27 +32,27 @@ public class LabrysItem extends AxeItem {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         if (slot == EquipmentSlot.MAINHAND){
             if (stack.is(ModItems.WOODEN_LABRYS.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(9));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.6));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(10));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.5));
                 builder.build();
             }
             if (stack.is(ModItems.STONE_LABRYS.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(10));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.6));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(12));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.5));
                 builder.build();
             }
             if (stack.is(ModItems.IRON_LABRYS.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(12));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.6));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(15));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.5));
                 builder.build();
             }
             if (stack.is(ModItems.GOLD_LABRYS.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(9));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.7));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(10));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.25));
                 builder.build();
             }
             if (stack.is(ModItems.DIAMOND_LABRYS.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(16));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(18));
                 builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.4));
                 builder.build();
             }
@@ -68,10 +66,11 @@ public class LabrysItem extends AxeItem {
         return builder.build();
     }
 
-    public AttributeModifier attributeDmg(double amountDmg){
+    public AttributeModifier attributeDmg(double amountDmg) {
         return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);
     }
-    public AttributeModifier attributeSpd(double amountSpd){
+
+    public  AttributeModifier attributeSpd(double amountSpd) {
         return new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", amountSpd, AttributeModifier.Operation.ADDITION);
     }
 

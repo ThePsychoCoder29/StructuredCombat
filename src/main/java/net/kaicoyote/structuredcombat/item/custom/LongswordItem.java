@@ -38,37 +38,45 @@ public class LongswordItem extends SwordItem {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         if (slot == EquipmentSlot.MAINHAND){
             if (stack.is(ModItems.WOODEN_LONGSWORD.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(6.5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.2));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(9));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.3));
                 builder.build();
             }
             if (stack.is(ModItems.STONE_LONGSWORD.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(8));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.2));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(10));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.3));
                 builder.build();
             }
             if (stack.is(ModItems.IRON_LONGSWORD.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(10));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.2));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(12));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.3));
                 builder.build();
             }
             if (stack.is(ModItems.GOLD_LONGSWORD.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(6.5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.8));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(9));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3));
                 builder.build();
             }
             if (stack.is(ModItems.DIAMOND_LONGSWORD.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(12.5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(16));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.15));
                 builder.build();
             }
             if (stack.is(ModItems.NETHERITE_LONGSWORD.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(15));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(18));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-3.15));
                 builder.build();
             }
         }
         return builder.build();
+    }
+
+    public AttributeModifier attributeDmg(double amountDmg) {
+        return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);
+    }
+
+    public  AttributeModifier attributeSpd(double amountSpd) {
+        return new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", amountSpd, AttributeModifier.Operation.ADDITION);
     }
 
     @Override
@@ -80,13 +88,6 @@ public class LongswordItem extends SwordItem {
             pTooltipComponents.add(Component.translatable("tooltip.structuredcombat.shift.tooltip"));
             super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
         }
-    }
-
-    public AttributeModifier attributeDmg(double amountDmg){
-        return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);
-    }
-    public AttributeModifier attributeSpd(double amountSpd){
-        return new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", amountSpd, AttributeModifier.Operation.ADDITION);
     }
 
     @Override
@@ -117,7 +118,7 @@ public class LongswordItem extends SwordItem {
     }
 
     @Override
-    public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
+    public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction) {
         return ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction);
     }
 

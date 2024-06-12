@@ -4,10 +4,8 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class BleedingEffect extends MobEffect {
     public static int durationTick;
@@ -19,11 +17,11 @@ public class BleedingEffect extends MobEffect {
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         pLivingEntity.hurt(pLivingEntity.damageSources().magic(), 1);
     }
-
     @Override
     public List<ItemStack> getCurativeItems() {
         return new ArrayList<>();
     }
+
     public static void setTickDuration(int duration, int mod){
         durationTick = duration % mod;
     }

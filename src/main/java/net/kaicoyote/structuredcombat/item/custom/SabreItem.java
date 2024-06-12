@@ -24,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class SabreItem extends SwordItem{
+public class SabreItem extends SwordItem {
 
     public SabreItem(Tier pTier, Properties pProperties) {
         super(pTier, 0, 0, pProperties);
@@ -36,7 +36,7 @@ public class SabreItem extends SwordItem{
     }
 
     @Override
-    public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
+    public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction) {
         return ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction) || ToolActions.DEFAULT_SHIELD_ACTIONS.contains(toolAction);
     }
 
@@ -46,32 +46,32 @@ public class SabreItem extends SwordItem{
         if (slot == EquipmentSlot.MAINHAND){
             if (stack.is(ModItems.WOODEN_SABRE.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(3));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-0.5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-1.4));
                 builder.build();
             }
             if (stack.is(ModItems.STONE_SABRE.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(4));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-0.5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-1.4));
                 builder.build();
             }
             if (stack.is(ModItems.IRON_SABRE.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-0.5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-1.4));
                 builder.build();
             }
             if (stack.is(ModItems.GOLD_SABRE.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(3));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(0.5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-1.5));
                 builder.build();
             }
             if (stack.is(ModItems.DIAMOND_SABRE.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(6.25));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(0));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(7));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-1));
                 builder.build();
             }
             if (stack.is(ModItems.NETHERITE_SABRE.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(7.5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(0));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(8.5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-1));
                 builder.build();
             }
         }
@@ -79,10 +79,11 @@ public class SabreItem extends SwordItem{
         return builder.build();
     }
 
-    public AttributeModifier attributeDmg(double amountDmg){
+    public AttributeModifier attributeDmg(double amountDmg) {
         return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);
     }
-    public AttributeModifier attributeSpd(double amountSpd){
+
+    public  AttributeModifier attributeSpd(double amountSpd) {
         return new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", amountSpd, AttributeModifier.Operation.ADDITION);
     }
 

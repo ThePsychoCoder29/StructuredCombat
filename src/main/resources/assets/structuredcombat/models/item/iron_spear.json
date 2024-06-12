@@ -1,5 +1,5 @@
 {
-  "parent": "structuredcombat:item/templates/handheld32",
+  "parent": "structuredcombat:item/templates/spear_handheld32",
   "textures": {
     "layer0": "structuredcombat:item/iron_spear"
   }

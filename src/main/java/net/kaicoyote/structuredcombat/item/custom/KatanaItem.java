@@ -25,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class KatanaItem extends SwordItem {
+public class KatanaItem extends SwordItem{
 
     public KatanaItem(Tier pTier, Properties pProperties) {
         super(pTier, 0, 0, pProperties);
@@ -37,32 +37,32 @@ public class KatanaItem extends SwordItem {
         if (slot == EquipmentSlot.MAINHAND) {
             if (stack.is(ModItems.WOODEN_KATANA.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(4.5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-0));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-0.75));
                 builder.build();
             }
             if (stack.is(ModItems.STONE_KATANA.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(0));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-0.75));
                 builder.build();
             }
             if (stack.is(ModItems.IRON_KATANA.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(6));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(0));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-0.75));
                 builder.build();
             }
             if (stack.is(ModItems.GOLD_KATANA.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(4.5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(1));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(0));
                 builder.build();
             }
             if (stack.is(ModItems.DIAMOND_KATANA.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(6.5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(0.5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-0.25));
                 builder.build();
             }
             if (stack.is(ModItems.NETHERITE_KATANA.get())) {
                 builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(7.5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(0.5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-0.25));
                 builder.build();
             }
         }
@@ -74,7 +74,7 @@ public class KatanaItem extends SwordItem {
         return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);
     }
 
-    public AttributeModifier attributeSpd(double amountSpd) {
+    public  AttributeModifier attributeSpd(double amountSpd) {
         return new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", amountSpd, AttributeModifier.Operation.ADDITION);
     }
 

@@ -59,28 +59,46 @@ public class HatchetItem extends AxeItem {
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        if (slot == EquipmentSlot.MAINHAND) {
-            attributeBuilder(builder, stack, ModItems.WOODEN_HATCHET.get(), 5.5, -3);
-            attributeBuilder(builder, stack, ModItems.STONE_HATCHET.get(), 7, -3);
-            attributeBuilder(builder, stack, ModItems.IRON_HATCHET.get(), 7, -3);
-            attributeBuilder(builder, stack, ModItems.GOLD_HATCHET.get(), 5.5, -2.6);
-            attributeBuilder(builder, stack, ModItems.DIAMOND_HATCHET.get(), 7.5, -2.8);
-            attributeBuilder(builder, stack, ModItems.NETHERITE_HATCHET.get(), 8.5, -2.8);
+        if(slot == EquipmentSlot.MAINHAND) {
+            if (stack.is(ModItems.WOODEN_HATCHET.get())) {
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(4.5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.6));
+                builder.build();
+            }
+            if (stack.is(ModItems.STONE_HATCHET.get())) {
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.6));
+                builder.build();
+            }
+            if (stack.is(ModItems.IRON_HATCHET.get())) {
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(5.5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.6));
+                builder.build();
+            }
+            if (stack.is(ModItems.GOLD_HATCHET.get())) {
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(4.5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.4));
+                builder.build();
+            }
+            if (stack.is(ModItems.DIAMOND_HATCHET.get())) {
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(6));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.5));
+                builder.build();
+            }
+            if (stack.is(ModItems.NETHERITE_HATCHET.get())) {
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(7));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2.5));
+                builder.build();
+            }
         }
         return builder.build();
     }
 
-    public void attributeBuilder(ImmutableMultimap.Builder<Attribute, AttributeModifier> builder, ItemStack stack, Item item ,double dmg, double spd){
-        if(stack.is(item)){
-            builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(dmg));
-            builder.put(Attributes.ATTACK_SPEED, attributeSpd(spd));
-            builder.build();
-        }
-    }
-    public AttributeModifier attributeDmg(double amountDmg){
+    public AttributeModifier attributeDmg(double amountDmg) {
         return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);
     }
-    public AttributeModifier attributeSpd(double amountSpd){
+
+    public  AttributeModifier attributeSpd(double amountSpd) {
         return new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", amountSpd, AttributeModifier.Operation.ADDITION);
     }
 

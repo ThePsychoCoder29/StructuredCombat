@@ -25,14 +25,13 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
-import net.minecraftforge.common.extensions.IForgeItem;
 import org.apache.commons.lang3.function.TriFunction;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class DaggerItem extends SwordItem implements IForgeItem {
+public class DaggerItem extends SwordItem{
     private final TriFunction<Level, Player, ItemStack, DaggerProjectileEntity> constructor;
 
     public DaggerItem(Tier pTier, TriFunction<Level, Player, ItemStack, DaggerProjectileEntity> constructor , Properties pProperties) {
@@ -76,33 +75,33 @@ public class DaggerItem extends SwordItem implements IForgeItem {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         if (slot == EquipmentSlot.MAINHAND){
             if (stack.is(ModItems.WOODEN_DAGGER.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(2));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-1));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(3));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2));
                 builder.build();
             }
             if (stack.is(ModItems.STONE_DAGGER.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(2.75));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-1));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(3.5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2));
                 builder.build();
             }
             if (stack.is(ModItems.IRON_DAGGER.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(3.5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-1));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(4));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-2));
                 builder.build();
             }
             if (stack.is(ModItems.GOLD_DAGGER.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(2));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(0));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(3));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-1));
                 builder.build();
             }
             if (stack.is(ModItems.DIAMOND_DAGGER.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(4.25));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-0.5));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(4.5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-1.5));
                 builder.build();
             }
             if (stack.is(ModItems.NETHERITE_DAGGER.get())) {
-                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(5));
-                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-0.5));
+                builder.put(Attributes.ATTACK_DAMAGE, attributeDmg(5.5));
+                builder.put(Attributes.ATTACK_SPEED, attributeSpd(-1.5));
                 builder.build();
             }
         }
@@ -110,10 +109,11 @@ public class DaggerItem extends SwordItem implements IForgeItem {
         return builder.build();
     }
 
-    public AttributeModifier attributeDmg(double amountDmg){
+    public AttributeModifier attributeDmg(double amountDmg) {
         return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);
     }
-    public AttributeModifier attributeSpd(double amountSpd){
+
+    public  AttributeModifier attributeSpd(double amountSpd) {
         return new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", amountSpd, AttributeModifier.Operation.ADDITION);
     }
 
