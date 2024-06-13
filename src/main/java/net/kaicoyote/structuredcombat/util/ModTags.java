@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Block;
 public class ModTags {
     public static class Blocks {
         public static final TagKey<Block> NEEDS_STRUCTURED_COMBAT_TOOL = tag("needs_structured_combat_tool");
+
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(StructuredCombat.MOD_ID, name));
         }

@@ -106,7 +106,9 @@ public class LongswordItem extends SwordItem {
 
     @Override
     public boolean hurtEnemy(@NotNull ItemStack pStack, LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
-        if(pTarget.getArmorValue() > 0) {
+        boolean hasArmor = pTarget.hasItemInSlot(EquipmentSlot.HEAD) || pTarget.hasItemInSlot(EquipmentSlot.LEGS) || pTarget.hasItemInSlot(EquipmentSlot.FEET);
+        boolean elytraCheck = pTarget.hasItemInSlot(EquipmentSlot.CHEST) && !pTarget.getItemBySlot(EquipmentSlot.CHEST).is(Items.ELYTRA);
+        if(hasArmor || elytraCheck){
             MobEffectInstance weakness = new MobEffectInstance(MobEffects.WEAKNESS, 40, 2, true, true, true);
             MobEffectInstance slowness = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 2, true, true, true);
             pTarget.addEffect(weakness);

@@ -22,6 +22,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow.Pickup;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
@@ -105,15 +106,6 @@ public class HatchetItem extends AxeItem {
     @Override
     public boolean canAttackBlock(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, Player pPlayer) {
         return !pPlayer.isCreative();
-    }
-
-    @Override
-    public float getDestroySpeed(@NotNull ItemStack pStack, BlockState pState) {
-        if (pState.is(BlockTags.MINEABLE_WITH_AXE)) {
-            return 15.0F;
-        } else {
-            return 1.0F;
-        }
     }
 
     @Override

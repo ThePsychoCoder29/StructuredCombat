@@ -21,6 +21,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
@@ -30,7 +31,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScytheItem extends HoeItem  {
+public class ScytheItem extends SwordItem  {
 
     public ScytheItem(Tier pTier, Properties pProperties) {
         super(pTier, 0, 0, pProperties);
@@ -56,10 +57,7 @@ public class ScytheItem extends HoeItem  {
 
     @Override
     public boolean mineBlock(@NotNull ItemStack stack, @NotNull Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull LivingEntity pMiningEntity) {
-        if (!level.isClientSide() && state.getDestroySpeed(level, pos) != 0.0F) {
-            stack.hurtAndBreak(1, pMiningEntity, (user) -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND));
-        }
-
+        stack.hurtAndBreak(1, pMiningEntity, (user) -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND));
         return true;
     }
 
@@ -71,26 +69,32 @@ public class ScytheItem extends HoeItem  {
         BlockState state = level.getBlockState(pos);
         ItemStack stack = pContext.getItemInHand();
         assert player != null;
-        if(player.isCrouching()){
-            if (state.is(BlockTags.CROPS)) {
-                CropBlock block = (CropBlock) state.getBlock();
-                int age = block.getAge(state);
-                int maxAge = block.getMaxAge();
-                if (age == maxAge) {
-                    List<BlockPos> posList = getBlockPos(pos);
-                    for (BlockPos blockPos : posList) {
-                        BlockState blockState = level.getBlockState(blockPos);
-                        if (blockState.is(BlockTags.CROPS)) {
-                            CropBlock cropBlock = (CropBlock) blockState.getBlock();
-                            int cropAge = cropBlock.getAge(blockState);
-                            int cropMaxAge = cropBlock.getMaxAge();
-                            if (cropAge == cropMaxAge) {
-                                level.destroyBlock(blockPos, true);
-                                stack.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(player.getUsedItemHand()));
+        if(!level.isClientSide()) {
+            if (player.isCrouching()) {
+                if (state.is(BlockTags.CROPS)) {
+                    CropBlock block = (CropBlock) state.getBlock();
+                    int age = block.getAge(state);
+                    int maxAge = block.getMaxAge();
+                    if (age == maxAge) {
+                        List<BlockPos> posList = getBlockPos(pos);
+                        for (BlockPos blockPos : posList) {
+                            BlockState blockState = level.getBlockState(blockPos);
+                            if (blockState.is(BlockTags.CROPS)) {
+                                CropBlock cropBlock = (CropBlock) blockState.getBlock();
+                                int cropAge = cropBlock.getAge(blockState);
+                                int cropMaxAge = cropBlock.getMaxAge();
+                                if (cropAge == cropMaxAge) {
+                                    level.destroyBlock(blockPos, true);
+                                    level.setBlockAndUpdate(blockPos, Blocks.AIR.defaultBlockState());
+                                    stack.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(player.getUsedItemHand()));
+                                }
                             }
                         }
                     }
                 }
+            }
+            else {
+                canPerformAction(stack, ToolActions.HOE_TILL);
             }
         }
         return InteractionResult.FAIL;
@@ -154,17 +158,6 @@ public class ScytheItem extends HoeItem  {
         }
     }
 
-
-    @Override
-    public float getDestroySpeed(@NotNull ItemStack pStack, BlockState pState) {
-        if (pState.is(BlockTags.MINEABLE_WITH_HOE)) {
-            return 15.0F;
-        }
-        else {
-            return 1.5F;
-        }
-    }
-
     public void applyBleeding(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker){
         InteractionHand hand = pAttacker.getUsedItemHand();
         MobEffect effect = ModEffects.BLEEDING_EFFECT.get();
@@ -191,7 +184,7 @@ public class ScytheItem extends HoeItem  {
 
     @Override
     public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction) {
-        return ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction) || super.canPerformAction(stack, toolAction);
+        return ToolActions.DEFAULT_HOE_ACTIONS.contains(toolAction) || super.canPerformAction(stack, toolAction);
     }
 
     @Override

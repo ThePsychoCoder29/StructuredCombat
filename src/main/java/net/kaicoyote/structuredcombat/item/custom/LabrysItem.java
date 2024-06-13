@@ -7,6 +7,8 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -66,6 +68,12 @@ public class LabrysItem extends AxeItem{
         return builder.build();
     }
 
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
+        pPlayer.startAutoSpinAttack(100);
+        return InteractionResultHolder.success(pPlayer.getItemInHand(pUsedHand));
+    }
+
     public AttributeModifier attributeDmg(double amountDmg) {
         return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);
     }
@@ -88,16 +96,6 @@ public class LabrysItem extends AxeItem{
     @Override
     public boolean canAttackBlock(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, Player pPlayer) {
         return !pPlayer.isCreative();
-    }
-
-    @Override
-    public float getDestroySpeed(@NotNull ItemStack pStack, BlockState pState) {
-        if(pState.is(BlockTags.MINEABLE_WITH_AXE)){
-            return 15f;
-        }
-        else {
-            return 1.0f;
-        }
     }
 
     @Override
