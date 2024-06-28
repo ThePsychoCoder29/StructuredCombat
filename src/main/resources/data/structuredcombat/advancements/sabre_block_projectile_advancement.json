@@ -1,0 +1,337 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:arrow"
+    },
+    "title": {
+      "translate": "advancements.structuredcombat.sabre_block_projectile_advancement"
+    },
+    "description": {
+      "translate": "advancements.structuredcombat.sabre_block_projectile_advancement.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "structuredcombat:sabre_kill_pillager_advancement",
+  "criteria": {
+    "deflected_projectile_mainhand_wooden": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "structuredcombat:wooden_sabre"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "blocked": true,
+          "type": {
+            "tags": [
+              {
+                "id": "minecraft:is_projectile",
+                "expected": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "deflected_projectile_offhand_wooden": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "offhand": {
+              "items": [
+                "structuredcombat:wooden_sabre"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "blocked": true,
+          "type": {
+            "tags": [
+              {
+                "id": "minecraft:is_projectile",
+                "expected": true
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+    "deflected_projectile_mainhand_stone": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "structuredcombat:stone_sabre"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "blocked": true,
+          "type": {
+            "tags": [
+              {
+                "id": "minecraft:is_projectile",
+                "expected": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "deflected_projectile_offhand_stone": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "offhand": {
+              "items": [
+                "structuredcombat:stone_sabre"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "blocked": true,
+          "type": {
+            "tags": [
+              {
+                "id": "minecraft:is_projectile",
+                "expected": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "deflected_projectile_mainhand_iron": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "structuredcombat:iron_sabre"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "blocked": true,
+          "type": {
+            "tags": [
+              {
+                "id": "minecraft:is_projectile",
+                "expected": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "deflected_projectile_offhand_iron": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "offhand": {
+              "items": [
+                "structuredcombat:iron_sabre"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "blocked": true,
+          "type": {
+            "tags": [
+              {
+                "id": "minecraft:is_projectile",
+                "expected": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "deflected_projectile_mainhand_gold": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "structuredcombat:gold_sabre"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "blocked": true,
+          "type": {
+            "tags": [
+              {
+                "id": "minecraft:is_projectile",
+                "expected": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "deflected_projectile_offhand_gold": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "offhand": {
+              "items": [
+                "structuredcombat:gold_sabre"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "blocked": true,
+          "type": {
+            "tags": [
+              {
+                "id": "minecraft:is_projectile",
+                "expected": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "deflected_projectile_mainhand_diamond": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "structuredcombat:diamond_sabre"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "blocked": true,
+          "type": {
+            "tags": [
+              {
+                "id": "minecraft:is_projectile",
+                "expected": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "deflected_projectile_offhand_diamond": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "offhand": {
+              "items": [
+                "structuredcombat:diamond_sabre"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "blocked": true,
+          "type": {
+            "tags": [
+              {
+                "id": "minecraft:is_projectile",
+                "expected": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "deflected_projectile_mainhand_netherite": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "structuredcombat:netherite_sabre"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "blocked": true,
+          "type": {
+            "tags": [
+              {
+                "id": "minecraft:is_projectile",
+                "expected": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "deflected_projectile_offhand_netherite": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "offhand": {
+              "items": [
+                "structuredcombat:netherite_sabre"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "blocked": true,
+          "type": {
+            "tags": [
+              {
+                "id": "minecraft:is_projectile",
+                "expected": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "requirements": [
+      [
+        "deflected_projectile_mainhand_wooden",
+        "deflected_projectile_offhand_wooden",
+        "deflected_projectile_mainhand_stone",
+        "deflected_projectile_offhand_stone",
+        "deflected_projectile_mainhand_iron",
+        "deflected_projectile_offhand_iron",
+        "deflected_projectile_mainhand_gold",
+        "deflected_projectile_offhand_gold",
+        "deflected_projectile_mainhand_diamond",
+        "deflected_projectile_offhand_diamond",
+        "deflected_projectile_mainhand_netherite",
+        "deflected_projectile_offhand_netherite"
+      ]
+    ],
+  "sends_telemetry_event": true
+}

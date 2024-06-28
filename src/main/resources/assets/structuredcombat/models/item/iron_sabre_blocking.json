@@ -1,7 +1,7 @@
 {
-  "parent" : "structuredcombat:item/wooden_sabre",
+  "parent" : "structuredcombat:item/iron_sabre",
   "textures" : {
-    "layer0" : "structuredcombat:item/wooden_sabre"
+    "layer0" : "structuredcombat:item/iron_sabre"
   },
   "display": {
     "thirdperson_righthand": {

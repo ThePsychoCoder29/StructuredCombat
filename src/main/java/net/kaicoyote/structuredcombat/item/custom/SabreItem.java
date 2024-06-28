@@ -5,8 +5,12 @@ import com.google.common.collect.Multimap;
 import net.kaicoyote.structuredcombat.item.ModItems;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -25,19 +29,27 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class SabreItem extends SwordItem {
+    public static double damagePercent;
+    public RandomSource random;
 
     public SabreItem(Tier pTier, Properties pProperties) {
         super(pTier, 0, 0, pProperties);
+        this.random = RandomSource.create();
     }
 
     @Override
-    public int getUseDuration(@NotNull ItemStack pStack) {
+    public @NotNull UseAnim getUseAnimation(@NotNull ItemStack pStack) {
+        return UseAnim.BLOCK;
+    }
+
+    @Override
+    public int getUseDuration(ItemStack pStack) {
         return 72000;
     }
 
     @Override
     public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction) {
-        return ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction) || ToolActions.DEFAULT_SHIELD_ACTIONS.contains(toolAction);
+        return ToolActions.DEFAULT_SHIELD_ACTIONS.contains(toolAction) || super.canPerformAction(stack, toolAction);
     }
 
     @Override
@@ -90,18 +102,33 @@ public class SabreItem extends SwordItem {
     @Override
     public void onUseTick(@NotNull Level pLevel, @NotNull LivingEntity pLivingEntity, @NotNull ItemStack pStack, int pRemainingUseDuration) {
         if(pLivingEntity instanceof Player player){
-            int duration = this.getUseDuration(pStack) - pRemainingUseDuration;
-            if(duration >= 20 && duration <= 40){
-                player.sendSystemMessage(Component.literal("20-40"));
-                player.setAbsorptionAmount(100);
+            int duration = player.getTicksUsingItem();
+            if(duration <= 20){
+                damagePercent = 0;
             }
-            if(duration >= 40 && duration <= 60){
-                player.sendSystemMessage(Component.literal("40-60"));
+            if(duration >= 20 && duration <= 60){
+                damagePercent = Math.max(0, (player.getTicksUsingItem() * 0.025));
             }
-            if(duration >= 60 && duration <= 80){
-                player.sendSystemMessage(Component.literal("60-80"));
+            if(duration >= 60){
+                for(int i = 0; i < 5; ++i) {
+                    double xSpeed = this.random.nextGaussian() * 0.02;
+                    double ySpeed = this.random.nextGaussian() * 0.02;
+                    double zSpeed = this.random.nextGaussian() * 0.02;
+                    pLevel.addParticle(ParticleTypes.SPLASH, player.getRandomX(1.0), player.getRandomY() + 1.0, player.getRandomZ(1.0), xSpeed, ySpeed, zSpeed);
+                }
+                damagePercent = 1;
             }
         }
+    }
+    public static double getDamagePercent() {
+        return damagePercent;
+    }
+
+    @Override
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level pLevel, @NotNull Player player, @NotNull InteractionHand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
+        player.startUsingItem(hand);
+        return InteractionResultHolder.consume(itemstack);
     }
 
     @Override

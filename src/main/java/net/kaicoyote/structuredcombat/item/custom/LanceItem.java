@@ -127,7 +127,8 @@ public class LanceItem extends SwordItem {
                                 x, y + 1, z,
                                 Math.cos(i) * 0.15d, 0.15d, Math.sin(i) * 0.15d);
                     }
-                }            }
+                }
+            }
             return pTarget.hurt(pAttacker.damageSources().playerAttack(player), amount);
         }
         pStack.hurtAndBreak(1, pAttacker, user -> user.broadcastBreakEvent(pAttacker.getUsedItemHand()));

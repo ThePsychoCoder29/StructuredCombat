@@ -39,6 +39,9 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
 
         //Trail Ruins
         add("diamond_upgrade_from_treasure_bastion", trailRuinsLIC("trail_ruins_rare", ModItems.DIAMOND_UPGRADE.get()));
+
+        //Reimbursement
+
     }
 
     public static ModStructureLootModifier structureLIC(String chestLoc, Item item){

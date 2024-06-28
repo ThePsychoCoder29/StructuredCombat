@@ -1,6 +1,0 @@
-{
-  "parent": "structuredcombat:item/templates/handheld32",
-  "textures": {
-    "layer0": "structuredcombat:item/stone_labrys"
-  }
-}

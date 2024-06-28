@@ -9,6 +9,5 @@
   "mixins": [
     "EagleEyesInBowMixin",
     "NetheriteUpgradeSmithingTemplateIconListMixin",
-    "ReimbursementInLivingEntityMixin"
   ]
 }

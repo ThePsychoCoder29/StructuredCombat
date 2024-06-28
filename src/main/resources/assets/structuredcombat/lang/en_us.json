@@ -126,9 +126,11 @@
   "advancements.structuredcombat.break_katana.description" : "Use a Gold Katana until its destroyed",
 
   "advancements.structuredcombat.obtain_sabre" : "Sabre the Moment",
+  "advancements.structuredcombat.obtain_sabre.description" : "Find a Sabre beneath the Sea",
   "advancements.structuredcombat.kill_pillager_with_sabre" : "Pillage This!",
   "advancements.structuredcombat.kill_pillager_with_sabre.description" : "Kill a Pillager with a Sabre",
-  "advancements.structuredcombat.obtain_sabre.description" : "Find a Sabre beneath the Sea",
+  "advancements.structuredcombat.sabre_block_projectile_advancement" : "Filthy Casual",
+  "advancements.structuredcombat.sabre_block_projectile_advancement.description" : "Block a projectile with a Sabre",
 
   "advancements.structuredcombat.obtain_spear" : "Poor Man's Trident",
   "advancements.structuredcombat.obtain_spear.description" : "Find a Spear in the Savanna Grasslands",

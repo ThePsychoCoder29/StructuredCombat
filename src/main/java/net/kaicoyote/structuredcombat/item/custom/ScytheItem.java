@@ -21,7 +21,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
@@ -69,25 +68,22 @@ public class ScytheItem extends SwordItem  {
         BlockState state = level.getBlockState(pos);
         ItemStack stack = pContext.getItemInHand();
         assert player != null;
-        if(!level.isClientSide()) {
-            if (player.isCrouching()) {
-                if (state.is(BlockTags.CROPS)) {
-                    CropBlock block = (CropBlock) state.getBlock();
-                    int age = block.getAge(state);
-                    int maxAge = block.getMaxAge();
-                    if (age == maxAge) {
-                        List<BlockPos> posList = getBlockPos(pos);
-                        for (BlockPos blockPos : posList) {
-                            BlockState blockState = level.getBlockState(blockPos);
-                            if (blockState.is(BlockTags.CROPS)) {
-                                CropBlock cropBlock = (CropBlock) blockState.getBlock();
-                                int cropAge = cropBlock.getAge(blockState);
-                                int cropMaxAge = cropBlock.getMaxAge();
-                                if (cropAge == cropMaxAge) {
-                                    level.destroyBlock(blockPos, true);
-                                    level.setBlockAndUpdate(blockPos, Blocks.AIR.defaultBlockState());
-                                    stack.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(player.getUsedItemHand()));
-                                }
+        if(!level.isClientSide() && player.isCrouching()) {
+            if (state.is(BlockTags.CROPS)) {
+                CropBlock block = (CropBlock) state.getBlock();
+                int age = block.getAge(state);
+                int maxAge = block.getMaxAge();
+                if (age == maxAge) {
+                    List<BlockPos> posList = getBlockPos(pos);
+                    for (BlockPos blockPos : posList) {
+                        BlockState blockState = level.getBlockState(blockPos);
+                        if (blockState.is(BlockTags.CROPS)) {
+                            CropBlock cropBlock = (CropBlock) blockState.getBlock();
+                            int cropAge = cropBlock.getAge(blockState);
+                            int cropMaxAge = cropBlock.getMaxAge();
+                            if (cropAge == cropMaxAge) {
+                                level.getBlockState(blockPos).getBlock().destroy(level, blockPos, blockState);
+                                stack.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(player.getUsedItemHand()));
                             }
                         }
                     }
