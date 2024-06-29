@@ -2,13 +2,14 @@ package net.kaicoyote.structuredcombat.item.custom;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import net.kaicoyote.structuredcombat.effect.ModEffects;
 import net.kaicoyote.structuredcombat.item.ModItems;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -24,6 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class LabrysItem extends AxeItem{
     public LabrysItem(Tier pTier, Properties pProperties) {
         super(pTier, 0, 0, pProperties);
@@ -69,8 +71,10 @@ public class LabrysItem extends AxeItem{
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-        pPlayer.startAutoSpinAttack(100);
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level pLevel, Player pPlayer, @NotNull InteractionHand pUsedHand) {
+        int spinDuration = 100;
+        pPlayer.addEffect(new MobEffectInstance(ModEffects.LABRYS_SPIN.get(), spinDuration, 1, false, false, false));
+        pPlayer.startAutoSpinAttack(spinDuration);
         return InteractionResultHolder.success(pPlayer.getItemInHand(pUsedHand));
     }
 

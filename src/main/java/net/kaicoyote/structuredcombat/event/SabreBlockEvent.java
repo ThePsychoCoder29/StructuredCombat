@@ -7,14 +7,25 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = StructuredCombat.MOD_ID)
-public class SabreBlockEvent{
-
-    public static double getDamagePercent(){
+public class SabreBlockEvent {
+    public static double multiplier = 1;
+    public static double getDamagePercent() {
         return SabreItem.getDamagePercent();
+    }
+
+    public static void setMultiplier(int multiply){
+        multiplier = multiply;
+    }
+
+    public static double getMultiplier() {
+        return multiplier;
     }
 
     @SubscribeEvent
     public static void sabreBlock(ShieldBlockEvent event){
-        event.setBlockedDamage((float) (event.getBlockedDamage() * (1 - getDamagePercent())));
+        event.setBlockedDamage((float) ((getMultiplier() * event.getBlockedDamage()) * (1 - getDamagePercent())));
+        if(getDamagePercent() == 0){
+            setMultiplier(2);
+        }
     }
 }

@@ -28,6 +28,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class SabreItem extends SwordItem {
     public static double damagePercent;
     public RandomSource random;
@@ -43,7 +44,7 @@ public class SabreItem extends SwordItem {
     }
 
     @Override
-    public int getUseDuration(ItemStack pStack) {
+    public int getUseDuration(@NotNull ItemStack pStack) {
         return 72000;
     }
 
@@ -103,18 +104,18 @@ public class SabreItem extends SwordItem {
     public void onUseTick(@NotNull Level pLevel, @NotNull LivingEntity pLivingEntity, @NotNull ItemStack pStack, int pRemainingUseDuration) {
         if(pLivingEntity instanceof Player player){
             int duration = player.getTicksUsingItem();
-            if(duration <= 20){
+            if(duration >= 0 && duration <= 20){
                 damagePercent = 0;
             }
             if(duration >= 20 && duration <= 60){
                 damagePercent = Math.max(0, (player.getTicksUsingItem() * 0.025));
             }
             if(duration >= 60){
-                for(int i = 0; i < 5; ++i) {
+                for(int i = 0; i < 3; ++i) {
                     double xSpeed = this.random.nextGaussian() * 0.02;
                     double ySpeed = this.random.nextGaussian() * 0.02;
                     double zSpeed = this.random.nextGaussian() * 0.02;
-                    pLevel.addParticle(ParticleTypes.SPLASH, player.getRandomX(1.0), player.getRandomY() + 1.0, player.getRandomZ(1.0), xSpeed, ySpeed, zSpeed);
+                    pLevel.addParticle(ParticleTypes.SPLASH, player.getRandomX(1.0), player.getRandomY() - 0.4, player.getRandomZ(1.0), xSpeed - 0.5, ySpeed - 0.5, zSpeed - 0.5);
                 }
                 damagePercent = 1;
             }

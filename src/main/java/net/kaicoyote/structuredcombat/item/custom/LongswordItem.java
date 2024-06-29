@@ -27,6 +27,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class LongswordItem extends SwordItem {
 
     public LongswordItem(Tier pTier, Properties pProperties) {

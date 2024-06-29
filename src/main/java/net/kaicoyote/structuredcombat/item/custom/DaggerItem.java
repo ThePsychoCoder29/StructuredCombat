@@ -31,6 +31,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class DaggerItem extends SwordItem{
     private final TriFunction<Level, Player, ItemStack, DaggerProjectileEntity> constructor;
 

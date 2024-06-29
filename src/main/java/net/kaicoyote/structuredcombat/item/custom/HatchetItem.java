@@ -32,6 +32,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class HatchetItem extends AxeItem {
     private final TriFunction<Level, Player, ItemStack, HatchetProjectileEntity> constructor;
 
