@@ -2,15 +2,19 @@ package net.kaicoyote.structuredcombat.item.custom;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import net.kaicoyote.structuredcombat.effect.ModEffects;
 import net.kaicoyote.structuredcombat.item.ModItems;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -18,17 +22,23 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
 import java.util.List;
 
 @SuppressWarnings("ResultOfMethodCallIgnored")
 public class LabrysItem extends AxeItem{
+
     public LabrysItem(Tier pTier, Properties pProperties) {
         super(pTier, 0, 0, pProperties);
+    }
+
+    @Override
+    public int getUseDuration(@NotNull ItemStack pStack) {
+        return 72000;
     }
 
     @Override
@@ -71,12 +81,44 @@ public class LabrysItem extends AxeItem{
     }
 
     @Override
-    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level pLevel, Player pPlayer, @NotNull InteractionHand pUsedHand) {
-        int spinDuration = 100;
-        pPlayer.addEffect(new MobEffectInstance(ModEffects.LABRYS_SPIN.get(), spinDuration, 1, false, false, false));
-        pPlayer.startAutoSpinAttack(spinDuration);
-        return InteractionResultHolder.success(pPlayer.getItemInHand(pUsedHand));
+    public void onUseTick(@NotNull Level pLevel, @NotNull LivingEntity pLivingEntity, @NotNull ItemStack pStack, int pRemainingUseDuration) {
+        if(pLivingEntity instanceof Player player){
+            int duration = player.getTicksUsingItem();
+            double radius = 1.5;
+            double angular_speed = 0.1;
+            float angle = 0;
+            if(duration >= 30){
+                player.addEffect(new MobEffectInstance(MobEffects.HUNGER, 20, 1, false, false, false));
+                AABB damageBox = player.getBoundingBox().inflate(1.5, 1.5, 1.5);
+                List<Mob> entities = pLevel.getEntitiesOfClass(Mob.class, damageBox);
+                for(Mob mob : entities){
+                    mob.knockback(5, 10, 10);
+                    mob.hurt(player.damageSources().magic(), 20);
+                    pStack.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(player.getUsedItemHand()));
+                }
+                angle += (float) angular_speed * (duration - 30) ;
+                angle %= 360;
+                double playerX = player.getBlockX();
+                double playerY = player.getBlockY() + 2;
+                double playerZ = player.getBlockZ();
+                double particleX = playerX + Mth.cos(angle) * radius;
+                double particleY = playerY + Mth.sin(angle) * radius;
+                double particleZ = playerZ + Mth.cos(angle) * radius;
+                for(int i = 0; i < 2; ++i) {
+                    pLevel.addParticle(ParticleTypes.CRIT, particleX, particleY, particleZ,
+                            0, 0.25, 0);
+                }
+            }
+        }
     }
+
+    @Override
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level pLevel, @NotNull Player player, @NotNull InteractionHand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
+        player.startUsingItem(hand);
+        return InteractionResultHolder.consume(itemstack);
+    }
+
 
     public AttributeModifier attributeDmg(double amountDmg) {
         return new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", amountDmg, AttributeModifier.Operation.ADDITION);

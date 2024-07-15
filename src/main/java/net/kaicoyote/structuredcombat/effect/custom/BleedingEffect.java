@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BleedingEffect extends MobEffect {
-    public static int durationTick;
+    public static int durationTick = 20;
     public BleedingEffect(MobEffectCategory pCategory, int pColor) {
         super(pCategory, pColor);
     }
@@ -22,8 +22,12 @@ public class BleedingEffect extends MobEffect {
         return new ArrayList<>();
     }
 
-    public static void setTickDuration(int duration, int mod){
-        durationTick = duration % mod;
+    public static int returnTickDuration(){
+        return durationTick;
+    }
+
+    public static void setTickDuration(int duration){
+        durationTick = duration % 2;
     }
 
     public static int getTickDuration() {

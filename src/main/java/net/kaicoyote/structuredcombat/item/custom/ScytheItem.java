@@ -3,6 +3,7 @@ package net.kaicoyote.structuredcombat.item.custom;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.kaicoyote.structuredcombat.effect.ModEffects;
+import net.kaicoyote.structuredcombat.effect.custom.BleedingEffect;
 import net.kaicoyote.structuredcombat.item.ModItems;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -29,8 +30,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class ScytheItem extends SwordItem  {
+    public static int oldAmplifier;
 
     public ScytheItem(Tier pTier, Properties pProperties) {
         super(pTier, 0, 0, pProperties);
@@ -82,15 +86,12 @@ public class ScytheItem extends SwordItem  {
                             int cropAge = cropBlock.getAge(blockState);
                             int cropMaxAge = cropBlock.getMaxAge();
                             if (cropAge == cropMaxAge) {
-                                level.getBlockState(blockPos).getBlock().destroy(level, blockPos, blockState);
+                                level.destroyBlock(blockPos,true, player);
                                 stack.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(player.getUsedItemHand()));
                             }
                         }
                     }
                 }
-            }
-            else {
-                canPerformAction(stack, ToolActions.HOE_TILL);
             }
         }
         return InteractionResult.FAIL;
@@ -154,7 +155,19 @@ public class ScytheItem extends SwordItem  {
         }
     }
 
+    public static void setOldAmplifier(int amplifier){
+        oldAmplifier = amplifier;
+    }
+
+    public static int getOldAmplifier() {
+        return oldAmplifier;
+    }
+
     public void applyBleeding(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker){
+        if(pTarget.hasEffect(ModEffects.BLEEDING_EFFECT.get())){
+            int oldAmplifier = Objects.requireNonNull(pTarget.getEffect(ModEffects.BLEEDING_EFFECT.get())).getAmplifier();
+            setOldAmplifier(oldAmplifier);
+        }
         InteractionHand hand = pAttacker.getUsedItemHand();
         MobEffect effect = ModEffects.BLEEDING_EFFECT.get();
         pStack.hurtAndBreak(1, pAttacker, (player) -> player.broadcastBreakEvent(hand));
@@ -164,9 +177,31 @@ public class ScytheItem extends SwordItem  {
             MobEffectInstance bleedingEffect = pTarget.getEffect(effect);
             assert bleedingEffect != null;
             if((bleedingEffect).getAmplifier() > 0){
-                int amplifier = bleedingEffect.getAmplifier();
-                if(amplifier == 1){
-                    pAttacker.sendSystemMessage(Component.literal("Bleeding"));
+                int newAmplifier = bleedingEffect.getAmplifier();
+                int oldAmplifier = getOldAmplifier();
+                if(oldAmplifier < newAmplifier) {
+                    int durationTick = BleedingEffect.returnTickDuration();
+                    if(pStack.is(ModItems.WOODEN_SCYTHE.get()) || pStack.is(ModItems.STONE_SCYTHE.get())){
+                        if(durationTick >= 18){
+                            BleedingEffect.setTickDuration(durationTick - 2);
+                        }
+                    }
+                    else if (pStack.is(ModItems.IRON_SCYTHE.get()) || pStack.is(ModItems.GOLD_SCYTHE.get())) {
+                        if(durationTick >= 16){
+                            BleedingEffect.setTickDuration(durationTick - 2);
+                        }
+                    }
+                    else if (pStack.is(ModItems.DIAMOND_SCYTHE.get())) {
+                        if(durationTick >= 14){
+                            BleedingEffect.setTickDuration(durationTick - 2);
+                        }
+                    }
+                    else if (pStack.is(ModItems.NETHERITE_SCYTHE.get())) {
+                        if(durationTick >= 12){
+                            BleedingEffect.setTickDuration(durationTick - 2);
+                        }
+                    }
+                    pAttacker.sendSystemMessage(Component.literal(Objects.requireNonNull(pTarget.getEffect(ModEffects.BLEEDING_EFFECT.get())).getAmplifier() + " = amplifier and " + BleedingEffect.getTickDuration() + " = duration tick"));
                 }
             }
         }

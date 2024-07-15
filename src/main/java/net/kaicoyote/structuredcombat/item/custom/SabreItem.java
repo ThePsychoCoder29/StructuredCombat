@@ -111,7 +111,7 @@ public class SabreItem extends SwordItem {
                 damagePercent = Math.max(0, (player.getTicksUsingItem() * 0.025));
             }
             if(duration >= 60){
-                for(int i = 0; i < 3; ++i) {
+                for(int i = 0; i < 2; ++i) {
                     double xSpeed = this.random.nextGaussian() * 0.02;
                     double ySpeed = this.random.nextGaussian() * 0.02;
                     double zSpeed = this.random.nextGaussian() * 0.02;
