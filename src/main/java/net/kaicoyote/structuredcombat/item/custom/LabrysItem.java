@@ -92,22 +92,48 @@ public class LabrysItem extends AxeItem{
                 AABB damageBox = player.getBoundingBox().inflate(1.5, 1.5, 1.5);
                 List<Mob> entities = pLevel.getEntitiesOfClass(Mob.class, damageBox);
                 for(Mob mob : entities){
-                    mob.knockback(5, 10, 10);
                     mob.hurt(player.damageSources().magic(), 20);
                     pStack.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(player.getUsedItemHand()));
                 }
                 angle += (float) angular_speed * (duration - 30) ;
                 angle %= 360;
-                double playerX = player.getBlockX();
-                double playerY = player.getBlockY() + 2;
-                double playerZ = player.getBlockZ();
-                double particleX = playerX + Mth.cos(angle) * radius;
-                double particleY = playerY + Mth.sin(angle) * radius;
+                double playerX = player.getX();
+                double playerY = player.getY() + 1;
+                double playerZ = player.getZ();
+                double particleX = playerX + Mth.sin(angle) * radius;
+                double particleY = playerY + 0;
                 double particleZ = playerZ + Mth.cos(angle) * radius;
                 for(int i = 0; i < 2; ++i) {
                     pLevel.addParticle(ParticleTypes.CRIT, particleX, particleY, particleZ,
-                            0, 0.25, 0);
+                            0, 0, 0);
                 }
+            }
+        }
+    }
+
+    public void labrysSpinAttack(int duration, Player player, Level pLevel, ItemStack pStack){
+        float angle = 0;
+        double angular_speed = 0.1;
+        double radius = 1.5;
+        if(duration >= 30){
+            player.addEffect(new MobEffectInstance(MobEffects.HUNGER, 20, 1, false, false, false));
+            AABB damageBox = player.getBoundingBox().inflate(1.5, 1.5, 1.5);
+            List<Mob> entities = pLevel.getEntitiesOfClass(Mob.class, damageBox);
+            for(Mob mob : entities){
+                mob.hurt(player.damageSources().magic(), 20);
+                pStack.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(player.getUsedItemHand()));
+            }
+            angle += (float) angular_speed * (duration - 30) ;
+            angle %= 360;
+            double playerX = player.getX();
+            double playerY = player.getY() + 1;
+            double playerZ = player.getZ();
+            double particleX = playerX + Mth.sin(angle) * radius;
+            double particleY = playerY + 0;
+            double particleZ = playerZ + Mth.cos(angle) * radius;
+            for(int i = 0; i < 2; ++i) {
+                pLevel.addParticle(ParticleTypes.CRIT, particleX, particleY, particleZ,
+                        0, 0, 0);
             }
         }
     }

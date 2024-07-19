@@ -46,22 +46,12 @@ public class ScytheItem extends SwordItem  {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        blockPosList.add(new BlockPos(x, y, z));
-        blockPosList.add(new BlockPos(x + 1, y, z));
-        blockPosList.add(new BlockPos(x - 1, y, z));
-        blockPosList.add(new BlockPos(x, y, z + 1));
-        blockPosList.add(new BlockPos(x, y, z - 1));
-        blockPosList.add(new BlockPos(x + 1, y, z + 1));
-        blockPosList.add(new BlockPos(x - 1, y, z - 1));
-        blockPosList.add(new BlockPos(x - 1, y, z + 1));
-        blockPosList.add(new BlockPos(x + 1, y, z - 1));
+        for(int i = 1; i <= 3; i++) {
+            for(int j = 1; j <= 3; j++) {
+                System.out.print(i + "" + j);
+            }
+        }
         return blockPosList;
-    }
-
-    @Override
-    public boolean mineBlock(@NotNull ItemStack stack, @NotNull Level level, @NotNull BlockState state, @NotNull BlockPos pos, @NotNull LivingEntity pMiningEntity) {
-        stack.hurtAndBreak(1, pMiningEntity, (user) -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND));
-        return true;
     }
 
     @Override
@@ -69,27 +59,19 @@ public class ScytheItem extends SwordItem  {
         Player player = pContext.getPlayer();
         Level level = pContext.getLevel();
         BlockPos pos = pContext.getClickedPos();
-        BlockState state = level.getBlockState(pos);
         ItemStack stack = pContext.getItemInHand();
-        assert player != null;
+        //noinspection DataFlowIssue
         if(!level.isClientSide() && player.isCrouching()) {
-            if (state.is(BlockTags.CROPS)) {
-                CropBlock block = (CropBlock) state.getBlock();
-                int age = block.getAge(state);
-                int maxAge = block.getMaxAge();
-                if (age == maxAge) {
-                    List<BlockPos> posList = getBlockPos(pos);
-                    for (BlockPos blockPos : posList) {
-                        BlockState blockState = level.getBlockState(blockPos);
-                        if (blockState.is(BlockTags.CROPS)) {
-                            CropBlock cropBlock = (CropBlock) blockState.getBlock();
-                            int cropAge = cropBlock.getAge(blockState);
-                            int cropMaxAge = cropBlock.getMaxAge();
-                            if (cropAge == cropMaxAge) {
-                                level.destroyBlock(blockPos,true, player);
-                                stack.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(player.getUsedItemHand()));
-                            }
-                        }
+            List<BlockPos> posList = getBlockPos(pos);
+            for (BlockPos blockPos : posList) {
+                BlockState blockState = level.getBlockState(blockPos);
+                if (blockState.is(BlockTags.CROPS)) {
+                    CropBlock cropBlock = (CropBlock) blockState.getBlock();
+                    int cropAge = cropBlock.getAge(blockState);
+                    int cropMaxAge = cropBlock.getMaxAge();
+                    if (cropAge == cropMaxAge) {
+                        level.destroyBlock(blockPos,true, player);
+                        stack.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(player.getUsedItemHand()));
                     }
                 }
             }
@@ -179,29 +161,14 @@ public class ScytheItem extends SwordItem  {
             if((bleedingEffect).getAmplifier() > 0){
                 int newAmplifier = bleedingEffect.getAmplifier();
                 int oldAmplifier = getOldAmplifier();
-                if(oldAmplifier < newAmplifier) {
+                if (oldAmplifier < newAmplifier) {
                     int durationTick = BleedingEffect.returnTickDuration();
-                    if(pStack.is(ModItems.WOODEN_SCYTHE.get()) || pStack.is(ModItems.STONE_SCYTHE.get())){
-                        if(durationTick >= 18){
-                            BleedingEffect.setTickDuration(durationTick - 2);
-                        }
+                    int capTime = pStack.is(ModItems.WOODEN_SCYTHE.get()) || pStack.is(ModItems.STONE_SCYTHE.get()) ? 18 :
+                            pStack.is(ModItems.IRON_SCYTHE.get()) || pStack.is(ModItems.GOLD_SCYTHE.get()) ? 16 :
+                                    pStack.is(ModItems.DIAMOND_SCYTHE.get()) ? 14 : 12;
+                    if (durationTick >= capTime) {
+                        BleedingEffect.setTickDuration(durationTick - 2);
                     }
-                    else if (pStack.is(ModItems.IRON_SCYTHE.get()) || pStack.is(ModItems.GOLD_SCYTHE.get())) {
-                        if(durationTick >= 16){
-                            BleedingEffect.setTickDuration(durationTick - 2);
-                        }
-                    }
-                    else if (pStack.is(ModItems.DIAMOND_SCYTHE.get())) {
-                        if(durationTick >= 14){
-                            BleedingEffect.setTickDuration(durationTick - 2);
-                        }
-                    }
-                    else if (pStack.is(ModItems.NETHERITE_SCYTHE.get())) {
-                        if(durationTick >= 12){
-                            BleedingEffect.setTickDuration(durationTick - 2);
-                        }
-                    }
-                    pAttacker.sendSystemMessage(Component.literal(Objects.requireNonNull(pTarget.getEffect(ModEffects.BLEEDING_EFFECT.get())).getAmplifier() + " = amplifier and " + BleedingEffect.getTickDuration() + " = duration tick"));
                 }
             }
         }
